@@ -40,7 +40,14 @@
     {
       "name": "Community",
       "icon": "slack",
-      "url": "https://trebleai.slack.com"
+      "url": "https://trebleai.slack.com",
+      "version": "English"
+    },
+    {
+      "name": "Comunidad",
+      "icon": "slack",
+      "url": "https://trebleai.slack.com",
+      "version": "Español"
     },
     {
       "name": "Blog",

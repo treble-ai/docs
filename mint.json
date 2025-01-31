@@ -102,11 +102,11 @@
     },
     {
       "name": "English",
-      "locale": "en",
+      "locale": "en"
     },
     {
       "name": "Português",
-      "locale": "pt",
+      "locale": "pt"
     }
   ]
 }

@@ -58,10 +58,25 @@
       ]
     },
     {
-      "group": "Hola Mundo",
+      "group": "Pruebas",
       "pages": [
-        "test.es"
-      ]
+        "test-es"
+      ],
+      "version": "es"
+    },
+    {
+      "group": "Tests",
+      "pages": [
+        "test-en"
+      ],
+      "version": "en"
+    },
+    {
+      "group": "Testes",
+      "pages": [
+        "test-pt"
+      ],
+      "version": "pt"
     },
     {
       "group": "Essentials",

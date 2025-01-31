@@ -33,11 +33,6 @@
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
       "name": "Community",
       "icon": "slack",
       "url": "https://trebleai.slack.com",
@@ -48,6 +43,12 @@
       "icon": "slack",
       "url": "https://trebleai.slack.com",
       "version": "Español"
+    },
+    {
+      "name": "Comunidade",
+      "icon": "slack",
+      "url": "https://trebleai.slack.com",
+      "version": "Português"
     },
     {
       "name": "Blog",

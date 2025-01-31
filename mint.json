@@ -58,6 +58,12 @@
       ]
     },
     {
+      "group": "Hola Mundo",
+      "pages": [
+        "test"
+      ]
+    },
+    {
       "group": "Essentials",
       "pages": [
         "essentials/markdown",

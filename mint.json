@@ -33,6 +33,10 @@
     {
       "name": "Welcome",
       "url": "en/welcome"
+    },
+    {
+      "name": "Welcome2",
+      "url": "https://google.com"
     }
   ],
   "anchors": [

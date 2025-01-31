@@ -62,21 +62,21 @@
       "pages": [
         "test-es"
       ],
-      "version": "es"
+      "version": "Español"
     },
     {
       "group": "Tests",
       "pages": [
         "test-en"
       ],
-      "version": "en"
+      "version": "English"
     },
     {
       "group": "Testes",
       "pages": [
         "test-pt"
       ],
-      "version": "pt"
+      "version": "Português"
     },
     {
       "group": "Essentials",

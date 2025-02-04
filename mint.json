@@ -81,20 +81,6 @@
       "version": "Español"
     },
     {
-      "group": "Tests",
-      "pages": [
-        "test-en"
-      ],
-      "version": "English"
-    },
-    {
-      "group": "Testes",
-      "pages": [
-        "test-pt"
-      ],
-      "version": "Português"
-    },
-    {
       "group": "Essentials",
       "pages": [
         "essentials/markdown",

@@ -27,16 +27,21 @@
   },
   "tabs": [
     {
-      "name": "API Reference",
-      "url": "api-reference"
-    },
-    {
       "name": "Welcome",
       "url": "en"
     },
     {
-      "name": "Welcome2",
-      "url": "https://google.com"
+      "name": "Bienvenido",
+      "url": "es"
+    },
+    {
+      "name": "Bem-vindo",
+      "url": "pt"
+    },
+
+    {
+      "name": "User Guide",
+      "url": "en/docs"
     }
   ],
   "anchors": [
@@ -66,44 +71,33 @@
   ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Home",
       "pages": [
-        "introduction",
-        "quickstart",
-        "development"
-      ]
-    },
-    {
-      "group": "Pruebas",
-      "pages": [
-        "test-es"
+        "es/home"
       ],
       "version": "Español"
     },
     {
-      "group": "Essentials",
+      "group": "Home",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
+        "en/home"
+      ],
+      "version": "English"
     },
     {
-      "group": "API Documentation",
+      "group": "Home",
       "pages": [
-        "api-reference/introduction"
-      ]
+        "pt/home"
+      ],
+      "version": "Português"
     },
+
     {
-      "group": "Endpoint Examples",
+      "group": "Get Started",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
-      ]
+        "en/docs/welcome"
+      ],
+      "version": "English"
     }
   ],
   "footerSocials": {

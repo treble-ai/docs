@@ -42,6 +42,10 @@
     {
       "name": "User Guide",
       "url": "en/docs"
+    },
+    {
+      "name": "Guía de usuario",
+      "url": "es/docs"
     }
   ],
   "anchors": [
@@ -98,6 +102,40 @@
         "en/docs/welcome"
       ],
       "version": "English"
+    },
+    {
+      "group": "Empezar",
+      "pages": [
+        "es/docs/welcome"
+      ],
+      "version": "Español"
+    },
+    {
+      "group": "Meta",
+      "pages": [
+        "es/docs/meta/overview"
+      ],
+      "version": "Español"
+    },
+    {
+      "group": "Construye con Treble",
+      "pages": [
+        "es/docs/build-with-treble/welcome",
+        {
+          "group": "Funcionalidades",
+          "pages": [
+            "es/docs/build-with-treble/features/alternate-flow",
+            "es/docs/build-with-treble/features/second-hsm"
+          ]
+        },
+        {
+          "group": "Bloques",
+          "pages": [
+            "es/docs/build-with-treble/blocks/ab-test"
+          ]
+        }
+      ],
+      "version": "Español"
     }
   ],
   "footerSocials": {

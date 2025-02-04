@@ -1,0 +1,24 @@
+---
+title: "Flujo Alterno"
+description: "Aprende a usar el flujo alterno de Treble"
+---
+
+**La funcionalidad de flujo alterno permite que, en caso de inactividad por parte del usuario, el sistema avance automáticamente hacia la siguiente pregunta o envíe un nuevo mensaje después de un intervalo de tiempo predefinido. Esto asegura que las conversaciones no queden estancadas y se mantenga un flujo constante, incluso si el usuario no responde de inmediato. Además, esta funcionalidad es útil para optimizar la experiencia del cliente, evitando largos periodos de espera, y puede configurarse para enviar recordatorios o mensajes de seguimiento, manteniendo al usuario comprometido y facilitando la continuidad del proceso.**
+
+Esta funcionalidad ofrece una gran flexibilidad para gestionar interacciones con los usuarios, permitiendo:
+
+🕺🏼**Enviar mensajes automáticos de forma secuencial**
+
+ Al configurar un flujo alterno con un intervalo de 0 minutos, se garantiza que los mensajes se envíen de manera continua y automática, sin esperar una respuesta del usuario. Esto es ideal para flujos donde la información debe entregarse de forma ininterrumpida o cuando se busca guiar al usuario a través de un proceso sin pausas.
+
+🎈**Recuperar usuarios que no continuaron el flujo**: 
+
+Si un usuario deja de interactuar, el flujo alterno permite reactivar la conversación al enviar un mensaje de seguimiento o una nueva pregunta tras un periodo de inactividad. Esto es especialmente útil para evitar la pérdida de usuarios durante el proceso, mejorando la tasa de respuesta y manteniendo una comunicación más fluida.
+
+🧠**Nota** 
+
+Es clave recordar que no es posible activar un flujo alterno en un HSM (Highly Structured Message). Los HSMs están sujetos a normativas más estrictas de WhatsApp para mensajes fuera de la ventana de 24 horas de interacción. Sin embargo, se puede utilizar una estrategia con doble HSM para continuar la conversación. El doble HSM permite enviar una nueva plantilla de mensaje aprobada, abriendo así una nueva ventana de interacción sin necesidad de recurrir al flujo alterno. Esto asegura que las comunicaciones puedan continuar cumpliendo con las políticas de la plataforma.
+
+🥁**Video Explicativo**
+
+https://www.loom.com/share/7e8c51d18202400681ebb49303efec42?sid=61ff2995-567c-4b8f-8750-f0e77078aa35

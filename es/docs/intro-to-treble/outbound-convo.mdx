@@ -1,0 +1,57 @@
+---
+title: "Conversación Outbound"
+description: "Conoce como crear una conversación outbound en Treble."
+---
+
+## Como crear una conversación outbound
+
+Crear una conversación outbound es muy sencillo. Para comenzar, ingresa a tu cuenta de Treble. Toda conversación outbound debe iniciar con una plantilla de mensaje (HSM). Por lo tanto, primero debes crear una plantilla de mensaje.
+
+Para crear una plantilla de mensaje, puedes revisar la sección de [¿Cómo crear una plantilla (HSM)?](/es/docs/meta/hsm-templates#como-usar-las-plantillas-hsm-en-treble).
+
+<Note>Asegúrate que hayas creado una plantilla de mensaje antes de continuar.</Note>
+
+Después de que hayas creado una plantilla de mensaje, regresa a la sección principal de "Conversaciones" y haz click en el botón "Crear Conversación".
+
+<img src="/images/create-convo.gif" alt="Crear Conversación" />
+
+Las conversaciones en Treble son flujos donde agregar bloques de mensajes. Estos bloques y las conexiones entre ellos son los que definen la lógica de la conversación. 
+
+## Ejemplo de creación de una conversación outbound
+
+Vamos a crear una conversación para un caso de uso de ventas.
+
+Supongamos que haces parte de una empresa que vende productos para mascotas. Tienes una base de datos con números de teléfono de clientes potenciales que han dejado sus datos en tu sitio web. Queremos enviarles un mensaje contándoles sobre la promoción de la semana. ¿Cómo lo haríamos?
+
+<Steps>
+  <Step title="Agregar una plantilla de mensaje">
+    En la esquina superior izquierda de la pantalla encontrarás el botón <Icon icon="plus" iconType="solid" />. Haz click en él y selecciona "Mensaje Plantilla". Puedes buscar la plantilla que creaste anteriormente por su nombre.
+
+    <img src="/images/add-template.gif" alt="Agregar una plantilla de mensaje" />
+  </Step>
+  <Step title="Agregar bloques de mensajes">
+    Una vez que hayas agregado la plantilla de mensaje, puedes agregar bloques de mensajes. Haz click en el botón <Icon icon="plus" iconType="solid" /> y selecciona el tipo de bloque que deseas agregar. En este caso, vamos a agregar un bloque de **Mensaje con opciones** > **Botones interactivos**.
+
+    <img src="/images/add-block.gif" alt="Agregar un bloque de mensaje" />
+  </Step>
+  <Step title="Conectar bloques">
+    Conecta el bloque de mensaje de la plantilla con el bloque de botones interactivos. Para hacerlo haz click en el círculo de salida del bloque de la plantilla y manten pulsado el click arrastrando el cursor hasta el círculo de entrada del bloque de botones interactivos.
+
+    <img src="/images/connect-block.gif" alt="Conectar bloques" />
+  </Step>
+  <Step title="Completar la conversación">
+    Completa la conversación agregando los bloques restantes. Una vez hayas agregado los bloques pueden agregar el contenido de los bloques para tu conversación.
+  </Step>
+  <Step title="Guardar y enviar">
+    Una vez hayas completado la conversación, haz click en el botón **Crear Conversación** y luego en **Enviar la conversación ahora (Outbound)**.
+
+    <img src="/images/create-and-send.gif" alt="Crear y enviar" />
+  </Step>
+  <Step title="Enviar la conversación">
+    Una vez que hayas creado la conversación, puedes enviarla a tus clientes potenciales. Para poderla enviar a tu número de WhatsApp, debes agregar tu número de WhatsApp y agregar usuario. Dale click en el botón **Agregar Usuario** y en la siguiente vista **Enviar ahora mismo**.
+
+    <img src="/images/send.gif" alt="Crear y enviar" />
+  </Step>
+</Steps>
+
+<Check>¡Has creado y enviado una conversación outbound!</Check>

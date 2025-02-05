@@ -3,9 +3,12 @@
   "name": "Starter Kit",
   "logo": {
     "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "light": "/logo/treble-light.svg"
   },
-  "favicon": "/favicon.svg",
+  "modeToggle": {
+    "isHidden": true
+  },
+  "favicon": "/favicon-treble.svg",
   "colors": {
     "primary": "#6464FF",
     "light": "#F7F8FF",
@@ -70,7 +73,7 @@
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://blog.treble.ai"
     }
   ],
   "navigation": [
@@ -107,7 +110,15 @@
       "group": "Empezar",
       "pages": [
         "es/docs/welcome",
-        "es/docs/intro-to-treble"
+        "es/docs/key-concepts",
+        {
+          "group": "Introducción a Treble",
+          "pages": [
+            "es/docs/intro-to-treble/welcome",
+            "es/docs/intro-to-treble/outbound-convo",
+            "es/docs/intro-to-treble/inbound-convo"
+          ]
+        }
       ],
       "version": "Español"
     },
@@ -149,12 +160,30 @@
         "es/docs/agent-platform/mobile-app"
       ],
       "version": "Español"
+    },
+    {
+      "group": "Integraciones",
+      "pages": [
+        "es/docs/integrations/welcome",
+        {
+          "group": "HubSpot",
+          "pages": [
+            "es/docs/integrations/hubspot/welcome",
+            "es/docs/integrations/hubspot/crm-action"
+          ]
+        },
+        {
+          "group": "Salesforce",
+          "pages": [
+            "es/docs/integrations/salesforce/welcome"
+          ]
+        }
+      ],
+      "version": "Español"
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://linkedin.com/company/mintlify"
+    "linkedin": "https://www.linkedin.com/company/treble-ai/"
   },
   "versions": [
     {

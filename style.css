@@ -83,3 +83,10 @@
 .tools-guides-grid {
   width: 100%;
 }
+
+.hr{
+    border-color: rgb(var(--gray-100));
+    border-top-width: 1px;
+    margin-top: 3em;
+    margin-bottom: 3em;
+}

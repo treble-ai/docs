@@ -106,14 +106,17 @@
     {
       "group": "Empezar",
       "pages": [
-        "es/docs/welcome"
+        "es/docs/welcome",
+        "es/docs/intro-to-treble"
       ],
       "version": "Español"
     },
     {
       "group": "Meta",
       "pages": [
-        "es/docs/meta/overview"
+        "es/docs/meta/overview",
+        "es/docs/meta/hsm-templates",
+        "es/docs/meta/green-check"
       ],
       "version": "Español"
     },
@@ -125,7 +128,8 @@
           "group": "Funcionalidades",
           "pages": [
             "es/docs/build-with-treble/features/alternate-flow",
-            "es/docs/build-with-treble/features/second-hsm"
+            "es/docs/build-with-treble/features/second-hsm",
+            "es/docs/build-with-treble/features/goal-block"
           ]
         },
         {
@@ -133,7 +137,16 @@
           "pages": [
             "es/docs/build-with-treble/blocks/ab-test"
           ]
-        }
+        },
+        "es/docs/build-with-treble/whatsapp-links"
+      ],
+      "version": "Español"
+    },
+    {
+      "group": "Plataforma de Agentes",
+      "pages": [
+        "es/docs/agent-platform/welcome",
+        "es/docs/agent-platform/mobile-app"
       ],
       "version": "Español"
     }

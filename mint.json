@@ -6,7 +6,8 @@
     "light": "/logo/treble-light.svg"
   },
   "modeToggle": {
-    "isHidden": true
+    "isHidden": true,
+    "default": "light"
   },
   "favicon": "/favicon-treble.svg",
   "colors": {

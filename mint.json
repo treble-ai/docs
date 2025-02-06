@@ -126,6 +126,7 @@
       "group": "Meta",
       "pages": [
         "es/docs/meta/overview",
+        "es/docs/meta/wa-wabiz-api",
         "es/docs/meta/hsm-templates",
         "es/docs/meta/green-check"
       ],

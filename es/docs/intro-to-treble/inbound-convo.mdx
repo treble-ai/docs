@@ -2,3 +2,58 @@
 title: "Conversación Inbound"
 description: "Conoce como crear una conversación inbound en Treble."
 ---
+
+## Como crear una conversación inbound
+
+Crear una conversación inbound es muy sencillo. Dado que las conversaciones inbound son iniciadas por los clientes, no es necesario crear una plantilla de mensaje. Si ya seguiste los pasos para crear una conversación outbound, el proceso es muy similar.
+
+Ve a la sección de "Conversaciones" y haz click en el botón "Crear Conversación".
+
+<img src="/images/create-convo.gif" alt="Crear Conversación" />
+
+## Ejemplo de creación de una conversación inbound
+
+Vamos a crear una conversación para recibir mensajes de clientes potenciales.
+
+Supongamos que haces parte de una empresa que vende productos para mascotas. Tus clientes potenciales te envían mensajes a tu número de WhatsApp. Queremos recibir esos mensajes y responderles. ¿Cómo lo haríamos?
+
+<Steps>
+  <Step title="Agregar bloques de mensajes">
+    Una vez que hayas ingresado al editor de conversaciones, puedes agregar cualquier bloque de mensajes. El primer bloque que agregues será por el cual va a empezar la conversación. Haz click en el botón <Icon icon="plus" iconType="solid" /> y selecciona el tipo de bloque que deseas agregar. En este caso, vamos a agregar un bloque de **Mensaje con opciones** > **Botones interactivos**.
+
+    <img src="/images/inbound-first.gif" alt="Agregar un bloque de mensaje" />
+  </Step>
+  <Step title="Agregar bloques de mensajes adicionales">
+    Puedes continuar agregando cualquier bloque de mensajes. En este caso, vamos a agregar un bloque de **Mensaje simple** para responderle al cliente.
+
+    <img src="/images/inbound-2.gif" alt="Agregar un bloque de mensaje" />
+  </Step>
+  <Step title="Conectar bloques">
+    Conecta el primer bloque de mensaje con el bloque de mensaje simple. Para hacerlo haz click en el círculo de salida del bloque de la plantilla y manten pulsado el click arrastrando el cursor hasta el círculo de entrada del bloque de mensaje simple.
+
+    <img src="/images/connect-block-inbound.gif" alt="Conectar bloques" />
+  </Step>
+  <Step title="Completar la conversación">
+    Completa la conversación agregando los bloques restantes. Una vez hayas agregado los bloques pueden agregar el contenido de los bloques para tu conversación.
+  </Step>
+  <Step title="Guardar como conversación inbound">
+    Una vez hayas completado la conversación, haz click en el botón **Crear Conversación** y luego en **Recibir mensajes de clientes (Inbound)**.
+    <img src="/images/save-as-inbound.gif" alt="Guardar como conversación inbound" />
+
+    <Check>¡Has creado y configurado una conversación inbound!</Check>
+  </Step>
+</Steps>
+
+## Dudas frecuentes
+
+<AccordionGroup>
+  <Accordion title="Estoy usando una cuenta de prueba, ¿por qué debo agregar números de teléfono?">
+    Mientras no hayas conectado tu propia linea, Treble te permitirá usar una cuenta de prueba. Sin embargo, para recibir mensajes de clientes potenciales, debes agregar los números de teléfono de los clientes potenciales a tu conversación. No te preocupes, una vez conectes tu propia linea, no será necesario agregar los números de teléfono.
+  </Accordion>
+  <Accordion title="¿Qué ocurre si habia configurado una conversación inbound y ahora quiero cambiarla?">
+    Si ya habías configurado una conversación inbound y ahora quieres cambiarla, puedes hacerlo. Al crear y guardar una nueva conversación inbound, la conversación nueva conversación quedará configurada como la conversación inbound.
+  </Accordion>
+  <Accordion title="¿Solo puedo configurar una conversación inbound?">
+    No, puedes configurar tantas conversaciones inbound como lineas de WhatsApp tengas configuradas. Si tu cuenta de Treble tiene múltiples lineas de WhatsApp, al momento de crear una conversación inbound, puedes seleccionar la linea de WhatsApp a la que quieres que se envíen los mensajes.
+  </Accordion>
+</AccordionGroup>

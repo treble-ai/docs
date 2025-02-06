@@ -127,6 +127,7 @@
       "pages": [
         "es/docs/meta/overview",
         "es/docs/meta/wa-wabiz-api",
+        "es/docs/meta/connect-line",
         "es/docs/meta/hsm-templates",
         "es/docs/meta/green-check"
       ],
@@ -147,7 +148,8 @@
         {
           "group": "Bloques",
           "pages": [
-            "es/docs/build-with-treble/blocks/ab-test"
+            "es/docs/build-with-treble/blocks/ab-test",
+            "es/docs/build-with-treble/blocks/agent"
           ]
         },
         "es/docs/build-with-treble/whatsapp-links"
@@ -158,6 +160,7 @@
       "group": "Plataforma de Agentes",
       "pages": [
         "es/docs/agent-platform/welcome",
+        "es/docs/agent-platform/tags-teams",
         "es/docs/agent-platform/mobile-app"
       ],
       "version": "Español"

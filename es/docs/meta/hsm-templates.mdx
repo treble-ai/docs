@@ -93,4 +93,68 @@ Para crear una plantilla HSM, sigue estos pasos:
 
 4. Haz clic en "Crear Plantilla".
 
-**Nota**: Una vez crees la plantilla, Meta puede requerir que la aprobe. Este proceso puede durar entre 1 a 3 días. Afortunadamente, Meta ha acelerado el proceso de aprobación de plantillas HSM para que sea casi instantáneo.
+**Nota**: Una vez crees la plantilla, Meta realiza una revisión de la plantilla. Este proceso puede durar entre 1 a 3 días. Afortunadamente, Meta ha acelerado el proceso de aprobación de plantillas HSM para que sea casi instantáneo.
+
+<CardGroup cols={1}>
+    <Card 
+        title="Mejores prácticas para plantillas HSM" 
+        icon="whatsapp"
+        href="https://treble.ai/blog/hsm-de-whatsapp/"
+    >
+        Crear plantillas HSM efectivas es clave para tener una comunicación exitosa con tus clientes. Lee nuestra guía para conocer las mejores prácticas para crear plantillas HSM.
+    </Card>
+</CardGroup>
+
+## Personalizar plantillas HSM con variables
+
+Puedes personalizar plantillas HSM con variables. Las variables son información dinámica que puedes usar en tus plantillas HSM. Por ejemplo, puedes usar variables para personalizar el mensaje de bienvenida de un cliente, o para enviar el nombre de un cliente en un mensaje.
+
+Para crear una variables, solo debes escribir el nombre de la variable en el contenido de la plantilla. Por ejemplo, si quieres enviar el nombre de un cliente en un mensaje, puedes escribir `{{nombre_cliente}}`.
+
+<Note>Es importante entender la estructura de las variables. Recomendamos que el nombre de la variable sea un nombre claro y descriptivo, que no contenga caracteres especiales o espacios. La variable debe estar entre llaves dobles `{{}}`. Adicionalmente, recomendamos que la variable esté en minúscula y que no contenga espacios.</Note>
+
+### Ejemplo de uso de variables
+
+<img src="/images/sample-vars.png" />
+
+Como puedes ver en el ejemplo, la variable `{{name}}` se reemplaza por el nombre del cliente en el mensaje y la variable `{{company}}` se reemplaza por el nombre de la empresa en el mensaje.
+
+Treble reconoce las variables que usas en tus plantillas HSM y te permite usarlas en tus flujos conversacionales. Cuando vayas a enviar una conversación, podrás especificar el valor de las variables para cada usuario al que quieras enviar la conversación.
+
+<CardGroup cols={1}>
+    <Card 
+        title="Enviar conversación con variables" 
+        icon="paper-plane"
+        href="/es/docs/main-platform/send-convo"
+    >
+        Aprende a enviar conversaciones con variables en Treble.
+    </Card>
+</CardGroup>
+
+## Estado de aprobación de plantillas HSM
+
+Puedes ver el estado de aprobación de tus plantillas HSM en la sección de **Plantillas HSM** en Treble. Cuando recién crees una plantilla, su estado será "Pendiente".
+
+<img src="/images/hsm-state.png" />
+
+Una vez que Meta aprueba la plantilla, su estado cambiará a "Aprobado".
+
+<img src="/images/hsm-state-approved.png" />
+
+Te recomendamos que siempre revises el estado de aprobación de tus plantillas HSM antes de usarlas en tus flujos conversacionales. Dado que el tiempo de aprobación de Meta puede variar, es importante que siempre estés al pendiente de este estado, solo debes refrescar la página para ver el estado actualizado.
+
+Desde esta vista también puedes ver el estado de aprobación de cada plantilla. Hay diferentes estados de aprobación:
+
+- **Aprobado** 🟢: La plantilla ha sido aprobada por Meta. La plantilla puede ser usada en tus flujos conversacionales.
+- **Pendiente** 🟡: La plantilla está en proceso de aprobación. 
+- **Rechazado** 🔴: La plantilla ha sido rechazada por Meta. La plantilla puede ser rechazada por diferentes razones, como contenido inapropiado, falta de claridad en la opción de opt-out, o falta de cumplimiento con las políticas de WhatsApp.
+
+<div class="hr"></div>
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="Para mis conversaciones outbound, ¿debo aprobar todos los bloques de mensajes?">
+    No, no es necesario que aprobes todos los bloques de mensajes. Solo debes aprobar el bloque de mensaje que inicia la conversación. Cuando tu cliente responda, puedes usar cualquier bloque de mensaje.
+  </Accordion>
+</AccordionGroup>

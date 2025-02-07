@@ -152,8 +152,16 @@
             "es/docs/build-with-treble/blocks/ab-test",
             "es/docs/build-with-treble/blocks/agent"
           ]
-        },
-        "es/docs/build-with-treble/whatsapp-links"
+        }
+      ],
+      "version": "Español"
+    },
+    {
+      "group": "Plataforma Principal",
+      "pages": [
+        "es/docs/main-platform/welcome",
+        "es/docs/main-platform/send-convo",
+        "es/docs/main-platform/whatsapp-links"
       ],
       "version": "Español"
     },

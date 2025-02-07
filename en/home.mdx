@@ -1,23 +1,78 @@
 ---
-title: "Hola Mundo"
-description: "Description of your new file."
+title: "Welcome"
 mode: "custom"
+description: "Welcome to Treble.ai "
 ---
 
-<CardGroup cols="2">
-  <Card title="Card" icon="sparkles">
+<div className="hero-container">
+  <h1 className="hero-title">Build with Treble</h1>
+  <p className="hero-description">Learn how to get started with Treble.ai</p>
+  <input 
+    type="text" 
+    className="search-input"
+    placeholder="How can I get started with Treble.ai?..."
+    readOnly
+    onClick={() => {
+      const searchBar = document.getElementById('search-bar-entry');
+      if (searchBar) {
+        searchBar.click();
+      }
+    }}
+  />
+  <div>
+    <a href="#" className="explore-link">Explore the documentation ›</a>
+  </div>
+</div>
 
-  </Card>
-
-  <Card title="Card" icon="sparkles">
-
-  </Card>
-
-  <Card title="Card" icon="sparkles">
-
-  </Card>
-
-  <Card title="Card" icon="sparkles">
-
-  </Card>
-</CardGroup>
+<div className="tools-guides-container">
+  <div className="tools-guides-header">
+    <h2 className="section-title">Get Started with Tools and Guides</h2>
+  </div>
+  
+  <div className="tools-guides-grid">
+    <CardGroup cols={3}>
+      <Card 
+        title="First Steps" 
+        icon="play"
+        href="/en/docs/welcome"
+      >
+        Start using Treble.ai in minutes.
+      </Card>
+      <Card 
+        title="All About Treble, WhatsApp and Meta" 
+        icon="facebook"
+        href="/en/docs/meta/overview"
+      >
+        Learn more about Treble, WhatsApp and Meta.
+      </Card>
+      <Card 
+        title="API Reference" 
+        icon="code"
+        href="https://treble.notion.site/Treble-API-Documentation-b0a726d95018471f88e30a13db6f87b4?pvs=4"
+      >
+        Integrate and scale using our API and SDKs.
+      </Card>
+      <Card 
+        title="Agent Platform" 
+        icon="circle-user"
+        href="/en/docs/agent-platform/welcome"
+      >
+        Explore Treble's agent platform.
+      </Card>
+      <Card 
+        title="Integrations" 
+        icon="circle-nodes"
+        href="/en/docs/integrations/welcome"
+      >
+        Explore Treble's integrations.
+      </Card>
+      <Card 
+        title="Build with Treble" 
+        icon="gear"
+        href="/en/docs/build-with-treble/welcome"
+      >
+        Explore tools and guides to build with Treble.
+      </Card>
+    </CardGroup>
+  </div>
+</div>

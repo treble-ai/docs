@@ -1,0 +1,24 @@
+---
+title: "Fluxo Alternativo"
+description: "Aprenda a usar o fluxo alternativo do Treble"
+---
+
+A funcionalidade de fluxo alternativo permite que, em caso de inatividade por parte do usuário, o sistema avance automaticamente para a próxima pergunta ou envie uma nova mensagem após um intervalo de tempo predefinido. Isso garante que as conversas não fiquem estagnadas e mantenham um fluxo constante, mesmo que o usuário não responda imediatamente. Além disso, essa funcionalidade é útil para otimizar a experiência do cliente, evitando longos períodos de espera, e pode ser configurada para enviar lembretes ou mensagens de acompanhamento, mantendo o usuário engajado e facilitando a continuidade do processo.
+
+Essa funcionalidade oferece grande flexibilidade para gerenciar interações com os usuários, permitindo:
+
+## 🕺🏼 Enviar mensagens automáticas de forma sequencial
+
+Ao configurar um fluxo alternativo com um intervalo de 0 minutos, garante-se que as mensagens sejam enviadas de forma contínua e automática, sem esperar uma resposta do usuário. Isso é ideal para fluxos onde a informação deve ser entregue sem interrupções ou quando se deseja guiar o usuário através de um processo sem pausas.
+
+## 🎈 Recuperar usuários que não continuaram o fluxo
+
+Se um usuário parar de interagir, o fluxo alternativo permite reativar a conversa enviando uma mensagem de acompanhamento ou uma nova pergunta após um período de inatividade. Isso é especialmente útil para evitar a perda de usuários durante o processo, melhorando a taxa de resposta e mantendo uma comunicação mais fluida.
+
+## 🧠 Nota
+
+É importante lembrar que não é possível ativar um fluxo alternativo em um HSM (Highly Structured Message). Os HSMs estão sujeitos a regulamentações mais rígidas do WhatsApp para mensagens enviadas fora da janela de 24 horas de interação. No entanto, é possível utilizar uma estratégia com duplo HSM para continuar a conversa. O duplo HSM permite enviar um novo modelo de mensagem aprovado, abrindo assim uma nova janela de interação sem a necessidade de recorrer ao fluxo alternativo. Isso garante que as comunicações possam continuar em conformidade com as políticas da plataforma.
+
+## 🥁 Vídeo Explicativo
+
+<div class="loom-video"><iframe src="https://www.loom.com/embed/7e8c51d18202400681ebb49303efec42?sid=36828e2d-b027-414e-9e73-3c4922206f7f" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>

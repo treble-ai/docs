@@ -1,0 +1,24 @@
+---
+title: "Alternate Flow"
+description: "Learn how to use Treble's alternate flow"
+---
+
+The alternate flow functionality allows that, in case of user inactivity, the system automatically advances to the next question or sends a new message after a predefined time interval. This ensures that conversations don't get stuck and maintains a constant flow, even if the user doesn't respond immediately. Additionally, this functionality is useful for optimizing the customer experience, avoiding long waiting periods, and can be configured to send reminders or follow-up messages, keeping the user engaged and facilitating process continuity.
+
+This functionality offers great flexibility for managing user interactions, allowing:
+
+## 🕺🏼 Send automatic messages sequentially
+
+By configuring an alternate flow with a 0-minute interval, it ensures that messages are sent continuously and automatically, without waiting for a user response. This is ideal for flows where information needs to be delivered uninterrupted or when you want to guide the user through a process without pauses.
+
+## 🎈 Recover users who didn't continue the flow
+
+If a user stops interacting, the alternate flow allows reactivating the conversation by sending a follow-up message or a new question after a period of inactivity. This is especially useful for preventing user loss during the process, improving response rates, and maintaining more fluid communication.
+
+## 🧠 Note
+
+It's key to remember that it's not possible to activate an alternate flow in an HSM (Highly Structured Message). HSMs are subject to stricter WhatsApp regulations for messages outside the 24-hour interaction window. However, you can use a double HSM strategy to continue the conversation. The double HSM allows sending a new approved message template, thus opening a new interaction window without needing to resort to the alternate flow. This ensures that communications can continue while complying with platform policies.
+
+## 🥁 Explanatory Video
+
+<div class="loom-video"><iframe src="https://www.loom.com/embed/7e8c51d18202400681ebb49303efec42?sid=36828e2d-b027-414e-9e73-3c4922206f7f" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div> 

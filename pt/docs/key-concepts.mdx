@@ -1,0 +1,67 @@
+---
+title: "Conceitos Chave"
+description: "Este guia apresenta conceitos chave do Treble, como conversas, blocos, templates e mais."
+---
+
+## Conversas
+
+<img width="350px" src="/images/sample-convo.png" alt="Exemplo de conversa" />
+
+Conversas, também conhecidas como campanhas, são fluxos de mensagens que permitem interagir com seus contatos/clientes. Quando você abre a plataforma Treble, verá uma lista das conversas que você criou.
+
+### Conversa Outbound
+
+Conversas outbound, também conhecidas como conversas iniciadas pela empresa, são aquelas enviadas para um grupo de contatos/clientes. Essas conversas no Treble devem começar com um template (HSM), e depois você pode adicionar blocos de mensagem para continuar a conversa. Para saber mais sobre templates, você pode ler a seção [Templates (HSM)](/en/docs/meta/hsm-templates). Alguns exemplos deste tipo de conversas são:
+
+- Você tem um banco de dados com números de telefone de clientes potenciais que deixaram suas informações em seu site. Queremos enviar uma mensagem contando sobre a promoção da semana.
+- Você gerencia uma empresa de reparo de computadores e quer enviar uma mensagem ao seu cliente confirmando que o computador está pronto para retirada.
+- Você mantém as informações de seus clientes em um CRM e quer contatar seus prospects para qualificá-los via WhatsApp.
+
+### Conversa Inbound
+
+Conversas inbound, também conhecidas como conversas iniciadas pelo cliente, são aquelas recebidas de um contato/cliente. Este tipo de conversa é ideal quando você quer que seus contatos/clientes iniciem uma conversa com você. Alguns exemplos deste tipo de conversas são:
+
+- Um cliente que vê seu número de telefone em seu site e envia uma mensagem pedindo ajuda.
+- Um cliente que escaneia um código QR e envia uma mensagem para contatá-lo sobre uma promoção.
+- Um cliente que clica em um anúncio do Instagram e escreve para saber mais sobre seu produto.
+
+## Templates (HSM)
+
+Templates, também conhecidos como HSM (Highly Structured Message), são mensagens predefinidas que são usadas em conversas da API Business do WhatsApp, principalmente usadas em conversas outbound. Para saber mais sobre templates, você pode ler a seção [Templates (HSM)](/en/docs/meta/hsm-templates).
+
+## Agentes
+
+No Treble, você pode configurar suas conversas para serem enviadas a um agente. Agentes são usuários do Treble que usam a plataforma de agentes para enviar e receber mensagens de conversas que você configurou para serem transferíveis a um agente. Para saber mais sobre agentes, você pode ler a seção [Agentes](/en/docs/agent-platform/welcome).
+
+## WABA (WhatsApp Business Account)
+
+WABA, também conhecida como "WhatsApp Business Account", é a conta empresarial que permite às empresas interagirem com seus clientes através da plataforma de mensagens WhatsApp de uma forma mais profissional e com funcionalidades adicionais.
+
+Principais características de uma WABA:
+
+1. Verificação: As contas WABA são verificadas, o que ajuda a construir confiança entre os usuários.
+2. Perfil empresarial: Permite exibir informações importantes da empresa como endereço, horário, site, etc.
+3. Acesso à API do WhatsApp Business: Isso permite a automação de mensagens e integração com outros sistemas da empresa.
+4. Mensagens interativas: Capacidade de enviar mensagens com elementos interativos como botões ou links clicáveis.
+5. Gestão avançada de conversas: Facilita o gerenciamento de múltiplas conversas e clientes de forma mais eficiente.
+
+<div class="hr"></div>
+
+## Próximos passos
+
+<CardGroup cols={2}>
+    <Card 
+        title="Introdução ao Treble" 
+        icon="check"
+        href="/en/docs/intro-to-treble/welcome"
+    >
+        Configure sua primeira conversa inbound e outbound no Treble.
+    </Card>
+    <Card 
+        title="Agentes no Treble" 
+        icon="people-pants-simple"
+        href="/en/docs/agent-platform/welcome"
+    >
+        Configure seus agentes no Treble.
+    </Card>
+</CardGroup> 

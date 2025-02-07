@@ -1,0 +1,67 @@
+---
+title: "Inbound Conversation"
+description: "Learn how to create an inbound conversation in Treble."
+---
+
+## How to create an inbound conversation
+
+Creating an inbound conversation is very simple. Since inbound conversations are initiated by customers, there's no need to create a message template. If you've already followed the steps to create an outbound conversation, the process is very similar.
+
+Go to the "Conversations" section and click on the "Create Conversation" button.
+
+<img src="/images/create-convo.gif" alt="Create Conversation" />
+
+## Example of creating an inbound conversation
+
+Let's create a conversation to receive messages from potential customers.
+
+Let's say you're part of a company that sells pet products. Your potential customers send messages to your WhatsApp number. We want to receive those messages and respond to them. How would we do it?
+
+<Steps>
+  <Step title="Add message blocks">
+    Once you've entered the conversation editor, you can add any message block. The first block you add will be where the conversation starts. Click on the <Icon icon="plus" iconType="solid" /> button and select the type of block you want to add. In this case, we're going to add a **Message with options** > **Interactive buttons** block.
+
+    <img src="/images/inbound-first.gif" alt="Add a message block" />
+  </Step>
+  <Step title="Add additional message blocks">
+    You can continue adding any message blocks. In this case, we're going to add a **Simple Message** block to respond to the customer.
+
+    <img src="/images/inbound-2.gif" alt="Add a message block" />
+  </Step>
+  <Step title="Connect blocks">
+    Connect the first message block with the second simple message block. To do this, click on the output circle of the template block and hold the click while dragging the cursor to the input circle of the simple message block.
+
+    <img src="/images/connect-block-inbound.gif" alt="Connect blocks" />
+  </Step>
+  <Step title="Complete the conversation">
+    Complete the conversation by adding the remaining blocks. Once you've added the blocks, you can add the content of the blocks for your conversation.
+  </Step>
+  <Step title="Save as inbound conversation">
+    Once you've completed the conversation, click on the **Create Conversation** button and then on **Receive messages from customers (Inbound)**.
+    <img src="/images/save-as-inbound.gif" alt="Save as inbound conversation" />
+
+    <Check>You've created and configured an inbound conversation!</Check>
+  </Step>
+</Steps>
+
+## Edit an inbound conversation
+
+You can edit an inbound conversation at any time. To do this, go to the "Conversations" section. Click on the "Edit" <Icon icon="pencil" iconType="solid" /> button on the conversation you want to edit.
+
+<img src="/images/sample-edit.png" alt="Edit an inbound conversation" />
+
+Make the necessary modifications and click on the "Publish" button to save the changes.
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="I'm using a test account, why do I need to add phone numbers?">
+    While you haven't connected your own line, Treble will allow you to use a test account. However, to receive messages from potential customers, you must add the phone numbers of potential customers to your conversation. Don't worry, once you connect your own line, it won't be necessary to add phone numbers.
+  </Accordion>
+  <Accordion title="What happens if I had configured an inbound conversation and now want to change it?">
+    If you had already configured an inbound conversation and now want to change it, you can do so. When you create and save a new inbound conversation, the new conversation will be configured as the inbound conversation.
+  </Accordion>
+  <Accordion title="Can I only configure one inbound conversation?">
+    No, you can configure as many inbound conversations as WhatsApp lines you have configured. If your Treble account has multiple WhatsApp lines, when creating an inbound conversation, you can select which WhatsApp line you want the messages to be sent to.
+  </Accordion>
+</AccordionGroup> 

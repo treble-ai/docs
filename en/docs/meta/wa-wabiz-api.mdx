@@ -1,0 +1,82 @@
+---
+title: "WhatsApp, WhatsApp Business, and WhatsApp Business API"
+description: "Understand everything about WhatsApp, WhatsApp Business, and WhatsApp Business API"
+---
+
+## Understanding the WhatsApp Business API
+The WhatsApp Business API is a platform that allows businesses to connect to WhatsApp and send and receive messages with their customers. It would be impossible to understand Treble without understanding the WhatsApp Business API. For this reason, it's necessary to understand the entire WhatsApp ecosystem. WhatsApp has three main products.
+
+<img src="/images/plataformas.png" alt="WhatsApp, WhatsApp Business, and WhatsApp Business API" />
+
+### WhatsApp Application
+This is the application that you, as a user, have on your phone. It's a free application that allows you to send and receive messages. This messaging app is used by 2 billion people worldwide and allows users to chat with their friends and family.
+
+### WhatsApp Business Application
+This is the application that businesses use to communicate with their customers. It's a free application that allows businesses to send and receive messages. It has more functionalities than the normal WhatsApp application and is optimized for businesses. For example, it allows businesses to have a business profile, which is a profile specifically designed for businesses.
+
+### WhatsApp Business API
+This is the API that businesses use to connect to WhatsApp and send and receive messages in bulk. It's a restricted access API, available only to businesses that have direct access from Meta or that have a partner who has access to the API. Treble is one of these partners and uses the WhatsApp Cloud API to allow businesses to send and receive messages at scale.
+
+<Note>When using the WhatsApp Business API, keep in mind some limitations. We're used to having an application, whether WhatsApp or WhatsApp Business on our phone. However, when we use the WhatsApp Business API, we don't have an application on our phone. Additionally, we can't make calls or create WhatsApp groups.</Note>
+
+Let's take a closer look at the WhatsApp Cloud API.
+
+## WhatsApp Business API
+As mentioned earlier, Treble is a WhatsApp Business API partner. This means that Treble has access to the WhatsApp Cloud API. With this API, we can generate a WhatsApp Business Account (WABA) for our customers. If you've ever received a message from a business on WhatsApp, you've interacted with the WhatsApp Business API. You probably recognize these accounts, here's an example:
+
+<img src="/images/ejemplo-wa.png" alt="Example of a WhatsApp business account" />
+
+As you can see, the business account is a verified account. This means that the business has a verified profile on WhatsApp. This helps the business generate more trust and stand out from other businesses on WhatsApp.
+
+You'll also have noticed that the message contains a clickable link. These messages are special to the WhatsApp Business API and are called Interactive Messages. We'll talk about them later.
+
+### Simple flow of a WhatsApp message
+Let's see how a simple message flow works in WhatsApp. Let's say a business wants to send a message to a customer. The business has a WhatsApp Business Account (WABA) and the customer uses the normal WhatsApp application. The business wants to send a message to the customer.
+
+1. The business sends a message to the customer using the WhatsApp Business API.
+2. The customer receives the message from the business.
+3. The customer responds to the message.
+4. The business receives the customer's response.
+
+<img src="/images/flujo.png" alt="Simple flow of a WhatsApp message" />
+
+As you can see, the message flow is quite simple. The business sends a message, the customer receives it and responds, and the business receives the response.
+
+Great! The business can send and receive messages. But what if the business wants to send a message to multiple customers? Or if it wants to respond with a specific message based on the customer's response? Or even if it wants to update the customer's information in their CRM?
+
+This is where the WhatsApp Business API becomes more interesting.
+
+If a business wanted to do this, they would need to build sophisticated systems that handle the message flow. This is where Treble comes in. Treble helps businesses build advanced systems that manage WhatsApp messaging without complications, providing a simple web platform to create and manage conversations.
+
+## Messages in the WhatsApp Business API
+Imagine you're a business with access to the WhatsApp Business API. Sounds good, right? Now you can send and receive messages from your customers. But what does this really mean?
+
+If you had all the phone numbers of WhatsApp users in the world, could you send a message to all of them? And what about the message content? Could you send a link to all of them to try your new startup: "Insulin for chubby dogs"?
+
+<img src="/images/perritos-gordos.png" alt="Insulin for chubby dogs" />
+Well, the answer is no. The WhatsApp Business API has restrictions on what can be sent and received. Let's explore those restrictions.
+
+The WhatsApp Session
+Meta (WhatsApp's parent company) strictly regulates how businesses can communicate with their customers through the WhatsApp Business API. This helps Meta ensure that the WhatsApp platform is a safe space for all users.
+
+Imagine constantly receiving SPAM messages from a business. It would be annoying, right? You would probably stop using WhatsApp and convince your friends to switch to another platform, like Telegram. Meta wants to avoid this, so they have implemented certain restrictions on business messaging.
+
+Before a business can send a message to a user, it must go through a verification process. Meta allows this process through the creation of a Highly Structured Message (HSM), also known as a template.
+
+This message must be approved by Meta and can take up to 48 hours to be approved.
+
+<CardGroup cols={1}>
+    <Card 
+        title="What is an HSM?"
+        icon="square-h"
+        href="/en/docs/meta/hsm-templates"
+    >
+        Learn more about HSMs in our documentation.
+    </Card>
+</CardGroup>
+
+Additionally, the HSM allows businesses to leverage the API to send interactive messages.
+
+<img src="/images/sesion-whatsapp.png" alt="Interactive message" />
+
+As you can see, these messages have many more capabilities than the simple text messages we're used to. 

@@ -1,0 +1,90 @@
+---
+title: "Enviar Conversa Outbound"
+description: "Aprenda como enviar suas conversas outbound para seus clientes e as diferentes formas de fazê-lo."
+---
+
+<img src="/images/send-convo-section.png" alt="Enviar Conversa Outbound" />
+
+## Seção de envio de conversas
+
+Depois de criar uma conversa outbound, você pode enviá-la para seus clientes acessando a seção de envio de conversas. Para fazer isso, você tem duas opções:
+
+1. **Criar e enviar conversa**: Ao criar uma conversa, você pode selecionar o botão **Criar Conversa** e depois **Enviar a conversa agora (Outbound)**. Isso o levará à seção de envio de conversas.
+2. **Enviar conversa da visualização de todas as suas conversas**: Na visualização de todas as suas conversas, você pode clicar no botão **Enviar** para enviar a conversa, isso o levará à seção de envio de conversas.
+
+<img src="/images/click-send.gif" alt="Enviar Conversa Outbound" />
+
+## Formas de enviar conversas outbound
+
+Existem quatro formas de enviar conversas outbound para seus clientes:
+
+1. **Adicionar usuários manualmente**: Esta é a forma mais simples de enviar uma conversa para um ou vários números de telefone. Isso é ideal quando você quer testar a conversa ou quer enviá-la para um pequeno grupo de clientes.
+2. **Enviar conversa através do upload de arquivo CSV**: Você pode fazer upload de um arquivo CSV com os números de telefone para os quais você quer enviar a conversa. Isso é ideal quando você quer enviar a conversa para um grande grupo de clientes.
+3. **Enviar via API**: Você pode enviar a conversa através de nossa API. Isso é ideal quando você quer automatizar o envio da conversa para seus clientes.
+4. **Enviar conversa através de uma integração**: Você pode enviar a conversa através de uma integração. Se você é usuário do HubSpot ou Salesforce e tem uma integração com o Treble, você pode enviar a conversa para seus clientes a partir do seu CRM.
+
+## Enviar conversa adicionando usuários manualmente
+
+Na visualização de envio de conversa, adicione os números de telefone para os quais você quer enviar a conversa. Se sua conversa tem variáveis (informações dinâmicas para personalizar a mensagem), você pode adicionar os valores das variáveis em seus respectivos campos.
+
+<img src="/images/add-users.gif" alt="Enviar Conversa Outbound" />
+
+Depois de adicionar os usuários que receberão a conversa, você pode clicar no botão **Enviar** para enviar a conversa.
+
+## Enviar conversa através do upload de arquivo CSV
+
+Para fazer upload de um arquivo CSV com os números de telefone para os quais você quer enviar a conversa, clique na aba **Upload de arquivo**. Depois de clicar, você encontrará dois links úteis no painel esquerdo:
+
+- **Baixar exemplo**: Este link permitirá que você baixe um arquivo CSV de exemplo com os números de telefone para os quais você quer enviar a conversa.
+- **Baixar CSV [nome da sua conversa]**: Este link permitirá que você baixe um modelo de arquivo CSV com a estrutura de variáveis da sua conversa.
+
+### Formato do arquivo CSV
+
+A estrutura das colunas em seu arquivo CSV é muito importante para garantir que a conversa seja enviada corretamente. A estrutura das colunas é a seguinte:
+
+| country_code | cellphone  | name   |
+| ------------ | ---------- | ------ |
+| 55           | 11999999999| Felipe |
+| 55           | 11988888888| Camila |
+
+Neste exemplo, **as colunas `country_code` e `cellphone` são obrigatórias.** A coluna `name` é um exemplo de variável que você pode usar em sua conversa.
+
+Sempre recomendamos que você baixe o modelo que já tem a estrutura de variáveis da sua conversa. Isso evitará erros ao fazer upload do arquivo CSV.
+
+Uma vez que você tenha seu arquivo CSV pronto, você pode clicar no botão **Selecionar arquivo** para fazer upload do seu arquivo CSV.
+
+<img src="/images/upload-csv.gif" alt="Enviar Conversa Outbound" />
+
+## Enviar Conversa
+
+Depois de adicionar os usuários que receberão a conversa, você pode escolher um dos seguintes métodos de envio para enviar a conversa:
+
+- **Enviar agora**: Esta opção permitirá que você envie a conversa imediatamente.
+- **Enviar no melhor horário de resposta por contato e país**: Esta opção permitirá que você envie a conversa no melhor horário de resposta por contato e país.
+
+Selecione o método de envio e clique no botão **Enviar conversa**.
+
+<img src="/images/send.gif" alt="Criar e enviar" />
+
+<Check>Perfeito! A conversa foi enviada com sucesso.</Check>
+
+<div class="hr"></div>
+
+## Próximos passos
+
+<CardGroup cols={3}>
+    <Card 
+        title="Implantar conversa via API" 
+        icon="code"
+        href="https://treble.notion.site/Treble-API-Documentation-b0a726d95018471f88e30a13db6f87b4?pvs=4"
+    >
+        Quer automatizar o envio de suas conversas através de uma API? Confira nossa documentação da API para mais informações.
+    </Card>
+    <Card 
+        title="Enviar conversa via integração" 
+        icon="code"
+        href="/pt/docs/integrations/welcome"
+    >
+        Quer enviar suas conversas através de uma integração? Confira nossa documentação de integração para mais informações.
+    </Card>
+</CardGroup> 

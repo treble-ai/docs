@@ -21,7 +21,7 @@
   },
   "topbarLinks": [
     {
-      "name": "Soporte",
+      "name": "Support",
       "url": "https://support-treble.atlassian.net/servicedesk/customer/portals"
     }
   ],
@@ -42,7 +42,6 @@
       "name": "Bem-vindo",
       "url": "pt"
     },
-
     {
       "name": "User Guide",
       "url": "en/docs"
@@ -50,6 +49,10 @@
     {
       "name": "Guía de usuario",
       "url": "es/docs"
+    },
+    {
+      "name": "Guia do usuário",
+      "url": "pt/docs"
     }
   ],
   "anchors": [
@@ -81,16 +84,16 @@
     {
       "group": "Home",
       "pages": [
-        "es/home"
+        "en/home"
       ],
-      "version": "Español"
+      "version": "English"
     },
     {
       "group": "Home",
       "pages": [
-        "en/home"
+        "es/home"
       ],
-      "version": "English"
+      "version": "Español"
     },
     {
       "group": "Home",
@@ -99,11 +102,90 @@
       ],
       "version": "Português"
     },
-
     {
       "group": "Get Started",
       "pages": [
-        "en/docs/welcome"
+        "en/docs/welcome",
+        "en/docs/key-concepts",
+        {
+          "group": "Introduction to Treble",
+          "pages": [
+            "en/docs/intro-to-treble/welcome",
+            "en/docs/intro-to-treble/outbound-convo",
+            "en/docs/intro-to-treble/inbound-convo"
+          ]
+        }
+      ],
+      "version": "English"
+    },
+    {
+      "group": "Meta",
+      "pages": [
+        "en/docs/meta/overview",
+        "en/docs/meta/wa-wabiz-api",
+        "en/docs/meta/connect-line",
+        "en/docs/meta/hsm-templates",
+        "en/docs/meta/green-check"
+      ],
+      "version": "English"
+    },
+    {
+      "group": "Build with Treble",
+      "pages": [
+        "en/docs/build-with-treble/welcome",
+        {
+          "group": "Features",
+          "pages": [
+            "en/docs/build-with-treble/features/alternate-flow",
+            "en/docs/build-with-treble/features/second-hsm",
+            "en/docs/build-with-treble/features/goal-block"
+          ]
+        },
+        {
+          "group": "Blocks",
+          "pages": [
+            "en/docs/build-with-treble/blocks/ab-test",
+            "en/docs/build-with-treble/blocks/agent"
+          ]
+        }
+      ],
+      "version": "English"
+    },
+    {
+      "group": "Main Platform",
+      "pages": [
+        "en/docs/main-platform/welcome",
+        "en/docs/main-platform/send-convo",
+        "en/docs/main-platform/whatsapp-links"
+      ],
+      "version": "English"
+    },
+    {
+      "group": "Agent Platform",
+      "pages": [
+        "en/docs/agent-platform/welcome",
+        "en/docs/agent-platform/tags-teams",
+        "en/docs/agent-platform/mobile-app"
+      ],
+      "version": "English"
+    },
+    {
+      "group": "Integrations",
+      "pages": [
+        "en/docs/integrations/welcome",
+        {
+          "group": "HubSpot",
+          "pages": [
+            "en/docs/integrations/hubspot/welcome",
+            "en/docs/integrations/hubspot/crm-action"
+          ]
+        },
+        {
+          "group": "Salesforce",
+          "pages": [
+            "en/docs/integrations/salesforce/welcome"
+          ]
+        }
       ],
       "version": "English"
     },
@@ -193,6 +275,93 @@
         }
       ],
       "version": "Español"
+    },
+    {
+      "group": "Começar",
+      "pages": [
+        "pt/docs/welcome",
+        "pt/docs/key-concepts",
+        {
+          "group": "Introdução ao Treble",
+          "pages": [
+            "pt/docs/intro-to-treble/welcome",
+            "pt/docs/intro-to-treble/outbound-convo",
+            "pt/docs/intro-to-treble/inbound-convo"
+          ]
+        }
+      ],
+      "version": "Português"
+    },
+    {
+      "group": "Meta",
+      "pages": [
+        "pt/docs/meta/overview",
+        "pt/docs/meta/wa-wabiz-api",
+        "pt/docs/meta/connect-line",
+        "pt/docs/meta/hsm-templates",
+        "pt/docs/meta/green-check"
+      ],
+      "version": "Português"
+    },
+    {
+      "group": "Construa com o Treble",
+      "pages": [
+        "pt/docs/build-with-treble/welcome",
+        {
+          "group": "Funcionalidades",
+          "pages": [
+            "pt/docs/build-with-treble/features/alternate-flow",
+            "pt/docs/build-with-treble/features/second-hsm",
+            "pt/docs/build-with-treble/features/goal-block"
+          ]
+        },
+        {
+          "group": "Blocos",
+          "pages": [
+            "pt/docs/build-with-treble/blocks/ab-test",
+            "pt/docs/build-with-treble/blocks/agent"
+          ]
+        }
+      ],
+      "version": "Português"
+    },
+    {
+      "group": "Plataforma Principal",
+      "pages": [
+        "pt/docs/main-platform/welcome",
+        "pt/docs/main-platform/send-convo",
+        "pt/docs/main-platform/whatsapp-links"
+      ],
+      "version": "Português"
+    },
+    {
+      "group": "Plataforma de Agentes",
+      "pages": [
+        "pt/docs/agent-platform/welcome",
+        "pt/docs/agent-platform/tags-teams",
+        "pt/docs/agent-platform/mobile-app"
+      ],
+      "version": "Português"
+    },
+    {
+      "group": "Integrações",
+      "pages": [
+        "pt/docs/integrations/welcome",
+        {
+          "group": "HubSpot",
+          "pages": [
+            "pt/docs/integrations/hubspot/welcome",
+            "pt/docs/integrations/hubspot/crm-action"
+          ]
+        },
+        {
+          "group": "Salesforce",
+          "pages": [
+            "pt/docs/integrations/salesforce/welcome"
+          ]
+        }
+      ],
+      "version": "Português"
     }
   ],
   "footerSocials": {

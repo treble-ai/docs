@@ -1,0 +1,61 @@
+---
+title: "Outbound Conversation"
+description: "Learn how to create an outbound conversation in Treble."
+---
+
+## How to create an outbound conversation
+
+Creating an outbound conversation is very simple. To begin, log in to your Treble account. Every outbound conversation must start with a message template (HSM). Meta requires outbound conversations to start with a message template to ensure conversations are legitimate and comply with WhatsApp policies. Therefore, you must first create a message template.
+
+To create a message template, you can review the [How to create a template (HSM)?](/en/docs/meta/hsm-templates#how-to-use-hsm-templates-in-treble) section.
+
+<Note>Make sure you have created a message template before continuing.</Note>
+
+After you've created a message template, return to the main "Conversations" section and click on the "Create Conversation" button.
+
+<img src="/images/create-convo.gif" alt="Create Conversation" />
+
+Conversations in Treble are flows where you add message blocks. These blocks and the connections between them are what define the conversation logic.
+
+## Example of creating an outbound conversation
+
+Let's create a conversation for a sales use case.
+
+Let's say you're part of a company that sells pet products. You have a database with phone numbers of potential customers who have left their information on your website. We want to send them a message telling them about the week's promotion. How would we do it?
+
+<Steps>
+  <Step title="Add a message template">
+    In the upper left corner of the screen, you'll find the <Icon icon="plus" iconType="solid" /> button. Click on it and select "Template Message". You can search for the template you created earlier by its name.
+
+    <img src="/images/add-template.gif" alt="Add a message template" />
+  </Step>
+  <Step title="Add message blocks">
+    Once you've added the message template, you can add message blocks. Click on the <Icon icon="plus" iconType="solid" /> button and select the type of block you want to add. In this case, we're going to add a **Message with options** > **Interactive buttons** block.
+
+    <img src="/images/add-block.gif" alt="Add a message block" />
+  </Step>
+  <Step title="Connect blocks">
+    Connect the template message block with the interactive buttons block. To do this, click on the output circle of the template block and hold the click while dragging the cursor to the input circle of the interactive buttons block.
+
+    <img src="/images/connect-block.gif" alt="Connect blocks" />
+  </Step>
+  <Step title="Complete the conversation">
+    Complete the conversation by adding the remaining blocks. Once you've added the blocks, you can add the content of the blocks for your conversation.
+
+    <Tip>For your outbound conversations, we recommend using the **Goal Block** functionality to define a measurable objective for the conversation. This will allow you to measure the conversation's success and optimize it. You can read more about the goal block in the [Goal Block](/en/docs/build-with-treble/features/goal-block) section.</Tip>
+  </Step>
+  <Step title="Save and send">
+    Once you've completed the conversation, click on the **Create Conversation** button and then on **Send the conversation now (Outbound)**.
+
+    <img src="/images/create-and-send.gif" alt="Create and send" />
+  </Step>
+  <Step title="Send the conversation">
+    Once you've created the conversation, you can send it to your potential customers. To be able to send it to your WhatsApp number, you must add your WhatsApp number and add user. Click on the **Add User** button and in the next view **Send right now**.
+
+    <Note>There are several methods to send the conversation. You can read more about them in the [Send Conversation](/en/docs/main-platform/send-convo) section.</Note>
+
+    <img src="/images/send.gif" alt="Create and send" />
+  </Step>
+</Steps>
+
+<Check>You've created and sent an outbound conversation!</Check> 

@@ -164,6 +164,7 @@
       "group": "Agent Platform",
       "pages": [
         "en/docs/agent-platform/welcome",
+        "en/docs/agent-platform/main-platform",
         "en/docs/agent-platform/tags-teams",
         "en/docs/agent-platform/mobile-app"
       ],
@@ -251,6 +252,7 @@
       "group": "Plataforma de Agentes",
       "pages": [
         "es/docs/agent-platform/welcome",
+        "es/docs/agent-platform/main-platform",
         "es/docs/agent-platform/tags-teams",
         "es/docs/agent-platform/mobile-app"
       ],
@@ -338,6 +340,7 @@
       "group": "Plataforma de Agentes",
       "pages": [
         "pt/docs/agent-platform/welcome",
+        "pt/docs/agent-platform/main-platform",
         "pt/docs/agent-platform/tags-teams",
         "pt/docs/agent-platform/mobile-app"
       ],

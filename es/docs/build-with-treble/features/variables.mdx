@@ -1,5 +1,146 @@
 ---
 title: "Variables"
-description: "Las variables son parte crítica de Treble. Permiten almacenar información que puede ser utilizada en diferentes partes de un flujo de conversación. Adicionalmente, las variables pueden ser utilizadas personalizar mensajes y acciones."
+description: "Las variables son parte crítica de Treble. Éstas te permiten personalizar mensajes y acciones en tus conversaciones. Adicionalmente, te permiten almacenar información en tus sistemas de información o que puedas usar en diferentes partes de un flujo de conversación."
 ---
 
+## ¿Qué son las variables?
+
+Las variables en Treble ayudan a almacenar y mostrar información en diferentes partes de un flujo de conversación. Las variables son útiles cuando se desea:
+
+- Mostrar información personalizada en un mensaje. Por ejemplo, puedes mostrar el nombre del cliente en un mensaje.
+- Guardar información para usarla en diferentes partes de un flujo de conversación. Por ejemplo, puedes pedir información del cliente como su número de identificación (cédula, NIT, CPF, etc.), su correo electrónico, o su edad.
+- Personalizar el comportamiento de un bloque. Por ejemplo, puedes usar una variable para determinar si un cliente debe ser transferido a un agente o no.
+- Usar información obtenida en las variables y guardarlas en tu sistema de información. Por ejemplo, puedes guardar el número de teléfono del cliente en tu sistema de información para que puedas usarlo en tu CRM.
+
+Las variables se pueden usar en cualquier tipo de conversación (inbound, outbound) y en cualquier parte de un flujo de conversación, incluyendo en los bloques de texto, listas de opciones, y acciones.
+
+## Tipos de variables
+
+Hay dos tipos de variables en Treble:
+
+- **Variables personalizadas por la compañía**: Son variables en las cuales vas a definir su valor al momento de desplegar tu flujo de conversación. Estas son variables donde tú tienes la información previa a la interacción del cliente. Algunos ejemplos son el nombre de tu cliente, la fecha de su última compra, o el saldo pendiente de la cuenta de un cliente.
+- **Variables recopiladas por el cliente**: Son variables que se configuran para almacenar información que el cliente proporciona en tu flujo de conversación. Algunos ejemplos son: pedir la edad del cliente, describir un problema que el cliente tiene, o pedir la dirección de un cliente.
+
+## Definir variables
+
+Toda variable tiene la misma estructura:
+
+- **Nombre**: El nombre de la variable. Recomendamos que uses nombres descriptivos, cortos, en minúsculas, sin espacios, y sin caracteres especiales para que puedas identificar fácilmente el propósito de la variable. Ejemplos: `nombre_cliente`, `edad_cliente`, `direccion_cliente`.
+- **Formato**: El formato de la variable. Toda variable en Treble se define usando corchetes: `{{ }}`, por ejemplo: `{{nombre_cliente}}`.
+
+Para definir una variable, solo debes agregarla en el bloque donde quieras usarla. Por ejemplo, si quieres usar la variable `nombre_cliente` en un mensaje, solo debes agregarla en el mensaje.
+
+<img src="/images/one-var.png" width="500" />
+
+En este caso, la variable `nombre_cliente` se usará en el mensaje de bienvenida. Sin embargo, puedes usar cuantas variables necesites en un bloque:
+
+<img src="/images/two-vars.png" width="500" />
+
+En este caso, tenemos las variables `{{correo}}` y `{{fecha_ult_compra}}` en un bloque donde queremos confirmar la información del cliente.
+
+## Ejemplo de creación y despliegue con variables
+
+Supongamos que tenemos el siguiente flujo de conversación donde estamos saludando al cliente por su nombre y luego queremos confirmar que su información en el sistema, tal como su correo electrónico y la fecha de su última compra, es correcta.
+
+<img src="/images/example-variables.png" />
+
+Hicimos click en **Crear conversación**, tenemos la conversación creada y ahora queremos desplegarla a 3 clientes haciendo uso de las variables para personalizar los mensajes. ¿Cómo hacemos esto?
+
+Lo primero, es que debemos tener esa información en el sistema. Supongamos que tenemos la siguiente información en nuestro sistema:
+
+| Nombre | Correo          | Fecha de última compra |
+|--------|-----------------|------------------------|
+| Juan   | juan@gmail.com  |             2024-01-01 |
+| María  | maria@gmail.com |             2024-02-01 |
+| Pedro  | pedro@gmail.com |             2024-03-01 |
+
+Tal como vimos en la sección <a class="article-link" href="/es/docs/main-platform/send-convo"><p>Desplegar una conversación outbound</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>, tenemos dos opciones para agregar nuestros usuarios: 
+
+### Agregar usuarios manualmente 
+
+Agregamos la información de los usuarios, uno a uno, en la sección de **Agregar usuarios**. Aqui te van a aparecer los campos de texto para agregar la información de los usuarios uno a uno.
+
+<img src="/images/vars-save.png" alt="Agregar usuarios manualmente" />
+
+### Agregar usuarios subiendo un archivo CSV
+
+Subimos un archivo CSV con la información de los usuarios. En este caso, el archivo CSV debe tener la siguiente estructura:
+
+|cellphone   | country_code | nombre_cliente  | correo          | fecha_ult_compra |
+|------------|--------------|-----------------|-----------------|------------------------|
+|1234567     | 58           | Juan            | juan@gmail.com  |             2024-01-01 |
+|1234568     | 58           | María           | maria@gmail.com |             2024-02-01 |
+|1234569     | 58           | Pedro           | pedro@gmail.com |             2024-03-01 |
+
+<Warning>Observa que el nombre de las columnas debe corresponder al nombre de las variables que definimos en el flujo de conversación. <u>Nombre del cliente</u> debe corresponder con `nombre_cliente`, <u>Correo</u> debe corresponder con `correo`, y <u>Fecha de última compra</u> debe corresponder con `fecha_ult_compra`. Si no coincide, la conversación no se enviará correctamente.</Warning>
+
+<a class="article-link" href="/es/docs/main-platform/send-convo#enviar-conversacion-subiendo-archivo-csv"><p>¿Cómo subir un archivo CSV?</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+
+## Variables en las plantillas (HSMs)
+
+La forma en la cual se definen las variables en las plantillas (HSMs) es identica a la forma en la cual se definen en los bloques. En las plantillas, las variables también se definen usando el formato `{{nombre_variable}}` y se crean las variables como parte del contenido de la plantilla.
+
+<Card 
+    title="Crear plantillas (HSMs) con variables" 
+    icon="paper-plane"
+    href="/es/docs/meta/hsm-templates#personalizar-plantillas-hsm-con-variables"
+>
+    Consulta cómo crear variables en plantillas (HSMs).
+</Card>
+
+## Variables para obtener información del cliente
+
+Perfecto, ya sabemos cómo crear variables en Treble y llenarlas con nuestra información. Pero, ¿cómo podemos obtener información del cliente?
+
+Para obtener información del cliente, podemos acceder a la configuración avanzada de los bloques para <u>guardar la respuesta del cliente como variable</u>. Para ello, solo debes hacer doble click en el bloque donde deseas guardar la respuesta del cliente como variable y luego hacer click en el botón **Guardar respuesta como variable**. Aqui te va a aparecer un campo para agregar el nombre de la variable y puedes escoger el tipo de variable que deseas guardar:
+
+- **Texto**: Guarda toda la respuesta del cliente como texto.
+- **Número**: Únicamente guarda la parte numérica de la respuesta del cliente. Por ejemplo, si el cliente responde "hola mi número es: 12345", la variable guardará "12345".
+- **Imagen**: Si el cliente envía una imagen, la variable guardará la URL de la imagen.
+- **Email**: Guarda el correo electrónico del cliente. Si el cliente no proporciona un correo electrónico, la variable guardará un valor vacío/nulo.
+- **Video**: Guarda la URL del video del cliente.
+- **Ubicación**: Guarda la ubicación del cliente creando dos variables: `latitude` y `longitude`. 
+- **Código postal**: Guarda el código postal del cliente.
+- **Contacto**: Guarda el número de teléfono del cliente.
+
+<img src="/images/save-text.gif" alt="Guardar respuesta como variable" />
+
+En este caso, guardamos la respuesta del cliente al bloque de bienvenida como la variable `ayuda_tipo` y especificamos que el tipo de variable es `TEXTO`.
+
+Adicionalmente, también podemos configurar el bloque para que guarde la respuesta del cliente como variable cuando el bloque es una lista de opciones. En este caso, la variable se guardará como el valor de la opción seleccionada por el cliente. Siempre en este caso, el tipo de variable será `TEXTO`.
+
+<img src="/images/save-options.gif" alt="Guardar respuesta como variable" />
+
+En este caso, guardamos la respuesta del cliente al bloque de lista de opciones como la variable `resp_cliente`.
+ 
+## Usar variables obtenidas
+
+Ahora que hemos guardado la respuesta del cliente como variable, ¿cómo podemos usar esa información en nuestro flujo de conversación? Dado que hemos creado las variables `ayuda_tipo` y `resp_cliente`, podemos usar esas variables en cualquier bloque de nuestro flujo de conversación. Solo debemos añadirlas en el bloque donde queremos usar la información con su formato: `{{ayuda_tipo}}` o `{{resp_cliente}}`.
+
+<img src="/images/use-vars.png" alt="Usar variables" />
+
+Nota como:
+- 🟡 `{{ayuda_tipo}}` se usa en el bloque de bienvenida para mostrar la respuesta del cliente. Representada por la flecha amarilla.
+- 🟢 `{{resp_cliente}}` se usa en el bloque de lista de opciones para mostrar la respuesta del cliente. Representada por la flecha verde.
+- 🔴 `{{nombre_cliente}}` volvemos a usar esta variable en el bloque siguiente para mostrar el nombre del cliente. Esta variable la vamos a llenar con la información de nuestro sistema de información.
+
+<div class="hr"></div>
+
+## Próximos pasos
+
+<CardGroup cols={2}>
+    <Card 
+        title="Crea tu primera conversación outbound" 
+        icon="check"
+        href="/es/docs/intro-to-treble/outbound-convo"
+    >
+        Crea y envía tu primera conversación outbound en Treble.
+    </Card>
+    <Card 
+        title="Crea tu primera plantilla (HSM)" 
+        icon="code"
+        href="/es/docs/meta/hsm-templates"
+    >
+        Crea tu primera plantilla (HSM) en Treble.
+    </Card>
+</CardGroup>

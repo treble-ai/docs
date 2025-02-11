@@ -1,0 +1,146 @@
+---
+title: "Variáveis"
+description: "As variáveis são uma parte crítica do Treble. Elas permitem que você personalize mensagens e ações em suas conversas. Além disso, permitem que você armazene informações em seus sistemas de informação ou use em diferentes partes de um fluxo de conversa."
+---
+
+## O que são variáveis?
+
+As variáveis no Treble ajudam a armazenar e exibir informações em diferentes partes de um fluxo de conversa. As variáveis são úteis quando você deseja:
+
+- Exibir informações personalizadas em uma mensagem. Por exemplo, você pode exibir o nome do cliente em uma mensagem.
+- Salvar informações para usar em diferentes partes de um fluxo de conversa. Por exemplo, você pode solicitar informações do cliente como seu número de identificação (RG, CPF, etc.), e-mail ou idade.
+- Personalizar o comportamento de um bloco. Por exemplo, você pode usar uma variável para determinar se um cliente deve ser transferido para um agente ou não.
+- Usar informações obtidas nas variáveis e salvá-las em seu sistema de informação. Por exemplo, você pode salvar o número de telefone do cliente em seu sistema de informação para que você possa usá-lo em seu CRM.
+
+As variáveis podem ser usadas em qualquer tipo de conversa (inbound, outbound) e em qualquer parte de um fluxo de conversa, incluindo blocos de texto, listas de opções e ações.
+
+## Tipos de variáveis
+
+Existem dois tipos de variáveis no Treble:
+
+- **Variáveis personalizadas pela empresa**: São variáveis onde você definirá seu valor ao implantar seu fluxo de conversa. Essas são variáveis onde você tem informações antes da interação do cliente. Alguns exemplos são o nome do seu cliente, a data da última compra ou o saldo da conta de um cliente.
+- **Variáveis coletadas do cliente**: São variáveis que são configuradas para armazenar informações que o cliente fornece em seu fluxo de conversa. Alguns exemplos são: pedir a idade do cliente, descrever um problema que o cliente tem ou pedir o endereço de um cliente.
+
+## Definindo variáveis
+
+Toda variável tem a mesma estrutura:
+
+- **Nome**: O nome da variável. Recomendamos usar nomes descritivos, curtos, em minúsculas, sem espaços e sem caracteres especiais para que você possa identificar facilmente o propósito da variável. Exemplos: `nome_cliente`, `idade_cliente`, `endereco_cliente`.
+- **Formato**: O formato da variável. Toda variável no Treble é definida usando colchetes: `{{ }}`, por exemplo: `{{nome_cliente}}`.
+
+Para definir uma variável, você só precisa adicioná-la no bloco onde deseja usá-la. Por exemplo, se você quiser usar a variável `nome_cliente` em uma mensagem, você só precisa adicioná-la na mensagem.
+
+<img src="/images/one-var.png" width="500" />
+
+Neste caso, a variável `nome_cliente` será usada na mensagem de boas-vindas. No entanto, você pode usar quantas variáveis precisar em um bloco:
+
+<img src="/images/two-vars.png" width="500" />
+
+Neste caso, temos as variáveis `{{email}}` e `{{data_ultima_compra}}` em um bloco onde queremos confirmar as informações do cliente.
+
+## Exemplo de criação e implantação com variáveis
+
+Vamos supor que temos o seguinte fluxo de conversa onde estamos cumprimentando o cliente pelo nome e depois queremos confirmar que suas informações no sistema, como seu e-mail e data da última compra, estão corretas.
+
+<img src="/images/example-variables.png" />
+
+Clicamos em **Criar conversa**, temos a conversa criada e agora queremos implantá-la para 3 clientes usando variáveis para personalizar as mensagens. Como fazemos isso?
+
+Primeiro, devemos ter essas informações no sistema. Vamos supor que temos as seguintes informações em nosso sistema:
+
+| Nome  | Email           | Data da última compra |
+|-------|----------------|----------------------|
+| João  | joao@gmail.com  | 2024-01-01           |
+| Maria | maria@gmail.com | 2024-02-01           |
+| Pedro | pedro@gmail.com | 2024-03-01           |
+
+Como vimos na seção <a class="article-link" href="/pt/docs/main-platform/send-convo"><p>Implantar uma conversa outbound</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>, temos duas opções para adicionar nossos usuários:
+
+### Adicionar usuários manualmente
+
+Adicionamos as informações dos usuários, um por um, na seção **Adicionar usuários**. Aqui você verá campos de texto para adicionar as informações dos usuários um por um.
+
+<img src="/images/vars-save.png" alt="Adicionar usuários manualmente" />
+
+### Adicionar usuários fazendo upload de um arquivo CSV
+
+Fazemos upload de um arquivo CSV com as informações dos usuários. Neste caso, o arquivo CSV deve ter a seguinte estrutura:
+
+|cellphone   | country_code | nome_cliente    | email           | data_ultima_compra |
+|------------|--------------|-----------------|-----------------|-------------------|
+|1234567     | 58           | João            | joao@gmail.com  | 2024-01-01        |
+|1234568     | 58           | Maria           | maria@gmail.com | 2024-02-01        |
+|1234569     | 58           | Pedro           | pedro@gmail.com | 2024-03-01        |
+
+<Warning>Observe que os nomes das colunas devem corresponder aos nomes das variáveis que definimos no fluxo de conversa. <u>Nome do cliente</u> deve corresponder a `nome_cliente`, <u>Email</u> deve corresponder a `email`, e <u>Data da última compra</u> deve corresponder a `data_ultima_compra`. Se não corresponderem, a conversa não será enviada corretamente.</Warning>
+
+<a class="article-link" href="/pt/docs/main-platform/send-convo#enviar-conversa-fazendo-upload-de-arquivo-csv"><p>Como fazer upload de um arquivo CSV?</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+
+## Variáveis em templates (HSMs)
+
+A forma como as variáveis são definidas em templates (HSMs) é idêntica a como são definidas nos blocos. Em templates, as variáveis também são definidas usando o formato `{{nome_variavel}}` e são criadas como parte do conteúdo do template.
+
+<Card 
+    title="Criar templates (HSMs) com variáveis" 
+    icon="paper-plane"
+    href="/pt/docs/meta/hsm-templates#personalizar-templates-hsm-com-variaveis"
+>
+    Aprenda como criar variáveis em templates (HSMs).
+</Card>
+
+## Variáveis para obter informações do cliente
+
+Perfeito, agora sabemos como criar variáveis no Treble e preenchê-las com nossas informações. Mas como podemos obter informações do cliente?
+
+Para obter informações do cliente, podemos acessar a configuração avançada dos blocos para <u>salvar a resposta do cliente como variável</u>. Para fazer isso, basta clicar duas vezes no bloco onde você deseja salvar a resposta do cliente como variável e depois clicar no botão **Salvar resposta como variável**. Aqui você verá um campo para adicionar o nome da variável e pode escolher o tipo de variável que deseja salvar:
+
+- **Texto**: Salva toda a resposta do cliente como texto.
+- **Número**: Salva apenas a parte numérica da resposta do cliente. Por exemplo, se o cliente responde "olá meu número é: 12345", a variável salvará "12345".
+- **Imagem**: Se o cliente enviar uma imagem, a variável salvará a URL da imagem.
+- **Email**: Salva o e-mail do cliente. Se o cliente não fornecer um e-mail, a variável salvará um valor vazio/nulo.
+- **Vídeo**: Salva a URL do vídeo do cliente.
+- **Localização**: Salva a localização do cliente criando duas variáveis: `latitude` e `longitude`.
+- **Código postal**: Salva o código postal do cliente.
+- **Contato**: Salva o número de telefone do cliente.
+
+<img src="/images/save-text.gif" alt="Salvar resposta como variável" />
+
+Neste caso, salvamos a resposta do cliente ao bloco de boas-vindas como a variável `tipo_ajuda` e especificamos que o tipo de variável é `TEXTO`.
+
+Além disso, também podemos configurar o bloco para salvar a resposta do cliente como variável quando o bloco é uma lista de opções. Neste caso, a variável será salva como o valor da opção selecionada pelo cliente. Neste caso, o tipo de variável sempre será `TEXTO`.
+
+<img src="/images/save-options.gif" alt="Salvar resposta como variável" />
+
+Neste caso, salvamos a resposta do cliente ao bloco de lista de opções como a variável `resp_cliente`.
+
+## Usando variáveis obtidas
+
+Agora que salvamos a resposta do cliente como variável, como podemos usar essa informação em nosso fluxo de conversa? Como criamos as variáveis `tipo_ajuda` e `resp_cliente`, podemos usar essas variáveis em qualquer bloco de nosso fluxo de conversa. Só precisamos adicioná-las no bloco onde queremos usar a informação com seu formato: `{{tipo_ajuda}}` ou `{{resp_cliente}}`.
+
+<img src="/images/use-vars.png" alt="Usar variáveis" />
+
+Observe como:
+- 🟡 `{{tipo_ajuda}}` é usado no bloco de boas-vindas para mostrar a resposta do cliente. Representado pela seta amarela.
+- 🟢 `{{resp_cliente}}` é usado no bloco de lista de opções para mostrar a resposta do cliente. Representado pela seta verde.
+- 🔴 `{{nome_cliente}}` usamos esta variável novamente no próximo bloco para mostrar o nome do cliente. Vamos preencher esta variável com informações do nosso sistema de informação.
+
+<div class="hr"></div>
+
+## Próximos passos
+
+<CardGroup cols={2}>
+    <Card 
+        title="Crie sua primeira conversa outbound" 
+        icon="check"
+        href="/pt/docs/intro-to-treble/outbound-convo"
+    >
+        Crie e envie sua primeira conversa outbound no Treble.
+    </Card>
+    <Card 
+        title="Crie seu primeiro template (HSM)" 
+        icon="code"
+        href="/pt/docs/meta/hsm-templates"
+    >
+        Crie seu primeiro template (HSM) no Treble.
+    </Card>
+</CardGroup> 

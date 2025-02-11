@@ -15,7 +15,7 @@
                 "default": true,
                 "anchors": [
                     {
-                        "anchor": "Documentation",
+                        "anchor": "Documentación",
                         "icon": "book-open",
                         "tabs": [
                             {
@@ -64,6 +64,7 @@
                                             {
                                                 "group": "Funcionalidades",
                                                 "pages": [
+                                                    "es/docs/build-with-treble/features/variables",
                                                     "es/docs/build-with-treble/features/alternate-flow",
                                                     "es/docs/build-with-treble/features/second-hsm",
                                                     "es/docs/build-with-treble/features/goal-block"
@@ -183,6 +184,7 @@
                                             {
                                                 "group": "Features",
                                                 "pages": [
+                                                    "en/docs/build-with-treble/features/variables",
                                                     "en/docs/build-with-treble/features/alternate-flow",
                                                     "en/docs/build-with-treble/features/second-hsm",
                                                     "en/docs/build-with-treble/features/goal-block"
@@ -253,7 +255,7 @@
                 "language": "pt",
                 "anchors": [
                     {
-                        "anchor": "Documentation",
+                        "anchor": "Documentação",
                         "icon": "book-open",
                         "tabs": [
                             {
@@ -302,6 +304,7 @@
                                             {
                                                 "group": "Funcionalidades",
                                                 "pages": [
+                                                    "pt/docs/build-with-treble/features/variables",
                                                     "pt/docs/build-with-treble/features/alternate-flow",
                                                     "pt/docs/build-with-treble/features/second-hsm",
                                                     "pt/docs/build-with-treble/features/goal-block"

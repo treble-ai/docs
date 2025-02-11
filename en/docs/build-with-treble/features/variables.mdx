@@ -1,0 +1,146 @@
+---
+title: "Variables"
+description: "Variables are a critical part of Treble. They allow you to personalize messages and actions in your conversations. Additionally, they allow you to store information in your information systems or use it in different parts of a conversation flow."
+---
+
+## What are variables?
+
+Variables in Treble help store and display information in different parts of a conversation flow. Variables are useful when you want to:
+
+- Display personalized information in a message. For example, you can display the customer's name in a message.
+- Save information to use in different parts of a conversation flow. For example, you can ask for customer information such as their identification number (ID, SSN, CPF, etc.), email, or age.
+- Customize block behavior. For example, you can use a variable to determine whether a customer should be transferred to an agent or not.
+- Use information obtained in variables and save it in your information system. For example, you can save the customer's phone number in your information system so you can use it in your CRM.
+
+Variables can be used in any type of conversation (inbound, outbound) and in any part of a conversation flow, including text blocks, option lists, and actions.
+
+## Types of variables
+
+There are two types of variables in Treble:
+
+- **Company customized variables**: These are variables where you will define their value when deploying your conversation flow. These are variables where you have information prior to customer interaction. Some examples are your customer's name, their last purchase date, or a customer's account balance.
+- **Customer collected variables**: These are variables that are configured to store information that the customer provides in your conversation flow. Some examples are: asking for the customer's age, describing a problem the customer has, or asking for a customer's address.
+
+## Defining variables
+
+Every variable has the same structure:
+
+- **Name**: The variable name. We recommend using descriptive, short names in lowercase, without spaces, and without special characters so you can easily identify the purpose of the variable. Examples: `customer_name`, `customer_age`, `customer_address`.
+- **Format**: The variable format. Every variable in Treble is defined using brackets: `{{ }}`, for example: `{{customer_name}}`.
+
+To define a variable, you just need to add it in the block where you want to use it. For example, if you want to use the `customer_name` variable in a message, you just need to add it in the message.
+
+<img src="/images/one-var.png" width="500" />
+
+In this case, the `customer_name` variable will be used in the welcome message. However, you can use as many variables as you need in a block:
+
+<img src="/images/two-vars.png" width="500" />
+
+In this case, we have the variables `{{email}}` and `{{last_purchase_date}}` in a block where we want to confirm the customer's information.
+
+## Example of creation and deployment with variables
+
+Let's say we have the following conversation flow where we are greeting the customer by name and then want to confirm that their information in the system, such as their email and last purchase date, is correct.
+
+<img src="/images/example-variables.png" />
+
+We clicked on **Create conversation**, we have the conversation created and now we want to deploy it to 3 customers using variables to personalize the messages. How do we do this?
+
+First, we must have that information in the system. Let's say we have the following information in our system:
+
+| Name  | Email           | Last purchase date |
+|-------|----------------|-------------------|
+| John  | john@gmail.com  | 2024-01-01        |
+| Mary  | mary@gmail.com  | 2024-02-01        |
+| Peter | peter@gmail.com | 2024-03-01        |
+
+As we saw in the <a class="article-link" href="/en/docs/main-platform/send-convo"><p>Deploy an outbound conversation</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a> section, we have two options to add our users:
+
+### Add users manually
+
+We add the users' information, one by one, in the **Add users** section. Here you will see text fields to add the users' information one by one.
+
+<img src="/images/vars-save.png" alt="Add users manually" />
+
+### Add users by uploading a CSV file
+
+We upload a CSV file with the users' information. In this case, the CSV file must have the following structure:
+
+|cellphone   | country_code | customer_name   | email           | last_purchase_date |
+|------------|--------------|-----------------|-----------------|-------------------|
+|1234567     | 58           | John            | john@gmail.com  | 2024-01-01        |
+|1234568     | 58           | Mary            | mary@gmail.com  | 2024-02-01        |
+|1234569     | 58           | Peter           | peter@gmail.com | 2024-03-01        |
+
+<Warning>Note that the column names must correspond to the variable names we defined in the conversation flow. <u>Customer name</u> must correspond to `customer_name`, <u>Email</u> must correspond to `email`, and <u>Last purchase date</u> must correspond to `last_purchase_date`. If they don't match, the conversation won't be sent correctly.</Warning>
+
+<a class="article-link" href="/en/docs/main-platform/send-convo#send-conversation-by-uploading-csv-file"><p>How to upload a CSV file?</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+
+## Variables in templates (HSMs)
+
+The way variables are defined in templates (HSMs) is identical to how they are defined in blocks. In templates, variables are also defined using the format `{{variable_name}}` and are created as part of the template content.
+
+<Card 
+    title="Create templates (HSMs) with variables" 
+    icon="paper-plane"
+    href="/en/docs/meta/hsm-templates#customize-hsm-templates-with-variables"
+>
+    Learn how to create variables in templates (HSMs).
+</Card>
+
+## Variables to get customer information
+
+Perfect, we now know how to create variables in Treble and fill them with our information. But how can we get information from the customer?
+
+To get information from the customer, we can access the advanced configuration of blocks to <u>save the customer's response as a variable</u>. To do this, just double-click on the block where you want to save the customer's response as a variable and then click on the **Save response as variable** button. Here you will see a field to add the variable name and you can choose the type of variable you want to save:
+
+- **Text**: Saves the entire customer response as text.
+- **Number**: Only saves the numerical part of the customer's response. For example, if the customer responds "hello my number is: 12345", the variable will save "12345".
+- **Image**: If the customer sends an image, the variable will save the image URL.
+- **Email**: Saves the customer's email. If the customer doesn't provide an email, the variable will save an empty/null value.
+- **Video**: Saves the URL of the customer's video.
+- **Location**: Saves the customer's location by creating two variables: `latitude` and `longitude`.
+- **Postal code**: Saves the customer's postal code.
+- **Contact**: Saves the customer's phone number.
+
+<img src="/images/save-text.gif" alt="Save response as variable" />
+
+In this case, we saved the customer's response to the welcome block as the variable `help_type` and specified that the variable type is `TEXT`.
+
+Additionally, we can also configure the block to save the customer's response as a variable when the block is an options list. In this case, the variable will be saved as the value of the option selected by the customer. In this case, the variable type will always be `TEXT`.
+
+<img src="/images/save-options.gif" alt="Save response as variable" />
+
+In this case, we saved the customer's response to the options list block as the variable `customer_resp`.
+
+## Using obtained variables
+
+Now that we have saved the customer's response as a variable, how can we use that information in our conversation flow? Since we have created the variables `help_type` and `customer_resp`, we can use these variables in any block of our conversation flow. We just need to add them in the block where we want to use the information with their format: `{{help_type}}` or `{{customer_resp}}`.
+
+<img src="/images/use-vars.png" alt="Use variables" />
+
+Note how:
+- 🟡 `{{help_type}}` is used in the welcome block to show the customer's response. Represented by the yellow arrow.
+- 🟢 `{{customer_resp}}` is used in the options list block to show the customer's response. Represented by the green arrow.
+- 🔴 `{{customer_name}}` we use this variable again in the next block to show the customer's name. We will fill this variable with information from our information system.
+
+<div class="hr"></div>
+
+## Next steps
+
+<CardGroup cols={2}>
+    <Card 
+        title="Create your first outbound conversation" 
+        icon="check"
+        href="/en/docs/intro-to-treble/outbound-convo"
+    >
+        Create and send your first outbound conversation in Treble.
+    </Card>
+    <Card 
+        title="Create your first template (HSM)" 
+        icon="code"
+        href="/en/docs/meta/hsm-templates"
+    >
+        Create your first template (HSM) in Treble.
+    </Card>
+</CardGroup> 

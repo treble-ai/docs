@@ -70,7 +70,7 @@ def generate_updates_prompt(modified_files: List[str]) -> str:
 
 The following files in the /es folder have been modified. Please update their corresponding files in the /en and /pt folders to reflect these changes. Make sure:
 
-1. Only translate the modified content, keeping the rest of the file unchanged
+1. Only translate the modified content, keeping the rest of the file unchanged, if parts of the file have already been translated, only translate the modified parts
 2. Maintain the same structure and formatting as the Spanish version
 3. For the translation, make sure internal links like images are kept but internal links that reference other sub-links of the same language are translated
 4. Do not add or remove any content that wasn't modified in the Spanish version

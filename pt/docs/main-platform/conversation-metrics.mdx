@@ -1,0 +1,171 @@
+---
+title: "Métricas de Conversação"
+description: "Aprenda a entender os resultados das suas conversas através da seção de métricas de conversação."
+---
+
+## Métricas de Conversação
+
+Depois de criar uma conversação, seja inbound ou outbound, você provavelmente vai querer saber como ela está funcionando. Para isso, o Treble oferece uma série de métricas que permitirão entender os resultados das suas conversas. Você pode acessar as métricas de uma conversação de duas maneiras:
+
+1. **Acessar da visualização de todas as suas conversas**: Na visualização de todas as suas conversas, você pode clicar no botão **Métricas** <Icon icon="chart-simple" iconType="solid" /> para acessar as métricas da conversação.
+2. **Acessar do editor de conversação**: No editor de uma conversação, você pode clicar no botão **Métricas** <Icon icon="chart-simple" iconType="solid" /> para acessar as métricas da conversação.
+3. **Depois de fazer um envio de conversação**: Depois de fazer um envio de conversação, você pode clicar no botão **Ver resultados** <Icon icon="chart-simple" iconType="solid" /> para acessar as métricas da conversação.
+
+<img src="/images/view-metrics.gif" alt="Métricas de conversação" />
+
+Vamos entender cada uma das métricas que você pode ver na seção de métricas de conversação.
+
+## Seção de Resumo
+
+A seção de resumo permite ver um resumo das métricas da conversação. Você pode ver o número de conversas enviadas, recebidas, falhas e bem-sucedidas. Vamos entender cada uma dessas métricas.
+
+<img src="/images/summary.png" alt="Métricas de conversação" />
+
+### Total de Usuários
+
+Mostra o número total de usuários para os quais se tentou fazer um envio da conversação <u>para a versão atual da conversação</u>. Mais adiante, explicaremos as versões de conversação.
+
+### Mensagens Enviadas
+
+Mostra o número total de conversas que foram enviadas com sucesso aos usuários.
+
+### Em Processo
+
+Mostra o número total de conversas que estão sendo processadas. Por que pode estar em processo? Uma conversação pode estar em processo por várias razões:
+
+- A conversação ainda não foi enviada e o Treble continua tentando enviar a conversação.
+- O Treble comunicou ao WhatsApp através da API para realizar um envio da conversação, mas o WhatsApp ainda não realizou o envio.
+- O usuário está com o celular desligado ou sem conexão com a internet e o WhatsApp não conseguiu enviar a conversação.
+
+O Treble tenta processar os envios de uma conversação da forma mais eficiente e rápida possível. No entanto, se você fizer um envio de uma conversação para um grande número de usuários, o Treble pode levar alguns minutos para processar o envio da conversação, por isso é normal ver esta métrica em processo.
+
+Se você acha que uma conversação está demorando muito para ser processada, por favor não hesite em nos contatar através do nosso chat de suporte.
+
+### Falha no Envio
+
+Mostra o número total de conversas que falharam ao serem enviadas aos usuários. Por que pode falhar? Uma conversação pode falhar por várias razões:
+
+- O usuário não tem WhatsApp instalado.
+- O usuário bloqueou a linha de WhatsApp pela qual se tenta enviar a conversação.
+- O número de celular do usuário não é válido.
+- O usuário tem uma conversação aberta com agentes e este tipo de conversação tem prioridade sobre novos envios.
+
+Estas são algumas das razões mais comuns pelas quais uma conversação pode falhar. No entanto, abaixo você pode encontrar mais informações sobre todas as possíveis razões pelas quais uma conversação pode falhar.
+
+#### Estados de Envio
+
+<img src="/images/deploy-states.png" alt="Estados de envio" />
+
+<AccordionGroup>
+  <Accordion title="Entregue">
+    A conversação foi enviada com sucesso aos usuários.
+  </Accordion>
+  <Accordion title="Em Processo">
+    A conversação está sendo processada.
+  </Accordion>
+  <Accordion title="Sessão Ativa com Agentes">
+    A conversação não foi enviada porque o usuário tem uma sessão ativa com um agente. O Treble dá prioridade às conversas com agentes sobre as conversas de envio. Até que o agente termine a conversação com o usuário, a conversação não poderá ser reenviada para esse usuário.
+  </Accordion>
+  <Accordion title="Erro por Bloqueio ou Versão">
+    A conversação não foi enviada porque o usuário tem o WhatsApp bloqueado. Outras razões pelas quais uma conversação pode falhar por bloqueio ou versão são:
+
+    - O usuário não aceitou os novos termos de serviço e política de privacidade
+    - O usuário está usando uma versão desatualizada do WhatsApp
+    - O usuário não tem uma conta no WhatsApp
+  </Accordion>
+  <Accordion title="Contato em Exclusão">
+    A conversação não foi enviada porque o usuário foi bloqueado previamente pela empresa através da opção de exclusão. Esta é uma "lista negra" configurável dentro do Treble para evitar que certos usuários sejam contatados.
+  </Accordion>
+  <Accordion title="Número Inválido">
+    A conversação não foi enviada porque o número de WhatsApp do usuário não é válido.
+  </Accordion>
+  <Accordion title="Houve um Problema com Algum Parâmetro">
+    Quando o HSM contém variáveis e não se consegue preencher seu valor, o envio falhará. Pode ocorrer por:
+    - A variável está mal escrita.
+    - O usuário não tem um valor dentro da propriedade.
+    - A variável não existe na integração conectada com o Treble. (HubSpot / Salesforce / etc.)
+  </Accordion>
+  <Accordion title="Erro por Template Pausado (HSM pausado)">
+    Um template (HSM) da API do WhatsApp Business pode ser pausado porque a mensagem do template associada foi marcada como de baixa qualidade pelo WhatsApp, provavelmente devido à violação de suas diretrizes de mensagem, contendo informações irrelevantes ou sendo percebida como spam pelos usuários; esta pausa impede o envio posterior desse template até que seja revisado e potencialmente editado para melhorar sua qualidade.
+
+    Pontos principais sobre a pausa do HSM:
+
+    - Classificação de Baixa Qualidade:
+    O WhatsApp avalia a qualidade dos seus templates HSM com base no feedback dos usuários e pode pausar um template se receber muitas reações negativas.
+
+    - Sistema de Notificações:
+    Quando um template é pausado, você receberá notificações através do Gerenciador de Negócios do WhatsApp, alertas por e-mail e webhooks.
+
+    - Revisão e Edição:
+    Para retomar o envio de mensagens, você precisa revisar o template pausado, identificar os problemas que causam a classificação de baixa qualidade e editar o conteúdo de acordo.
+
+    - Consequências Potenciais:
+    Templates pausados repetidamente podem ser desativados permanentemente.
+
+    O que fazer se seu HSM for pausado:
+
+    - Revisar notificações:
+    Verifique os alertas do WhatsApp para entender o motivo da pausa.
+
+    - Analisar seu template:
+    Identifique áreas onde a mensagem poderia ser melhorada em clareza e relevância.
+
+    - Editar e reenviar:
+    Modifique o conteúdo do template para abordar os problemas e reenvie para revisão.
+
+    - Consultar as diretrizes do WhatsApp:
+    Familiarize-se com as políticas de mensagem do WhatsApp para evitar problemas futuros.
+
+  </Accordion>
+  <Accordion title="Meta Decidiu Não Entregar Esta Mensagem">
+    Este novo erro ocorre quando se envia 2 ou mais templates (HSM) em um curto período para o mesmo contato sem resposta, o contato fica bloqueado para receber novos templates (HSM) por um período, e quanto mais templates (HSM) enviados com esse erro, maior é o tempo de bloqueio. A recomendação é enviar 1 template (HSM) e esperar 24 horas antes de enviar um segundo ou terceiro template (HSM).
+  </Accordion>
+  <Accordion title="Falha Geral">
+    A conversação não foi enviada devido a uma falha geral do sistema. Nestes casos, por favor entre em contato com o suporte.
+  </Accordion>
+</AccordionGroup>
+
+### Entregue
+
+Mostra o número total de conversas que foram enviadas com sucesso aos usuários.
+
+### Respostas
+
+Mostra o número total de respostas que foram recebidas dos usuários à primeira mensagem da conversação. No caso de uma conversação outbound, esta métrica permitirá entender quantos usuários responderam ao template (HSM) da conversação.
+
+### Taxa de Resposta
+
+Mostra a porcentagem de respostas que foram recebidas dos usuários à primeira mensagem da conversação. No caso de uma conversação outbound, esta métrica permitirá entender quantos usuários responderam ao template (HSM) da conversação.
+
+Ou seja, a taxa de resposta é calculada como:
+
+```
+Taxa de resposta = (Respostas à primeira mensagem / Total de usuários enviados com sucesso) * 100
+```
+
+## Seção de Usuários Individuais
+
+<img src="/images/cellphones-section.png" alt="Métricas de conversação" />
+
+Nesta seção, você pode ver informações de cada usuário individual para o qual se tentou fazer um envio da conversação. Você encontrará informações como:
+
+- **Celular**: O número de WhatsApp do usuário.
+- **Data do Envio**: Data em minutos desde que a conversação foi enviada.
+- **Estado do Envio**: Estado do envio da conversação. Estes são os estados de envio mencionados anteriormente.
+- **Etapa da Conversação**: Se o usuário respondeu à conversação mas não a finalizou, será mostrada a etapa "No Fluxo". Se o usuário finalizou a conversação, será mostrada a etapa "Finalizada".
+- **Última Atividade**: Data em minutos desde que o usuário realizou alguma ação na conversação.
+- **Variáveis**: Variáveis que foram preenchidas na conversação. Se sua conversação manipulou variáveis na hora de ser enviada, ou se sua conversação tem variáveis para capturar respostas no fluxo, serão mostradas as variáveis que foram preenchidas. Role para a direita para ver as variáveis.
+
+<img src="/images/scroll-vars.gif" alt="Métricas de conversação" />
+
+### Histórico de Conversação de um Usuário
+
+Na seção de usuários individuais, você pode clicar no número de celular do usuário para ver o histórico da conversação desse usuário.
+
+<img src="/images/see-history.gif" alt="Ver histórico de conversação" />
+
+Finalmente, você encontrará filtros para poder filtrar os usuários que deseja ver na seção de usuários individuais. Estes são os filtros que você pode usar:
+
+- **Estado do Envio**: Filtra os usuários por estado de envio.
+- **Etapa da Conversação**: Filtra os usuários por etapa da conversação.
+- **Estado da Sessão**: Filtra os usuários por estado da sessão. 

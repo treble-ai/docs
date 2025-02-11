@@ -84,6 +84,7 @@
                                         "pages": [
                                             "es/docs/main-platform/welcome",
                                             "es/docs/main-platform/send-convo",
+                                            "es/docs/main-platform/conversation-metrics",
                                             "es/docs/main-platform/whatsapp-links"
                                         ]
                                     },
@@ -203,6 +204,7 @@
                                         "group": "Main Platform",
                                         "pages": [
                                             "en/docs/main-platform/welcome",
+                                            "en/docs/main-platform/conversation-metrics",
                                             "en/docs/main-platform/send-convo",
                                             "en/docs/main-platform/whatsapp-links"
                                         ]
@@ -323,6 +325,7 @@
                                         "group": "Plataforma Principal",
                                         "pages": [
                                             "pt/docs/main-platform/welcome",
+                                            "pt/docs/main-platform/conversation-metrics",
                                             "pt/docs/main-platform/send-convo",
                                             "pt/docs/main-platform/whatsapp-links"
                                         ]

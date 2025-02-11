@@ -1,0 +1,171 @@
+---
+title: "Conversation Metrics"
+description: "Learn to understand your conversation results through the conversation metrics section."
+---
+
+## Conversation Metrics
+
+Once you've created a conversation, whether inbound or outbound, you'll likely want to know how it's performing. For this, Treble offers a series of metrics that will help you understand your conversation results. You can access a conversation's metrics in two ways:
+
+1. **Access from the view of all your conversations**: In the view of all your conversations, you can click on the **Metrics** button <Icon icon="chart-simple" iconType="solid" /> to access the conversation metrics.
+2. **Access from the conversation editor**: In the conversation editor, you can click on the **Metrics** button <Icon icon="chart-simple" iconType="solid" /> to access the conversation metrics.
+3. **After sending a conversation**: After sending a conversation, you can click on the **View results** button <Icon icon="chart-simple" iconType="solid" /> to access the conversation metrics.
+
+<img src="/images/view-metrics.gif" alt="Conversation metrics" />
+
+Let's understand each of the metrics you can see in the conversation metrics section.
+
+## Summary Section
+
+The summary section allows you to see a summary of the conversation metrics. You can see the number of conversations sent, received, failed, and successful. Let's understand each of these metrics.
+
+<img src="/images/summary.png" alt="Conversation metrics" />
+
+### Total Users
+
+Shows the total number of users who have been attempted to deploy the conversation <u>for the current version of the conversation</u>. Later, we'll explain conversation versions.
+
+### Messages Sent
+
+Shows the total number of conversations that were successfully sent to users.
+
+### In Process
+
+Shows the total number of conversations that are being processed. Why might it be in process? A conversation can be in process for several reasons:
+
+- The conversation hasn't been sent yet and Treble is still trying to send the conversation.
+- Treble has communicated to WhatsApp through the API to send the conversation, but WhatsApp hasn't sent it yet.
+- The user's phone is turned off or without internet connection, and WhatsApp hasn't been able to send the conversation.
+
+Treble tries to process conversation deployments in the most efficient and quick way possible. However, if you send a conversation to a large number of users, Treble may take a few minutes to process the conversation deployment, so it's normal to see this metric in process.
+
+If you think a conversation has taken too long to process, please don't hesitate to contact us through our support chat.
+
+### Send Failure
+
+Shows the total number of conversations that have failed to be sent to users. Why might it fail? A conversation can fail for several reasons:
+
+- The user doesn't have WhatsApp installed.
+- The user has blocked the WhatsApp line through which the conversation is being sent.
+- The user's phone number is invalid.
+- The user has an open conversation with agents, and these types of conversations have priority over new sends.
+
+These are some of the most common reasons why a conversation might fail. However, below you can find more information about all possible reasons why a conversation might fail.
+
+#### Deployment States
+
+<img src="/images/deploy-states.png" alt="Deployment states" />
+
+<AccordionGroup>
+  <Accordion title="Delivered">
+    The conversation has been successfully sent to users.
+  </Accordion>
+  <Accordion title="In Process">
+    The conversation is being processed.
+  </Accordion>
+  <Accordion title="Active Session with Agents">
+    The conversation wasn't sent because the user has an active session with an agent. Treble prioritizes conversations with agents over deployment conversations. Until the agent ends the conversation with the user, the conversation cannot be resent for that user.
+  </Accordion>
+  <Accordion title="Error due to Block or Version">
+    The conversation wasn't sent because the user has WhatsApp blocked. Other reasons why a conversation might fail due to block or version are:
+
+    - The user hasn't accepted the new terms of service and privacy policy
+    - The user is using an outdated version of WhatsApp
+    - The user doesn't have a WhatsApp account
+  </Accordion>
+  <Accordion title="Contact in Exclusion">
+    The conversation wasn't sent because the user was previously blocked by the company through the exclusion option. This is a configurable "blacklist" within Treble to prevent certain users from being contacted.
+  </Accordion>
+  <Accordion title="Invalid Number">
+    The conversation wasn't sent because the user's WhatsApp number is invalid.
+  </Accordion>
+  <Accordion title="There was a Problem with a Parameter">
+    When the HSM contains variables and their value cannot be filled, the send will fail. This can occur because:
+    - The variable is misspelled.
+    - The user doesn't have a value within the property.
+    - The variable doesn't exist in the integration connected with Treble. (HubSpot / Salesforce / etc.)
+  </Accordion>
+  <Accordion title="Error due to Paused Template (HSM paused)">
+    A WhatsApp Business API template (HSM) can be paused because the associated template message has been marked as low quality by WhatsApp, likely due to violation of their messaging guidelines, containing irrelevant information, or being perceived as spam by users; this pause prevents further sending of that template until it's reviewed and potentially edited to improve its quality.
+
+    Key points about HSM pause:
+
+    - Low Quality Rating:
+    WhatsApp evaluates the quality of your HSM templates based on user feedback and can pause a template if it receives too many negative reactions.
+
+    - Notification System:
+    When a template is paused, you'll receive notifications through the WhatsApp Business Manager, email alerts, and webhooks.
+
+    - Review and Edit:
+    To resume sending messages, you need to review the paused template, identify the issues causing the low quality rating, and edit the content accordingly.
+
+    - Potential Consequences:
+    Repeatedly paused templates could be permanently disabled.
+
+    What to do if your HSM is paused:
+
+    - Review notifications:
+    Check WhatsApp alerts to understand the reason for the pause.
+
+    - Analyze your template:
+    Identify areas where the message could be improved in clarity and relevance.
+
+    - Edit and resubmit:
+    Modify the template content to address the issues and resubmit it for review.
+
+    - Consult WhatsApp guidelines:
+    Familiarize yourself with WhatsApp's messaging policies to avoid future issues.
+
+  </Accordion>
+  <Accordion title="Meta Decided Not to Deliver This Message">
+    This new error occurs when sending 2 or more templates (HSM) in a short period to the same contact without response, the contact becomes blocked from receiving new templates (HSM) for a period, and the more templates (HSM) sent with this error, the longer the blocking time. The recommendation is to deploy 1 template (HSM) and wait 24 hours before sending a second or third template (HSM).
+  </Accordion>
+  <Accordion title="General Failure">
+    The conversation wasn't sent due to a general system failure. In these cases, please contact support.
+  </Accordion>
+</AccordionGroup>
+
+### Delivered
+
+Shows the total number of conversations that have been successfully sent to users.
+
+### Responses
+
+Shows the total number of responses that have been received from users to the first message of the conversation. In the case of an outbound conversation, this metric will help you understand how many users have responded to the conversation's template (HSM).
+
+### Response Rate
+
+Shows the percentage of responses that have been received from users to the first message of the conversation. In the case of an outbound conversation, this metric will help you understand how many users have responded to the conversation's template (HSM).
+
+That is, the response rate is calculated as:
+
+```
+Response rate = (Responses to first message / Total users successfully sent) * 100
+```
+
+## Individual Users Section
+
+<img src="/images/cellphones-section.png" alt="Conversation metrics" />
+
+In this section, you can see information for each individual user who has been attempted to deploy the conversation. You'll find information such as:
+
+- **Phone**: The user's WhatsApp number.
+- **Deployment Date**: Date in minutes since the conversation was sent.
+- **Deployment Status**: Status of the conversation deployment. These are the deployment states mentioned above.
+- **Conversation Stage**: If the user responded to the conversation but hasn't finished it, the "In Flow" stage will be shown. If the user finished the conversation, the "Finished" stage will be shown.
+- **Last Activity**: Date in minutes since the user performed any action in the conversation.
+- **Variables**: Variables that have been filled in the conversation. If your conversation handled variables when being sent, or if your conversation has variables to capture responses in the flow, the filled variables will be shown. Scroll right to see the variables.
+
+<img src="/images/scroll-vars.gif" alt="Conversation metrics" />
+
+### User Conversation History
+
+In the individual users section, you can click on the user's phone number to see that user's conversation history.
+
+<img src="/images/see-history.gif" alt="View conversation history" />
+
+Finally, you'll find filters to filter the users you want to see in the individual users section. These are the filters you can use:
+
+- **Deployment Status**: Filter users by deployment status.
+- **Conversation Stage**: Filter users by conversation stage.
+- **Session Status**: Filter users by session status. 

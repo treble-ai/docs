@@ -52,7 +52,16 @@
                                         "pages": [
                                             "es/docs/meta/overview",
                                             "es/docs/meta/wa-wabiz-api",
-                                            "es/docs/meta/connect-line",
+                                            {
+                                                "group": "Conectar línea de WhatsApp",
+                                                "pages": [
+                                                    "es/docs/meta/guide/welcome",
+                                                    "es/docs/meta/guide/preparing-website",
+                                                    "es/docs/meta/guide/business-manager",
+                                                    "es/docs/meta/guide/meta-verification",
+                                                    "es/docs/meta/guide/whatsapp-number"
+                                                ]
+                                            },
                                             "es/docs/meta/hsm-templates",
                                             "es/docs/meta/green-check"
                                         ]

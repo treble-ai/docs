@@ -155,8 +155,14 @@ Te saldrá un formulario para que inicies el proceso de conexión de WABA. Has c
     2. **Nombre para mostrar en el chat de WhatsApp**: Este es el nombre que se verá en el chat de WhatsApp. Te recomendamos que uses el nombre de tu negocio. Ejemplo: **"Felipe's Chocolates"**.
 
     <Warning>
-        El nombre a mostrar en el chat de WhatsApp debe cumplir con las políticas de Meta. Para conocer más sobre las políticas de Meta, puedes visitar el siguiente enlace: <a class="article-link" target="_blank" href="https://www.facebook.com/business/help/757569725593362"><p>Políticas de Meta</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+        **IMPORTANTE EN CASO DE MIGRAR UNA LÍNEA EXISTENTE DESDE OTRO PROVEEDOR**: Si estas migrando una línea existente de WhatsApp Business API de otro proveedor a Treble.ai, <u>el nombre para mostrar en el chat de WhatsApp debe ser el mismo que ya estás usando en el otro proveedor</u>. Si no usas el mismo nombre, Meta te va a generar un error y no podrás continuar con el proceso de conexión de la línea.
+
+        Podrás cambiar el nombre para mostrar en el chat de WhatsApp después de que hayas logrado conectar la línea a Treble.ai.
     </Warning>
+
+    <Note>
+        El nombre a mostrar en el chat de WhatsApp debe cumplir con las políticas de Meta. Para conocer más sobre las políticas de Meta, puedes visitar el siguiente enlace: <a class="article-link" target="_blank" href="https://www.facebook.com/business/help/757569725593362"><p>Políticas de Meta</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+    </Note>
 
     3. **Categoría de tu negocio**: Escoge la categoría de tu negocio. Si no encuentras la categoría que buscas, puedes seleccionar **"Servicios Profesionales"**.
 
@@ -169,10 +175,36 @@ Te saldrá un formulario para que inicies el proceso de conexión de WABA. Has c
   </Step>
   <Step title="Enviar código de verificación">
     Una vez que hayas agregado el número de teléfono, escribe el código de verificación que recibiste en el teléfono y has click en el botón **Enviar código de verificación**.
+  </Step>
+  <Step title="Finalizar configuración de tu línea">
+    Una vez que hayas agregado el número de teléfono con el código de verificación, Treble te mostrará ésta última vista donde debes escoger la línea telefónica que acabas de configurar de una lista de opciones. (<u>Si tu línea no está en la lista de opciones, revisa el paso siguiente</u>). Has click en el dropwdown para seleccionar la línea telefónica que acabas de configurar, y luego has click en el botón **Desplegar ahora**.
+
+    <img src="/images/last-step.png" alt="Agregar un bloque de mensaje" />
 
     <Check>¡Éxito! Tu línea telefónica se ha conectado a Treble.ai. Ya puedes volver a la plataforma de Treble.ai y empezar a utilizar tu número de WhatsApp Business API.</Check>
   </Step>
 </Steps>
+
+### Mi línea no está en la lista de opciones del último paso
+
+Si tu línea no está en la lista de opciones del último paso, significa que Meta no ha aceptado aún el nombre de tu cuenta de WhatsApp, también conocido como **Nombre para mostrar en el chat de WhatsApp** (Display Name). Para solucionar este problema, debes esperar a que Meta acepte el nombre de tu cuenta de WhatsApp. Para ello, puedes seguir los siguientes pasos:
+
+1. **IMPORTANTE**: Debes ahora cerrar la pestaña de Treble.ai, volveremos a ella más adelante.
+2. Ingresa a Meta Business Manager por medio de la siguiente URL: <a class="article-link" target="_blank" href="https://business.facebook.com/"><p>https://business.facebook.com/</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+3. Busca la opción de WhatsApp Business Manager accediendo a: **Configuración** <Icon icon="gear" iconType="solid" /> en el menú de la izquierda, luego busca **Cuentas** y en cuentas seleccionas la opción **Cuentas de WhatsApp**.
+4. Has click en **WhatsApp Business Manager** de la cuenta de WhatsApp que actualmente tiene asociada tu linea.
+5. Meta te mostrará los números de teléfono asociados a tu cuenta de WhatsApp. Busca el número de teléfono que acabas de configurar y verifica que abajo del nombre de la cuenta de WhatsApp (Display Name), haya un texto que diga **"Nombre visible a clientes"**. Adicionalmente, verás un cuadro en la parte superior de la pantalla que dirá: **Felicidades! Tu nombre de tu cuenta de WhatsApp ha sido aprobado**.
+
+<img src="/images/display-name-approved.png" alt="Display Name" />
+
+6. Si el nombre de tu cuenta de WhatsApp no está visible a clientes, debes esperar a que Meta acepte el nombre de tu cuenta de WhatsApp. Este proceso puede durar hasta 2 horas. Puedes revisar el estado de la aprobación del nombre de tu cuenta de WhatsApp refrescando la página de Meta Business Manager.
+
+<img src="/images/display-name.png" alt="Display Name" />
+
+7. Una vez que Meta haya aprobado el nombre de tu cuenta de WhatsApp, puedes volver a Treble.ai y seleccionar tu línea telefónica en la lista de opciones.
+8. Has logout de Treble.ai, regresa a la página para hacer login de nuevo, y antes de hacer login, asegurate de que hayas borrado la cache de Treble.ai <a class="article-link" target="_blank" href="https://support.google.com/chrome/answer/95647?hl=es-419&co=GENIE.Platform%3DDesktop#zippy=%2Cc%C3%B3mo-borrar-cookies-de-un-sitio"><p>Cómo borrar caché de un sitio</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>. Has login después de haber borrado la cache y la vista donde te muestra las líneas telefónicas te volverá a aparecer. Selecciona la línea telefónica que acabas de configurar y has click en el botón **Desplegar ahora**.
+
+<Check>¡Éxito! Al seleccionar tu línea telefónica en la lista de opciones y hacer click en **Desplegar ahora** has logrado conectar tu línea a Treble.ai. </Check>
 
 ## Configurar el perfil de tu línea WhatsApp Business API
 

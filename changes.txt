@@ -1,0 +1,44 @@
+Prompt for Creating New Files:
+================================================================================
+The current project is a documentation aimed at creating a knowledge base of the treble.ai SaaS B2B product. We want to maintain accuracy and consistency for the documentation that is available in 3 languages. The source of truth is the /es folder.
+
+For the following list of files, create their relevant files translated into the appropriate languages in the /en and /pt folders. Make sure:
+
+1. DO NOT create other new files different from the ones in the difference
+2. KEEP the filename and structure
+3. For the translation, make sure internal links like images are kept but internal links that reference other sub-links of the same language are translated
+4. Translate each file, but strictly do not add any new additional content. Content must be preserved, just translated.
+
+Files to process:
+- es/docs/meta/guide/business-manager.mdx found, not created in /en or /pt
+- es/docs/meta/guide/whatsapp-number.mdx found, not created in /en or /pt
+- es/docs/integrations/hubspot/install.mdx found, not created in /en or /pt
+- es/docs/meta/guide/preparing-website.mdx found, not created in /en or /pt
+- es/docs/integrations/hubspot/blocks/human-transfer.mdx found, not created in /en or /pt
+- es/docs/integrations/hubspot/features/deploy.mdx found, not created in /en or /pt
+- es/docs/integrations/hubspot/blocks/conditional.mdx found, not created in /en or /pt
+- es/docs/integrations/hubspot/whatsapp-in-hubspot.mdx found, not created in /en or /pt
+- es/docs/meta/guide/meta-verification.mdx found, not created in /en or /pt
+- es/docs/integrations/hubspot/features/workflows.mdx found, not created in /en or /pt
+- es/docs/integrations/hubspot/blocks/ticket.mdx found, not created in /en or /pt
+- es/docs/integrations/hubspot/features/variables.mdx found, not created in /en or /pt
+- es/docs/integrations/hubspot/blocks/crm-action.mdx found, not created in /en or /pt
+- es/docs/meta/guide/welcome.mdx found, not created in /en or /pt
+
+================================================================================
+
+Prompt for Updating Modified Files:
+================================================================================
+The current project is a documentation aimed at creating a knowledge base of the treble.ai SaaS B2B product. We want to maintain accuracy and consistency for the documentation that is available in 3 languages. The source of truth is the /es folder.
+
+The following files in the /es folder have been modified. Please update their corresponding files in the /en and /pt folders to reflect these changes. Make sure:
+
+1. Only translate the modified content, keeping the rest of the file unchanged, if parts of the file have already been translated, only translate the modified parts
+2. Maintain the same structure and formatting as the Spanish version
+3. For the translation, make sure internal links like images are kept but internal links that reference other sub-links of the same language are translated
+4. Do not add or remove any content that wasn't modified in the Spanish version
+
+Modified files to process:
+- es/docs/integrations/hubspot/welcome.mdx
+
+================================================================================

@@ -1,0 +1,74 @@
+---
+title: "Bloque Condicional"
+description: "El bloque condicional te permite tomar decisiones en función de las respuestas del usuario para dirigir el flujo de una conversación de Treble. Esta guía te muestra cómo utilizar este bloque en función de la integración con HubSpot."
+---
+
+# Bloque Condicional
+
+El bloque condicional es un bloque extremadamente útil para dirigir el flujo de una conversación de Treble en función de las respuestas del usuario. Este bloque te permite evaluar una expresión y tomar decisiones en función de si la expresión es verdadera o falsa o si cumple con ciertas condiciones.
+
+## Antes de empezar
+
+Los bloques condicionales utilizan _variables_ de Treble para evaluar las condiciones. Antes de empezar, asegúrate de que tienes claro cómo funcionan las variables de Treble. Si no lo tienes claro, puedes leer nuestra guía sobre variables de Treble aquí: <a class="article-link" href="/es/docs/build-with-treble/features/variables"><p>Variables de Treble</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+
+Adicionalmente, en el contexto de la integración con HubSpot, los bloques condicionales utilizan las propiedades de los contactos de HubSpot para evaluar las condiciones. Si no tienes claro cómo funcionan las propiedades de los contactos de HubSpot, puedes leer nuestra guía sobre variables relacionadas a los contactos de HubSpot aquí: <a class="article-link" href="/es/docs/integrations/hubspot/features/variables"><p>Variables de HubSpot en Treble</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+
+## ¿Cómo se utiliza?
+
+1. Inicia sesión en Treble.ai en: <a class="article-link" href="https://app.treble.ai"><p>app.treble.ai</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+2. Dirígete a **Crear Conversación**
+3. Has click en el botón de <Icon icon="square-plus" iconType="solid" /> para desplegar el menú de bloques
+4. Has scroll hasta encontrar el bloque de **Condiciones**
+5. Has click en el bloque de **Condiciones** para agregarlo a tu conversación
+6. Mueve el bloque de **Condiciones** a la posición que desees en tu flujo
+7. Conecta el bloque de **Condiciones** con el bloque de **Pregunta**
+
+<img src="/images/conditional-1.gif" alt="Conversación de Treble" />
+
+8. Una vez hayas agregado el bloque de **Condiciones**, has doble click en el bloque para desplegar el menú de configuración
+
+## Configuración del bloque condicional
+
+Al hacer doble click en el bloque de **Condiciones**, se desplegará el menú de configuración. En este menú, podrás configurar las condiciones que deseas evaluar. 
+1. El primer campo que vas a encontrar es el de **Condición personalizada**. Este campo te permite evaluar una expresión donde vamos a utilizar una variable de Treble y evaluarla con una condición. Por ejemplo, si queremos evaluar si el usuario es mayor de edad y tenemos una variable de Treble llamada `edad` que contiene la edad del usuario, podemos evaluar la condición `edad > 18`.
+
+<Info>En esta guía solo vamos a utilizar la condición personalizada, pero en el menú de configuración también puedes encontrar la **Condición horaria**.</Info>
+
+2. Después encontrarás la sección de **Establece condiciones**. Hay 3 elementos sobre una condición:
+    - **Variable**: La variable de Treble que vamos a evaluar.
+    - **Operador**: El operador que vamos a utilizar para evaluar la condición.
+    - **Valor**: El valor que vamos a utilizar para evaluar la condición. Aqui podemos usar un valor fijo o una variable de Treble.
+
+<img src="/images/conditional-2.gif" alt="Conversación de Treble" />
+
+### Operadores Disponibles
+
+Existen 8 operadores disponibles:
+- **Igual a**: Compara si el valor de la variable es igual al valor establecido. Por ejemplo, si la variable es igual a `18`, y el valor es `18`, la condición será verdadera.
+- **Mayor a**: Compara si el valor de la variable es mayor al valor establecido. Por ejemplo, si la variable es igual a `18`, y el valor es `17`, la condición será <u>falsa</u>.
+- **Contiene**: Compara si el valor de la variable contiene el valor establecido. Por ejemplo, si la variable es igual a `peras, manzanas, cerezas`, y el valor es `manzanas`, la condición será verdadera.
+- **Menor a**: Compara si el valor de la variable es menor al valor establecido. Por ejemplo, si la variable es igual a `18`, y el valor es `17`, la condición será verdadera.
+- **Menor o igual a**: Compara si el valor de la variable es menor o igual al valor establecido. Por ejemplo, si la variable es igual a `18`, y el valor es `18`, la condición será verdadera.
+- **Mayor o igual a**: Compara si el valor de la variable es mayor o igual al valor establecido. Por ejemplo, si la variable es igual a `18`, y el valor es `19`, la condición será verdadera.
+- **Diferente a**: Compara si el valor de la variable es diferente al valor establecido. Por ejemplo, si la variable es igual a `18`, y el valor es `19`, la condición será verdadera.
+- **No contiene**: Compara si el valor de la variable no contiene el valor establecido. Por ejemplo, si la variable es igual a `peras, manzanas, cerezas`, y el valor es `manzanas`, la condición será <u>falsa</u>.
+
+Estos operadores en conjunto con poder utilizar variables de HubSpot dentro de Treble y poder capturar las respuestas de los usuarios en variables de Treble, nos permite crear flujos muy complejos y personalizados.
+
+## Casos de uso
+
+**¿En qué momento usarlas?** Las condiciones son muy útiles cuando quieres crear dos caminos diferentes en tu conversación según una variable específica. 
+
+**Ejemplo:** Si operamos en varios países, podemos usar condiciones para dirigir automáticamente al cliente con el agente que atiende su país de residencia.
+
+<img src="/images/conditional-3.gif" alt="Conversación de Treble" />
+
+Nota como en el ejemplo, estamos revisando si el pais del usuario es igual a `Colombia` y si es así, se dirige al agente de Colombia. Para esto estamos usando directamente la variable de HubSpot `hubspot_country` y el operador `Igual a`. Dado que la variable `hubspot_country` contiene el país del usuario, la condición será verdadera si el país del usuario es Colombia y falsa en caso contrario.
+
+<img src="/images/conditional-4.png" alt="Conversación de Treble" />
+
+## Casos Avanzados
+
+En el ejemplo anterior, estuvimos utlizando una variable de HubSpot para evaluar la condición con respecto al pais del usuario y solo teniamos dos caminos posibles. Sin embargo, en muchas ocasiones queremos evaluar múltiples condiciones y tener múltiples caminos posibles. Para esto, podemos utilizar múltiples condiciones. Al hacer click en el bloque de **Condiciones**, puedes ver que hay un botón de **Agregar condición** que te permite agregar múltiples condiciones.
+
+<img src="/images/conditional-5.gif" alt="Conversación de Treble" />

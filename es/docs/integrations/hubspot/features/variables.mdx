@@ -1,0 +1,77 @@
+---
+title: "Variables"
+description: "Esta guía te muestra cómo poder actualizar y usar propiedades de tus contactos de HubSpot dentro de tus conversaciones de Treble. Esto te permitirá crear conversaciones más personalizadas y automatizadas."
+---
+
+# Variables - Actualizar Propiedades en HubSpot a través de una Conversación de Treble
+
+Por medio de la integración de Treble con HubSpot, puedes actualizar y usar propiedades de tus contactos de HubSpot dentro de tus conversaciones de Treble. Miremos un ejemplo para entender cómo funciona. Supongamos que tienes la siguiente conversación en Treble:
+
+<img src="/images/variables-1.png" alt="Conversación de Treble" />
+
+En esta conversación estás pidiendo algunos datos: el nombre y el correo. A través de la integración Treble-HubSpot, podemos guardar las respuestas de los clientes dentro de variables de HubSpot.
+
+Para guardar una respuesta, haz doble clic en el cuadro de texto y selecciona "Guardar Respuesta"
+
+<img src="/images/variables-2.gif" alt="Conversación de Treble" />
+
+Luego debes seleccionar el "tipo de respuesta" según lo que esperas recibir del cliente. En el campo "nombre de la variable" debes colocar el nombre interno de la propiedad.
+
+<img src="/images/variables-3.gif" alt="Conversación de Treble" />
+
+El "Nombre de la variable" es el prefijo `hubspot_` seguido del nombre interno de la propiedad en HubSpot. Por ejemplo, si el nombre interno de la propiedad es `name`, el nombre de la variable será `hubspot_name`.
+
+## Valor Interno de la Variable - Propiedad de HubSpot
+
+**¿Qué es el valor interno de propiedades?** Es el valor que Treble utiliza para identificar dónde debe buscar y/o almacenar información en HubSpot.
+
+Para poder buscar el valor de una propiedad, sigue los siguientes pasos:
+
+1. Accede e inicia sesión en HubSpot
+2. Haz clic en el botón de Configuración <Icon icon="gear" /> en la esquina superior derecha dentro
+3. Has scroll en el panel de la izquierda hasta encontrar la sección de "Manejo de datos"
+4. Selecciona "Propiedades"
+5. En propiedades, puedes buscar el valor de la propiedad por medio del nombre interno de la propiedad. En este ejemplo, estamos buscando el valor de la propiedad `country`.
+6. Has click en la propiedad que quieres buscar. 
+
+<img src="/images/variables-4.gif" alt="Conversación de Treble" />
+
+Vas a encontrar el valor de la propiedad en la sección de "Nombre interno"
+
+<img src="/images/variables-5.png" alt="Conversación de Treble" />
+
+Como puedes ver, el valor interno de la propiedad `country` es `country`. Por lo tanto, si deseas hacer cambios en el pais de un contacto de HubSpot por medio de sus respuesta en una conversación de Treble, el nombre de la variable será `hubspot_country`.
+
+Aunque en este ejemplo, el valor interno de la propiedad es el mismo que el nombre de la propiedad, esto no siempre será el caso. Por ejemplo, para la propiedad `firstname` el nombre interno de la propiedad es `first_name`. Por lo tanto, el nombre de la variable para usar en Treble será `hubspot_first_name`.
+
+<Check>
+    ¡Perfecto! Ya sabes ahora como usar variables de HubSpot dentro de tus conversaciones de Treble. De esta forma, cuando el cliente pase por este bloque y responda la pregunta que deseas guardar, la respuesta quedará reflejada en su contacto dentro de HubSpot. 
+</Check>
+
+<Info>
+    Treble únicamente puede guardar información dentro de propiedades de contacto.
+</Info>
+
+## ¿Cómo puedo usar las variables de HubSpot en mis conversaciones?
+
+Dado que ya conoces la estructura de las variables de Treble relacionadas con HubSpot, puedes tambien usar estas variables en cualquier bloque de tu conversación para usar la información que ya tienes en HubSpot. Por ejemplo, supongamos que tienes el siguiente Contacto en HubSpot:
+
+| Propiedad | Valor | Nombre Interno (HubSpot) |
+| --------- | ----- | ------------- |
+| Nombre | Juan | first_name |
+| Celular | 3123456789 | phone |
+| Fecha última compra | 2025-03-28 | last_purchase_date |
+
+Podamos usar las propiedades de este contacto en cualquier bloque de tu conversación. Por ejemplo, puedes usar la propiedad `first_name` para saludar al cliente por su nombre. Adicionalmente, puedes usar la propiedad `last_purchase_date` para preguntarle sobre su última compra. 
+
+Dado el nommbre interno de la variable de HubSpot, volvamos a revisar la tabla anterior y reemplazamos el nombre interno de la propiedad por el nombre de la variable. 
+
+| Propiedad | Valor | Nombre Interno (HubSpot) | Nombre de la Variable (Treble) |
+| --------- | ----- | ------------- | -------------------- |
+| Nombre | Juan | first_name | hubspot_first_name |
+| Celular | 3123456789 | phone | hubspot_phone |
+| Fecha última compra | 2025-03-28 | last_purchase_date | hubspot_last_purchase_date |
+
+Ahora podemos usarlas en cualquier bloque de tu conversación. Solo debemos agregarlas encapsuladas entre llaves `{{}}`. Por ejemplo, para saludar al cliente por su nombre, podemos usar la variable `{{hubspot_first_name}}`.
+
+<img src="/images/variables-6.png" alt="Conversación de Treble" />

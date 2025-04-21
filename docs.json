@@ -102,6 +102,13 @@
                                         "pages": [
                                             "es/docs/agent-platform/welcome",
                                             "es/docs/agent-platform/main-platform",
+                                            {
+                                                "group": "Administrador",
+                                                "pages": [
+                                                    "es/docs/agent-platform/admin/admin-section",
+                                                    "es/docs/agent-platform/admin/metrics"
+                                                ]
+                                            },
                                             "es/docs/agent-platform/tags-teams",
                                             "es/docs/agent-platform/mobile-app"
                                         ]

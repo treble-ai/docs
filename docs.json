@@ -83,7 +83,8 @@
                                                 "group": "Bloques",
                                                 "pages": [
                                                     "es/docs/build-with-treble/blocks/ab-test",
-                                                    "es/docs/build-with-treble/blocks/agent"
+                                                    "es/docs/build-with-treble/blocks/agent",
+                                                    "es/docs/build-with-treble/blocks/whatsapp-flows"
                                                 ]
                                             }
                                         ]

@@ -1,0 +1,60 @@
+---
+title: "Recomendaciones y preguntas frecuentes"
+description: "En esta sección, podrás encontrar recomendaciones y preguntas frecuentes sobre la plataforma de agentes de Treble."
+---
+
+# Recomendaciones importantes
+
+<AccordionGroup>
+  <Accordion title="Que tus agentes se pongan como activos cuando estén disponibles e inactivos cuando no lo estén.">
+    Esto es fundamental por dos razones principales:
+    - Asegura que un nuevo chat sea asignado a un agente que realmente esté disponible para atenderlo
+    - Permite que las métricas de "tiempos de primera respuesta" y otras relacionadas con el rendimiento de tus agentes sean más precisas y reflejen la realidad operativa
+  </Accordion>
+  
+  <Accordion title="Que los chats se finalicen">
+    Es importante finalizar los chats por los siguientes motivos:
+    - Si un usuario (cliente) tiene una sesión iniciada con un agente, no recibirá un nuevo mensaje ya que estará "atascado" en un chat anterior
+    - Solo los chats que son finalizados te permitirán acceder al historial completo de la conversación, lo cual es esencial para análisis posteriores y seguimiento
+  </Accordion>
+</AccordionGroup>
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="¿Puedo habilitar y deshabilitar la encuesta de satisfacción para los agentes?">
+    Puedes hacerlo desde [app.treble.ai](http://app.treble.ai/) entrando por Configuración > Conversaciones > Encuesta de satisfacción. Allí encontrarás la opción de "No enviar ningún mensaje" o se puede configurar el mensaje de preferencia.
+  </Accordion>
+  
+  <Accordion title="¿Cuál es la diferencia entre 'primera respuesta de creación' y 'primera respuesta de asignación'?">
+    **Ejemplo:** Un usuario escribe a las 12 de la noche, en ese momento no hay ningún agente activo. Al otro día a las 9am un agente se conecta y en ese momento se asigna el chat. 
+    
+    - El tiempo "primera respuesta de creación" es 9:01 am (desde que el usuario escribió hasta que el agente respondió).
+    - El tiempo "primera respuesta de asignación" es 1 minuto (desde que se le asignó el chat al agente hasta que respondió).
+  </Accordion>
+  
+  <Accordion title="¿Puedo eliminar un agente?">
+    Sí, siempre y cuando no tenga chats abiertos.
+  </Accordion>
+  
+  <Accordion title="¿Qué pasa si uno de mis agentes se va la compañía y quiero darle este mismo correo a un agente nuevo?">
+    Cuando un agente deja la compañía, puedes reutilizar su correo para un nuevo agente. Sin embargo, es importante primero asegurarte de que el agente anterior no tenga chats abiertos y que haya sido debidamente desactivado del sistema.
+  </Accordion>
+  
+  <Accordion title="¿Se le puede 'quitar' un chat a un agente activo para pasarlo a otro?">
+    Sí, solo los perfiles con permisos de administrador pueden hacerlo.
+  </Accordion>
+  
+  <Accordion title="¿Se le puede quitar un chat a un agente inactivo?">
+    No, debes solicitar acceso a través del portal de servicio en: [https://support-treble.atlassian.net/servicedesk/customer/portal/1/group/1](https://support-treble.atlassian.net/servicedesk/customer/portal/1/group/1)
+  </Accordion>
+  
+  <Accordion title="¿Qué consideraciones tener al momento de forzar transferencia de chat?">
+    Al forzar la transferencia de un chat, debes tener en cuenta:
+    - Asegúrate de que el agente destinatario esté activo y disponible para recibir el chat
+    - Comunica al usuario que será atendido por otro agente para evitar confusiones
+    - Comparte el contexto relevante con el nuevo agente para garantizar una transición fluida
+    - Considera el impacto en las métricas de ambos agentes
+  </Accordion>
+</AccordionGroup>
+

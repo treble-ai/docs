@@ -104,7 +104,19 @@
                                         "pages": [
                                             "es/docs/agent-platform/welcome",
                                             "es/docs/agent-platform/main-platform",
-                                            "es/docs/agent-platform/tags-teams",
+                                            {
+                                                "group": "Administrador",
+                                                "pages": [
+                                                    "es/docs/agent-platform/admin/admin-section",
+                                                    "es/docs/agent-platform/admin/metrics",
+                                                    "es/docs/agent-platform/admin/agents",
+                                                    "es/docs/agent-platform/admin/tags-teams",
+                                                    "es/docs/agent-platform/admin/quick-responses",
+                                                    "es/docs/agent-platform/admin/treble-boost",
+                                                    "es/docs/agent-platform/admin/configuration",
+                                                    "es/docs/agent-platform/admin/tips-and-questions"
+                                                ]
+                                            },
                                             "es/docs/agent-platform/mobile-app"
                                         ]
                                     },

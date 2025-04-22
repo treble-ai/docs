@@ -1,0 +1,45 @@
+---
+title: "Agentes"
+description: "En la sección de agentes, podrás ver los agentes de tu operación, sus métricas y sus conversaciones. Podrás manejar a tus agentes, asignarles roles, crear equipos y más."
+---
+
+<img src="/images/agent-agents-1.png" alt="Agentes" />
+
+Desde la sección **Agentes**, puedes gestionar a todos los miembros de tu equipo que atienden conversaciones en Treble. Aquí podrás ver el estado de conexión de cada agente, su rendimiento promedio y otros indicadores clave para monitorear la operación en tiempo real. Exploremos cada sección en detalle.
+
+## Métodos de Asignación
+
+Los métodos de asignación de una conversación son las formas en que Treble asigna las conversaciones a los agentes. Existen dos categorías principales de asignación: cuando cuentas con una integración a CRM como HubSpot y cuando no cuentas con una integración a CRM.
+
+### Métodos de Asignación sin CRM
+
+<img src="/images/agent-agents-2.png" alt="Asignación a CRM" width="300" />
+
+Cuando no cuentas con una integración a CRM, Treble te permite asignar las conversaciones según dos métodos:
+
+1. **Asignación a un agente de manera aleatoria**: Treble asigna las conversaciones a los agentes de forma aleatoria, basándose en el tiempo de respuesta y disponibilidad del agente.
+2. **Asignación al agente con menos chats**: Treble asigna las conversaciones al agente con menos chats en curso por el grupo de agentes al que pertenece.
+
+### Métodos de Asignación con CRM
+
+<img src="/images/agent-agents-3.png" alt="Asignación a CRM" width="300" />
+
+Cuando cuentas con una integración a CRM, Treble te permite asignar las conversaciones según tres métodos:
+
+1. **Asignar al agente propietario inmediatamente**: Treble asigna las conversaciones al agente propietario del contacto. Es decir, si tu equipo de agentes está organizado en HubSpot, Treble asignará las conversaciones al agente propietario del contacto en HubSpot.
+2. **Asignar al agente propietario solo si está conectado**: Treble asigna las conversaciones al agente propietario del contacto, pero solo si está conectado.
+3. **Asignar o esperar y reintentar**: Treble asigna las conversaciones al agente con menos chats en curso por el grupo de agentes al que pertenece. Si no hay agentes disponibles, Treble esperará y reintentará la asignación hasta que haya un agente disponible.
+
+## Finalización de Conversaciones
+
+Puedes activar la opción de finalizar conversaciones de forma automática. Esta configuración cierra de forma automática las conversaciones que estén asignadas o pendientes por asignación. El tiempo se toma desde la última respuesta del cliente. Puedes especificar el tiempo en minutos.
+
+# Próximos pasos
+
+<Card 
+    title="Configurar equipos de agentes" 
+    icon="square-up-right"
+    href="/es/docs/agent-platform/admin/tags-teams"
+>
+    Configura equipos de agentes en Treble.
+</Card>

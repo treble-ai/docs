@@ -17,6 +17,10 @@ def get_file_structure(base_path: str) -> Set[str]:
                 files.add(rel_path)
     return files
 
+def sort_files_by_folder(files: List[str]) -> List[str]:
+    """Sort files so they are grouped by folder hierarchy."""
+    return sorted(files, key=lambda x: tuple(Path(x).parts))
+
 def get_modified_es_files() -> List[str]:
     """Get list of modified .mdx files in /es folder using git status."""
     try:
@@ -123,6 +127,10 @@ def main():
 
     # Get modified files
     modified_files = get_modified_es_files()
+    
+    # Sort files by folder hierarchy
+    differences = sort_files_by_folder(differences)
+    modified_files = sort_files_by_folder(modified_files)
 
     # Generate and print the prompts
     print("\nPrompt for Creating New Files:")

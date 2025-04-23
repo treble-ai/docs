@@ -1,0 +1,285 @@
+---
+title: "Conectar Linha do WhatsApp"
+description: "Aprenda todos os passos e requisitos da Meta para conectar seu próprio número do WhatsApp ao Treble.ai."
+sidebarTitle: "Primeiros Passos"
+---
+
+<div id="interactive-guide-loaded"/>
+
+<div className="interactive-guide">
+  <div className="step-navigation">
+    <button className="step-indicator current" onClick={() => goToStep(1)}>1</button>
+    <button className="step-indicator" onClick={() => goToStep(2)}>2</button>
+    <button className="step-indicator" onClick={() => goToStep(3)}>3</button>
+    <button className="step-indicator" onClick={() => goToStep(4)}>4</button>
+    <button className="step-indicator" onClick={() => goToStep(5)}>5</button>
+    <button className="step-indicator" onClick={() => goToStep(6)}>6</button>
+  </div>
+
+  <div id="step1" className="step-container active current">
+    <h3>1. Você tem um negócio registrado?</h3>
+    <p>Para conectar o WhatsApp ao Treble.ai, você precisa ter um negócio legalmente registrado.</p>
+    <div className="choice-buttons">
+      <button className="choice-button yes" onClick={() => handleResponse('step1', true)}>Sim, tenho um negócio registrado</button>
+      <button className="choice-button no" onClick={() => handleResponse('step1', false)}>Não, ainda não tenho um</button>
+    </div>
+    <div id="step1-error" className="result-message">
+      Para continuar e usar a API do WhatsApp Business, você precisa ter um negócio registrado. Recomendamos consultar um assessor jurídico para registrar seu negócio.
+    </div>
+  </div>
+
+  <div id="step2" className="step-container">
+    <h3>2. Você tem um site com seu próprio domínio?</h3>
+    <p>É necessário ter um site com seu próprio domínio para usar a API do WhatsApp Business.</p>
+    <div className="choice-buttons">
+      <button className="choice-button yes" onClick={() => handleResponse('step2', true)}>Sim, tenho um site</button>
+      <button className="choice-button no" onClick={() => handleResponse('step2', false)}>Não, ainda não tenho um</button>
+    </div>
+    
+    <div id="step2-substeps" className="sub-steps">
+      <p>Por favor, verifique se você atende aos seguintes requisitos:</p>
+      
+      <div id="step2-sub1" className="checkbox-item">
+        <div className="checkbox-row">
+          <div className="checkbox-label">
+            <span>Você tem o nome legal do seu negócio no rodapé do seu site?</span>
+          </div>
+          <div className="toggle-buttons">
+            <button className="toggle-button yes" onClick={() => handleSubStep('step2', 'step2-sub1', true)}>Sim</button>
+            <button className="toggle-button no" onClick={() => handleSubStep('step2', 'step2-sub1', false)}>Não</button>
+          </div>
+        </div>
+        <div id="step2-sub1-help" className="sub-step-help">
+          Você precisa ter o nome legal do seu negócio no rodapé do seu site. 
+          <a class="article-link" href="/pt/docs/meta/guide/preparing-website#2-nome-legal-do-negocio-no-rodape-do-seu-site"><p>Como adicionar o nome legal do negócio no rodapé do seu site?</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+        </div>
+      </div>
+      
+      <div id="step2-sub2" className="checkbox-item">
+        <div className="checkbox-row">
+          <div className="checkbox-label">
+            <span>Você tem um serviço de e-mail associado ao seu domínio?</span>
+          </div>
+          <div className="toggle-buttons">
+            <button className="toggle-button yes" onClick={() => handleSubStep('step2', 'step2-sub2', true)}>Sim</button>
+            <button className="toggle-button no" onClick={() => handleSubStep('step2', 'step2-sub2', false)}>Não</button>
+          </div>
+        </div>
+        <div id="step2-sub2-help" className="sub-step-help">
+          Você deve ser capaz de receber e-mails em endereços de e-mail associados ao seu domínio. <a class="article-link" href="/pt/docs/meta/guide/preparing-website#3-ter-servico-de-e-mail-associado-ao-seu-dominio"><p>E-mail associado ao seu domínio</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+        </div>
+      </div>
+      
+      <div id="step2-sub3" className="checkbox-item">
+        <div className="checkbox-row">
+          <div className="checkbox-label">
+            <span>Você tem o endereço físico do seu negócio no rodapé do seu site?</span>
+          </div>
+          <div className="toggle-buttons">
+            <button className="toggle-button yes" onClick={() => handleSubStep('step2', 'step2-sub3', true)}>Sim</button>
+            <button className="toggle-button no" onClick={() => handleSubStep('step2', 'step2-sub3', false)}>Não</button>
+          </div>
+        </div>
+        <div id="step2-sub3-help" className="sub-step-help">
+          Você deve ter o endereço físico do seu negócio no rodapé do seu site. <a class="article-link" href="/pt/docs/meta/guide/preparing-website#4-recomendado-ter-o-endereco-fisico-do-negocio-no-rodape-do-seu-site"><p>Endereço físico do negócio no rodapé do seu site</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a> 
+        </div>
+      </div>
+      
+      <div id="step2-sub4" className="checkbox-item">
+        <div className="checkbox-row">
+          <div className="checkbox-label">
+            <span>Você tem o número de telefone do seu negócio no rodapé do seu site?</span>
+          </div>
+          <div className="toggle-buttons">
+            <button className="toggle-button yes" onClick={() => handleSubStep('step2', 'step2-sub4', true)}>Sim</button>
+            <button className="toggle-button no" onClick={() => handleSubStep('step2', 'step2-sub4', false)}>Não</button>
+          </div>
+        </div>
+        <div id="step2-sub4-help" className="sub-step-help">
+          Você deve ter o número de telefone do seu negócio no rodapé do seu site. <a class="article-link" href="/pt/docs/meta/guide/preparing-website#5-recomendado-ter-seu-numero-de-telefone-do-seu-negocio-no-rodape-do-seu-site"><p>Número de telefone do negócio no rodapé do seu site</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a> 
+        </div>
+      </div>
+      
+      <div className="progress-indicator">
+        <div id="step2-progress" className="progress-bar"></div>
+      </div>
+      
+      <div id="step2-summary" className="sub-steps-summary">
+        Excelente! Você completou todos os requisitos do site
+      </div>
+    </div>
+
+    <div id="step2-error" className="result-message">
+      <p>Você precisa ter um site com seu próprio domínio. Aprenda os requisitos que seu site deve cumprir com nosso guia <a class="article-link" href="/pt/docs/meta/guide/preparing-website"><p>Preparar seu site</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a></p>
+    </div>
+  </div>
+
+  <div id="step3" className="step-container">
+    <h3>3. Você tem um portfólio comercial da Meta?</h3>
+    <p>Você precisa ter um portfólio comercial da Meta para usar a API do WhatsApp Business.</p>
+    <div className="choice-buttons">
+      <button className="choice-button yes" onClick={() => handleResponse('step3', true)}>Sim, tenho um portfólio comercial</button>
+      <button className="choice-button no" onClick={() => handleResponse('step3', false)}>Não, não tenho um portfólio comercial</button>
+    </div>
+
+    <div id="step3-substeps" className="sub-steps">
+      <p>Por favor, verifique se você atende aos seguintes requisitos:</p>
+      
+      <div id="step3-sub1" className="checkbox-item">
+        <div className="checkbox-row">
+          <div className="checkbox-label">
+            <span>Você tem uma fanpage do Facebook criada?</span>
+          </div>
+          <div className="toggle-buttons">
+            <button className="toggle-button yes" onClick={() => handleSubStep('step3', 'step3-sub1', true)}>Sim</button>
+            <button className="toggle-button no" onClick={() => handleSubStep('step3', 'step3-sub1', false)}>Não</button>
+          </div>
+        </div>
+        <div id="step3-sub1-help" className="sub-step-help">
+          Você precisa ter uma fanpage do Facebook criada. 
+          <a class="article-link" href="/pt/docs/meta/guide/business-manager#o-que--uma-fanpage"><p>O que é uma fanpage?</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+        </div>
+      </div>
+      
+      <div id="step3-sub2" className="checkbox-item">
+        <div className="checkbox-row">
+          <div className="checkbox-label">
+            <span>Você tem seus ativos comerciais associados ao seu portfólio comercial?</span>
+          </div>
+          <div className="toggle-buttons">
+            <button className="toggle-button yes" onClick={() => handleSubStep('step3', 'step3-sub2', true)}>Sim</button>
+            <button className="toggle-button no" onClick={() => handleSubStep('step3', 'step3-sub2', false)}>Não</button>
+          </div>
+        </div>
+        <div id="step3-sub2-help" className="sub-step-help">
+          Você deve ter seus ativos comerciais associados ao seu portfólio comercial. <a class="article-link" href="/pt/docs/meta/guide/business-manager#o-que-sao-os-ativos-comerciais-do-meu-portfolio-comercial-da-meta"><p>O que é um ativo comercial?</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+        </div>
+      </div>
+      
+      <div id="step3-sub3" className="checkbox-item">
+        <div className="checkbox-row">
+          <div className="checkbox-label">
+            <span>Você preencheu todas as informações do seu negócio para seu portfólio comercial?</span>
+          </div>
+          <div className="toggle-buttons">
+            <button className="toggle-button yes" onClick={() => handleSubStep('step3', 'step3-sub3', true)}>Sim</button>
+            <button className="toggle-button no" onClick={() => handleSubStep('step3', 'step3-sub3', false)}>Não</button>
+          </div>
+        </div>
+        <div id="step3-sub3-help" className="sub-step-help">
+          Você deve ter todas as informações do seu negócio em seu portfólio comercial. <a class="article-link" href="/pt/docs/meta/guide/business-manager#completar-informacao-do-negocio-no-portfolio-comercial"><p>Como completar minhas informações de negócio no meu portfólio comercial?</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a> 
+        </div>
+      </div>
+      
+      <div className="progress-indicator">
+        <div id="step3-progress" className="progress-bar"></div>
+      </div>
+      
+      <div id="step3-summary" className="sub-steps-summary">
+        Excelente! Você completou todos os requisitos do portfólio comercial
+      </div>
+    </div>
+
+    <div id="step3-error" className="result-message">
+      É necessário que você tenha um portfólio comercial da Meta, tenha conectado seus ativos comerciais e tenha completado todas as informações do seu negócio para usar a API do WhatsApp Business. Saiba mais sobre como criar um portfólio comercial da Meta <a class="article-link" href="/pt/docs/meta/guide/business-manager"><p>Criar um portfólio comercial da Meta</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+    </div>
+  </div>
+
+  <div id="step4" className="step-container">
+    <h3>4. Seu portfólio comercial está verificado?</h3>
+    <p>A Meta exige que seu portfólio comercial esteja verificado para usar a API do WhatsApp Business. Para verificar rapidamente se seu portfólio comercial está verificado, siga estes passos:</p>
+    1. Acesse sua conta do Meta Business Manager acessando <a class="article-link" href="https://business.facebook.com/"><p>https://business.facebook.com/</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+    2. Clique em **Configurações** <Icon icon="gear" iconType="solid" /> no menu à esquerda
+    3. Encontre a **Central de Segurança** rolando na seção **Configurações** e clique nela. (Você pode precisar inserir seu código de verificação de dois fatores)
+    4. Verifique se seu portfólio comercial está verificado. Se estiver, você verá um escudo verde na caixa **Verificação de Negócio**. <Icon icon="shield-check" iconType="solid" />
+
+    <img src="/images/verified.png" alt="Central de Segurança" />
+
+    <div className="choice-buttons">
+      <button className="choice-button yes" onClick={() => handleResponse('step4', true)}>Sim, meu portfólio comercial está verificado</button>
+      <button className="choice-button no" onClick={() => handleResponse('step4', false)}>Não, meu portfólio comercial não está verificado</button>
+    </div>
+    <div id="step4-error" className="result-message">
+      Para continuar e usar a API do WhatsApp Business, você precisa ter seu portfólio comercial verificado. Saiba mais sobre como verificar seu portfólio comercial <a class="article-link" href="/pt/docs/meta/guide/meta-verification"><p>Verificar seu portfólio comercial</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+    </div>
+  </div>
+
+  <div id="step5" className="step-container">
+    <h3>5. Você tem um número do WhatsApp?</h3>
+    <p>Você precisa ter um número de telefone livre para usar com a API do WhatsApp Business.</p>
+    <div className="choice-buttons">
+      <button className="choice-button yes" onClick={() => handleResponse('step5', true)}>Sim, tenho um número do WhatsApp</button>
+      <button className="choice-button no" onClick={() => handleResponse('step5', false)}>Não, não tenho um número do WhatsApp</button>
+    </div>
+
+    <div id="step5-substeps" className="sub-steps">
+      <p>Por favor, verifique se você atende aos seguintes requisitos:</p>
+      
+      <div id="step5-sub1" className="checkbox-item">
+        <div className="checkbox-row">
+          <div className="checkbox-label">
+            <span>Você tem uma linha telefônica livre? Ela não deve estar sendo usada atualmente no WhatsApp ou WhatsApp Business, nem conectada a outro provedor da API do WhatsApp Business.</span>
+          </div>
+          <div className="toggle-buttons">
+            <button className="toggle-button yes" onClick={() => handleSubStep('step5', 'step5-sub1', true)}>Sim</button>
+            <button className="toggle-button no" onClick={() => handleSubStep('step5', 'step5-sub1', false)}>Não</button>
+          </div>
+        </div>
+        <div id="step5-sub1-help" className="sub-step-help">
+          Você deve ter uma linha telefônica livre. Ela não deve estar sendo usada atualmente no WhatsApp ou WhatsApp Business, nem conectada a outro provedor da API do WhatsApp Business. Para mais informações sobre como obter uma linha telefônica livre, você pode visitar <a class="article-link" href="/pt/docs/meta/guide/whatsapp-number"><p>Número do WhatsApp</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+        </div>
+      </div>
+      
+      <div id="step5-sub2" className="checkbox-item">
+        <div className="checkbox-row">
+          <div className="checkbox-label">
+            <span>Sua linha telefônica está pronta para receber um código de verificação via SMS ou chamada?</span>
+          </div>
+          <div className="toggle-buttons">
+            <button className="toggle-button yes" onClick={() => handleSubStep('step5', 'step5-sub2', true)}>Sim</button>
+            <button className="toggle-button no" onClick={() => handleSubStep('step5', 'step5-sub2', false)}>Não</button>
+          </div>
+        </div>
+        <div id="step5-sub2-help" className="sub-step-help">
+          Você deve ter sua linha telefônica pronta para receber um código de verificação via SMS ou chamada. <a class="article-link" href="/pt/docs/meta/guide/whatsapp-number#preparar-a-linha-para-receber-cdigo-de-verificao"><p>Preparar a linha para receber código de verificação</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a> 
+        </div>
+      </div>
+
+      <div id="step5-sub3" className="checkbox-item">
+        <div className="checkbox-row">
+          <div className="checkbox-label">
+            <span>A linha telefônica não está associada a nenhuma outra conta da API do WhatsApp Business?</span>
+          </div>
+          <div className="toggle-buttons">
+            <button className="toggle-button yes" onClick={() => handleSubStep('step5', 'step5-sub3', true)}>Sim</button>
+            <button className="toggle-button no" onClick={() => handleSubStep('step5', 'step5-sub3', false)}>Não</button>
+          </div>
+        </div>
+        <div id="step5-sub3-help" className="sub-step-help">
+          A linha telefônica não deve estar associada a nenhuma outra conta da API do WhatsApp Business. <a class="article-link" href="/pt/docs/meta/guide/whatsapp-number#certifique-se-de-que-a-linha-no-est-associada-a-nenhuma-outra-conta-da-api-do-whatsapp-business"><p>Certifique-se de que a linha não está associada a nenhuma outra conta da API do WhatsApp Business</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a> 
+        </div>
+      </div>
+      
+      <div className="progress-indicator">
+        <div id="step5-progress" className="progress-bar"></div>
+      </div>
+      
+      <div id="step5-summary" className="sub-steps-summary">
+        Excelente! Você completou todos os requisitos do número do WhatsApp
+      </div>
+    </div>
+
+    <div id="step5-error" className="result-message">
+      Você precisa ter uma linha telefônica que não esteja sendo usada no WhatsApp ou WhatsApp Business, nem conectada a outro provedor da API do WhatsApp Business. Saiba mais sobre <a class="article-link" href="/pt/docs/meta/guide/whatsapp-number"><p>Número do WhatsApp</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+    </div>
+  </div>
+
+  <div id="step6" className="step-container">
+    <h3>6. Pronto para conectar sua linha do WhatsApp!</h3>
+    <p>Você completou todos os requisitos para conectar sua linha do WhatsApp ao Treble.ai. Agora você pode prosseguir com o processo de conexão.</p>
+    
+    <div className="choice-buttons centered">
+      <a href="/pt/docs/meta/connect-line" className="choice-button yes">Conectar minha linha do WhatsApp</a>
+    </div>
+  </div>
+</div>

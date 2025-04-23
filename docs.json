@@ -212,7 +212,16 @@
                                         "pages": [
                                             "en/docs/meta/overview",
                                             "en/docs/meta/wa-wabiz-api",
-                                            "en/docs/meta/connect-line",
+                                            {
+                                                "group": "Connect WhatsApp Line",
+                                                "pages": [
+                                                    "en/docs/meta/guide/welcome",
+                                                    "en/docs/meta/guide/preparing-website",
+                                                    "en/docs/meta/guide/business-manager",
+                                                    "en/docs/meta/guide/meta-verification",
+                                                    "en/docs/meta/guide/whatsapp-number"
+                                                ]
+                                            },
                                             "en/docs/meta/hsm-templates",
                                             "en/docs/meta/green-check"
                                         ]
@@ -333,7 +342,16 @@
                                         "pages": [
                                             "pt/docs/meta/overview",
                                             "pt/docs/meta/wa-wabiz-api",
-                                            "pt/docs/meta/connect-line",
+                                            {
+                                                "group": "Conectar WhatsApp",
+                                                "pages": [
+                                                    "pt/docs/meta/guide/welcome",
+                                                    "pt/docs/meta/guide/preparing-website",
+                                                    "pt/docs/meta/guide/business-manager",
+                                                    "pt/docs/meta/guide/meta-verification",
+                                                    "pt/docs/meta/guide/whatsapp-number"
+                                                ]
+                                            },
                                             "pt/docs/meta/hsm-templates",
                                             "pt/docs/meta/green-check"
                                         ]

@@ -22,11 +22,11 @@ Templates must be approved by Meta before they can be used, which ensures they c
 
 When a user interacts with a business message on WhatsApp, a 24-hour "messaging window" opens. During this period:
 
-1. The business can send messages without needing to use HSM templates
+1. The business can send messages without using HSM templates
 2. More fluid and natural communication is allowed
 3. Any type of content allowed by WhatsApp can be sent
 
-Once the 24-hour window expires, the business must use an approved HSM template to start a new conversation.
+Once the 24-hour window expires, the business must use an approved HSM template to initiate a new conversation.
 
 ## HSM template categories
 
@@ -67,7 +67,7 @@ Meta classifies templates into four main categories:
 - Billing information
 
 Each category has its own guidelines and approval times. For example:
-- Authentication templates usually get approved faster
+- Authentication templates are usually approved more quickly
 - Marketing templates require more review time
 - Service and utility templates have an intermediate approval process
 
@@ -93,7 +93,7 @@ To create an HSM template, follow these steps:
 
 4. Click on "Create Template".
 
-**Note**: Once you create the template, Meta reviews it. This process can take between 1 to 3 days. Fortunately, Meta has accelerated the HSM template approval process to be almost instant.
+**Note**: Once you create the template, Meta reviews it. This process can take 1 to 3 days. Fortunately, Meta has accelerated the HSM template approval process to be almost instantaneous.
 
 <CardGroup cols={1}>
     <Card 
@@ -101,7 +101,7 @@ To create an HSM template, follow these steps:
         icon="whatsapp"
         href="https://treble.ai/blog/hsm-de-whatsapp/"
     >
-        Creating effective HSM templates is key to having successful communication with your customers. Read our guide to learn the best practices for creating HSM templates.
+        Creating effective HSM templates is key to successful communication with your customers. Read our guide to learn the best practices for creating HSM templates.
     </Card>
 </CardGroup>
 
@@ -109,9 +109,9 @@ To create an HSM template, follow these steps:
 
 You can customize HSM templates with variables. Variables are dynamic information that you can use in your HSM templates. For example, you can use variables to personalize a customer's welcome message, or to send a customer's name in a message.
 
-To create variables, you just need to write the variable name in the template content. For example, if you want to send a customer's name in a message, you can write `{{customer_name}}`.
+To create a variable, you just need to write the variable name in the template content. For example, if you want to send a customer's name in a message, you can write `{{customer_name}}`.
 
-<Note>It's important to understand the structure of variables. We recommend that the variable name be clear and descriptive, without special characters or spaces. The variable must be between double curly braces `{{}}`. Additionally, we recommend that the variable be in lowercase and contain no spaces.</Note>
+<Note>It is important to understand the structure of variables. We recommend that the variable name be a clear and descriptive name that does not contain special characters or spaces. The variable must be enclosed in double braces `{{}}`. Additionally, we recommend that the variable be in lowercase and not contain spaces.</Note>
 
 ### Example of using variables
 
@@ -119,7 +119,7 @@ To create variables, you just need to write the variable name in the template co
 
 As you can see in the example, the `{{name}}` variable is replaced by the customer's name in the message and the `{{company}}` variable is replaced by the company name in the message.
 
-Treble recognizes the variables you use in your HSM templates and allows you to use them in your conversational flows. When you're going to send a conversation, you can specify the value of the variables for each user you want to send the conversation to.
+Treble recognizes the variables you use in your HSM templates and allows you to use them in your conversational flows. When you are going to send a conversation, you can specify the value of the variables for each user you want to send the conversation to.
 
 <CardGroup cols={1}>
     <Card 
@@ -131,7 +131,7 @@ Treble recognizes the variables you use in your HSM templates and allows you to 
     </Card>
 </CardGroup>
 
-## HSM template approval status
+## Approval status of HSM templates
 
 You can see the approval status of your HSM templates in the **HSM Templates** section in Treble. When you first create a template, its status will be "Pending".
 
@@ -141,9 +141,9 @@ Once Meta approves the template, its status will change to "Approved".
 
 <img src="/images/hsm-state-approved.png" />
 
-We recommend that you always check the approval status of your HSM templates before using them in your conversational flows. Since Meta's approval time can vary, it's important to always be aware of this status, you just need to refresh the page to see the updated status.
+We recommend that you always check the approval status of your HSM templates before using them in your conversational flows. Since Meta's approval time can vary, it is important that you always keep an eye on this status, you just need to refresh the page to see the updated status.
 
-From this view, you can also see the approval status of each template. There are different approval statuses:
+From this view you can also see the approval status of each template. There are different approval statuses:
 
 - **Approved** 🟢: The template has been approved by Meta. The template can be used in your conversational flows.
 - **Pending** 🟡: The template is in the approval process.
@@ -151,7 +151,7 @@ From this view, you can also see the approval status of each template. There are
 
 ## Edit HSM templates
 
-You can edit an HSM template in the **HSM Templates** section in Treble. To do this, click on the **"Edit"** <Icon icon="pencil" iconType="solid" /> button on the template you want to edit. When you click, you will be redirected to the template editing view. Keep in mind that you can only edit the template content, you cannot change the category, name, or language of the template.
+You can edit an HSM template in the **HSM Templates** section in Treble. To do this, click on the **"Edit"** button <Icon icon="pencil" iconType="solid" /> on the template you want to edit. When you click, you will be redirected to the template editing view. Keep in mind that you can only edit the content of the template, you cannot change the category, name, or language of the template.
 
 <img src="/images/edit-hsm.png" />
 
@@ -161,6 +161,6 @@ You can edit an HSM template in the **HSM Templates** section in Treble. To do t
 
 <AccordionGroup>
   <Accordion title="For my outbound conversations, do I need to approve all message blocks?">
-    No, you don't need to approve all message blocks. You only need to approve the message block that starts the conversation. When your customer responds, you can use any message block.
+    No, you do not need to approve all message blocks. You only need to approve the message block that initiates the conversation. When your customer responds, you can use any message block.
   </Accordion>
 </AccordionGroup> 

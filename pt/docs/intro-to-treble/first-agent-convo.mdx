@@ -1,0 +1,151 @@
+---
+title: "Tutorial: Primeira Conversa Transferida para um Agente"
+description: "Aprenda a criar uma conversa de entrada onde seus usuários escrevem para você e a transferir para um agente da sua equipe no Treble."
+---
+
+## Tutorial: Primeira Conversa Transferida para um Agente
+
+Neste tutorial, vamos criar uma conversa de entrada onde seus usuários escrevem para você e a transferir para um agente da sua equipe no Treble. Este tutorial foi criado para ajudar você a entender como funcionam as transferências de conversas no Treble e assume que esta é uma das suas primeiras vezes usando o Treble.
+
+### Exemplos de Casos de Uso
+
+- **Vendedor de produtos para animais de estimação**: Um vendedor de produtos para animais de estimação recebe mensagens de clientes potenciais pelo WhatsApp. O vendedor quer responder às mensagens dos clientes potenciais e transferir a conversa para um agente da sua equipe no Treble.
+- **Empresa de imóveis**: Seus clientes potenciais escrevem mensagens para o seu número de WhatsApp perguntando sobre propriedades disponíveis. Você tem um fluxo que inicialmente qualifica os clientes potenciais e depois os redireciona para um consultor da sua equipe que pode fornecer mais informações.
+- **Agência de viagens**: Seus consultores de viagens recebem mensagens de clientes potenciais pelo WhatsApp porque seus clientes têm seu número de WhatsApp a partir de um código QR.
+
+#### Exemplo de criação de uma conversa de entrada
+
+Vamos criar uma conversa para receber mensagens de clientes potenciais.
+
+Vamos supor que você faz parte de uma empresa que vende produtos de joalheria. Você tem um botão de WhatsApp em seu site que os clientes potenciais podem clicar para escrever para você. Queremos receber essas mensagens e respondê-las. Como faríamos isso?
+
+<img src="/images/tutorial-1.png" alt="Adicionar um bloco de mensagem" />
+
+Primeiro, vamos configurar nossa equipe de agentes.
+
+## Configurar a equipe de agentes
+
+<Steps>
+    <Step title="Configurar equipe de Agentes">
+        A primeira coisa que vamos fazer é configurar nossa equipe de agentes. Para isso, vamos à seção "Agentes" e vamos criar um novo agente. Para fazer isso, faça login com suas credenciais do Treble na plataforma de agentes. Você pode fazer isso a partir do seguinte link: <a class="article-link" target="_blank" href="https://sales.treble.ai"><p>sales.treble.ai</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>. 
+
+        <img src="/images/tutorial-3.gif" alt="Criar Agente" />
+
+        Depois de fazer login, vamos para a seção "Agentes", aqui é onde vamos criar um novo grupo (equipe) de agentes e uma conta de agente.
+
+        <Note>
+            Sua conta, como administrador dentro do sales.treble.ai, é um agente que você pode usar para responder às mensagens dos clientes potenciais. No entanto, para este tutorial, recomendamos criar um novo agente e atribuí-lo a uma nova equipe para que você possa entender melhor o fluxo de transferência de conversas.
+        </Note>
+    </Step>
+    <Step title="Criar novo agente">
+        Agora clique no botão "Criar Novo Grupo". Primeiro, vamos criar um grupo de agentes para que depois, quando criarmos o novo agente, você possa adicioná-lo a este grupo. Ao clicar no botão "Criar Novo Grupo", um campo de texto será aberto para que você dê um nome ao grupo.
+
+        Vamos dar o nome de "Equipe de Vendas".
+
+        <img src="/images/tutorial-4.png" alt="Criar Grupo" />
+        <img src="/images/tutorial-5.png" alt="Criar Grupo" />
+    </Step>
+    <Step title="Criar conta de agente">
+        Agora vamos criar uma conta de agente. Para isso, clique no botão "Criar Conta de Agente".
+
+        Depois de clicar no botão "Criar Conta de Agente", um modal será aberto para preencher os dados do novo agente.
+
+        Na parte "Escolha pelo menos uma tag", vamos selecionar a equipe de vendas que criamos anteriormente: "Equipe de Vendas".
+
+        <img src="/images/tutorial-6.png" alt="Criar Conta de Agente" />
+
+        Clique no botão "Criar" e pronto ✅.
+    </Step>
+    <Step title="Entrar na conta de agente">
+        Agora, vamos simular que somos o agente que acabamos de criar. Para isso, faça logout da conta de administrador e clique no botão "Entrar como Agente".
+
+        Para isso, clique no ícone do perfil na parte inferior esquerda da tela e selecione a opção "Sair".
+
+        <img src="/images/tutorial-7.png" alt="Sair" />
+
+        Agora, entre com as novas credenciais que acabamos de criar para a conta de agente. Ao entrar, você verá que não está mais na conta de administrador, mas na conta de agente. Os agentes são usuários que só podem responder às mensagens dos clientes potenciais. Todas as visualizações de administração, como adicionar agentes, ver relatórios, etc. não estarão disponíveis para os agentes.
+
+        <img src="/images/tutorial-8.png" alt="Entrar como Agente" />
+    </Step>
+    <Step title="Ativar o agente">
+        Os agentes só podem responder às mensagens dos clientes potenciais quando estão ativos. Para ativar o agente, clique no ícone do perfil na parte inferior esquerda da tela e selecione a opção "Mudar para ativo".
+
+        <img src="/images/tutorial-9.png" alt="Ativar Agente" />
+
+        <Check>
+            Você está agora ativo como agente! Agora estamos prontos para começar a responder às mensagens dos clientes potenciais.
+        </Check>
+    </Step>
+</Steps>
+
+A ferramenta de agentes tem essa e muitas outras funcionalidades que você pode explorar. Se quiser saber mais sobre a ferramenta de agentes, clique na caixa abaixo.
+
+<Card 
+    title="Ferramenta de Agentes" 
+    icon="square-up-right"
+    href="/pt/docs/agent-platform/welcome"
+>
+    Saiba mais sobre a ferramenta de agentes.
+</Card>
+
+## Configurar a conversa de entrada
+
+Vamos agora continuar criando a conversa de entrada para receber mensagens dos clientes potenciais.
+
+<Steps>
+    <Step title="Criar uma conversa de entrada">
+        Vá para a seção "Conversas" e clique no botão "Criar Conversa".
+
+        <img src="/images/create-convo.gif" alt="Criar Conversa" />
+    </Step>
+    <Step title="Adicionar blocos de mensagens">
+        Uma vez que você tenha entrado no editor de conversas, pode adicionar qualquer bloco de mensagem. O primeiro bloco que você adicionar será por onde a conversa começará. Clique no botão <Icon icon="plus" iconType="solid" /> e selecione o tipo de bloco que deseja adicionar. Neste caso, vamos adicionar um bloco de **Mensagem com opções** > **Botões interativos**.
+
+        A mensagem que vamos adicionar é a seguinte:
+        > Olá! Obrigado por entrar em contato com a joalheria BIJOU 💍. Como podemos ajudá-lo hoje?
+
+        <img src="/images/tutorial-2.gif" alt="Adicionar um bloco de mensagem" />
+
+        Além disso, vamos adicionar dois botões interativos. O primeiro será para a opção "Quero comprar" e o segundo será para a opção "Ajuda com um pedido". Para adicionar os botões interativos, clique no botão **<Icon icon="plus" iconType="solid" /> Adicionar Botão**. Isso permitirá que você adicione o texto do botão.
+    </Step>
+    <Step title="Adicionar blocos de mensagens adicionais">
+        Você pode continuar adicionando qualquer bloco de mensagem. Neste caso, vamos adicionar um bloco de **Mensagem simples** para responder ao cliente caso ele escolha a opção "Ajuda com um pedido".
+
+        <img src="/images/tutorial-10.gif" alt="Adicionar um bloco de mensagem" />
+    </Step>
+    <Step title="Configurar bloco de transferência para agente">
+        Agora vamos configurar o bloco de transferência para agente. Para isso, clique no botão <Icon icon="plus" iconType="solid" /> e selecione o submenu **Transferência para humano** e depois selecione a opção **Transferir para agente no Treble**. Conecte o bloco de transferência para agente com a primeira opção de "Quero comprar".
+
+        <img src="/images/tutorial-11.gif" alt="Configurar bloco de transferência para agente" />
+    </Step>
+    <Step title="Configurar o bloco de transferência para agente">
+        Ao adicionar o bloco de transferência para agente, provavelmente você viu um novo bloco com o título: "DEFAULT". O título deste bloco é o nome da equipe de agentes para a qual você transferirá a conversa. Neste caso, precisamos mudá-lo para a equipe de agentes que criamos anteriormente: "Equipe de Vendas".
+
+        Para isso, clique duas vezes no bloco de transferência para agente. Um painel será aberto no lado esquerdo da tela. Neste painel, você pode ver o nome da equipe de agentes para a qual transferirá a conversa. No dropdown, selecione a equipe de agentes que criamos anteriormente: "Equipe de Vendas".
+
+        <img src="/images/tutorial-12.gif" alt="Configurar o bloco de transferência para agente" />
+    </Step>
+    <Step title="Salvar a conversa">
+        Agora que configuramos a conversa, vamos salvá-la. Clique no botão "Criar Conversa" na parte superior direita da tela. Como estamos criando uma conversa de entrada, vamos selecionar a opção "Receber mensagens de clientes (entrada)". (Se você tiver mais de uma linha de WhatsApp, pode selecionar a linha que deseja receber mensagens). Finalmente, clique no botão "Continuar".
+
+        <img src="/images/tutorial-13.gif" alt="Salvar a conversa" />
+
+        <Check>
+            Você agora tem sua primeira conversa de entrada configurada! Agora você pode testar a conversa enviando uma mensagem para o seu número de WhatsApp.
+        </Check>
+    </Step>
+</Steps>
+
+### Testes
+
+Para testar a conversa, você pode enviar uma mensagem para sua linha de WhatsApp configurada no Treble. Se tudo estiver configurado corretamente, a conversa deve começar e enviar a mensagem de boas-vindas. Uma vez que você tenha recebido a mensagem, pode responder a essa primeira mensagem e optar pela opção "Quero comprar".
+
+Você receberá uma mensagem no WhatsApp de que sua conversa está sendo transferida para um agente. E agora, se você voltar à plataforma de agentes, verá que há uma nova conversa na seção "Conversas".
+
+<img src="/images/tutorial-14.png" alt="Conversa de entrada" />
+
+Clique na conversa e você poderá ver os detalhes da conversa. Experimente responder às suas mensagens.
+
+<Check>
+    Você conseguiu transferir uma conversa para um agente! Com este processo, você aprendeu como configurar uma conversa de entrada e transferi-la para um agente.
+</Check> 

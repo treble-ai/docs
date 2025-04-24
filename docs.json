@@ -42,7 +42,8 @@
                                                 "pages": [
                                                     "es/docs/intro-to-treble/welcome",
                                                     "es/docs/intro-to-treble/outbound-convo",
-                                                    "es/docs/intro-to-treble/inbound-convo"
+                                                    "es/docs/intro-to-treble/inbound-convo",
+                                                    "es/docs/intro-to-treble/first-agent-convo"
                                                 ]
                                             }
                                         ]
@@ -203,7 +204,8 @@
                                                 "pages": [
                                                     "en/docs/intro-to-treble/welcome",
                                                     "en/docs/intro-to-treble/outbound-convo",
-                                                    "en/docs/intro-to-treble/inbound-convo"
+                                                    "en/docs/intro-to-treble/inbound-convo",
+                                                    "en/docs/intro-to-treble/first-agent-convo"
                                                 ]
                                             }
                                         ]
@@ -351,7 +353,8 @@
                                                 "pages": [
                                                     "pt/docs/intro-to-treble/welcome",
                                                     "pt/docs/intro-to-treble/outbound-convo",
-                                                    "pt/docs/intro-to-treble/inbound-convo"
+                                                    "pt/docs/intro-to-treble/inbound-convo",
+                                                    "pt/docs/intro-to-treble/first-agent-convo"
                                                 ]
                                             }
                                         ]

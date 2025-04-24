@@ -1,0 +1,77 @@
+---
+title: "Variables"
+description: "This guide shows you how to update and use properties of your HubSpot contacts within your Treble conversations. This will allow you to create more personalized and automated conversations."
+---
+
+# Variables - Update Properties in HubSpot through a Treble Conversation
+
+Through the integration of Treble with HubSpot, you can update and use properties of your HubSpot contacts within your Treble conversations. Let's look at an example to understand how it works. Suppose you have the following conversation in Treble:
+
+<img src="/images/variables-1.png" alt="Treble Conversation" />
+
+In this conversation, you're asking for some data: the name and email. Through the Treble-HubSpot integration, we can save the customers' responses within HubSpot variables.
+
+To save a response, double-click on the text box and select "Save Response"
+
+<img src="/images/variables-2.gif" alt="Treble Conversation" />
+
+Then you must select the "response type" according to what you expect to receive from the customer. In the "variable name" field, you must enter the internal name of the property.
+
+<img src="/images/variables-3.gif" alt="Treble Conversation" />
+
+The "Variable name" is the prefix `hubspot_` followed by the internal name of the property in HubSpot. For example, if the internal name of the property is `name`, the variable name will be `hubspot_name`.
+
+## Internal Value of the Variable - HubSpot Property
+
+**What is the internal value of properties?** It's the value that Treble uses to identify where it should look for and/or store information in HubSpot.
+
+To find the value of a property, follow these steps:
+
+1. Access and log in to HubSpot
+2. Click on the Settings button <Icon icon="gear" /> in the upper right corner
+3. Scroll down the left panel until you find the "Data Management" section
+4. Select "Properties"
+5. In properties, you can search for the property value using the internal name of the property. In this example, we're looking for the value of the `country` property.
+6. Click on the property you want to search for.
+
+<img src="/images/variables-4.gif" alt="Treble Conversation" />
+
+You will find the property value in the "Internal name" section
+
+<img src="/images/variables-5.png" alt="Treble Conversation" />
+
+As you can see, the internal value of the `country` property is `country`. Therefore, if you want to make changes to a HubSpot contact's country through their response in a Treble conversation, the variable name will be `hubspot_country`.
+
+Although in this example, the internal value of the property is the same as the property name, this will not always be the case. For example, for the `firstname` property, the internal name of the property is `firstname`. Therefore, the variable name to use in Treble will be `hubspot_firstname`.
+
+<Check>
+    Perfect! Now you know how to use HubSpot variables within your Treble conversations. This way, when the customer passes through this block and answers the question you want to save, the response will be reflected in their contact within HubSpot.
+</Check>
+
+<Info>
+    Treble can only save information within contact properties.
+</Info>
+
+## How can I use HubSpot variables in my conversations?
+
+Since you now know the structure of Treble variables related to HubSpot, you can also use these variables in any block of your conversation to use the information you already have in HubSpot. For example, suppose you have the following Contact in HubSpot:
+
+| Property | Value | Internal Name (HubSpot) |
+| --------- | ----- | ------------- |
+| First Name | John | firstname |
+| Phone | 3123456789 | phone |
+| Last Purchase Date | 2025-03-28 | last_purchase_date |
+
+We can use the properties of this contact in any block of your conversation. For example, you can use the `firstname` property to greet the customer by their name. Additionally, you can use the `last_purchase_date` property to ask them about their last purchase.
+
+Given the internal name of the HubSpot variable, let's review the table above again and replace the internal name of the property with the variable name.
+
+| Property | Value | Internal Name (HubSpot) | Variable Name (Treble) |
+| --------- | ----- | ------------- | -------------------- |
+| First Name | John | firstname | hubspot_firstname |
+| Phone | 3123456789 | phone | hubspot_phone |
+| Last Purchase Date | 2025-03-28 | last_purchase_date | hubspot_last_purchase_date |
+
+Now we can use them in any block of your conversation. We just need to add them encapsulated between braces `{{}}`. For example, to greet the customer by their name, we can use the variable `{{hubspot_firstname}}`.
+
+<img src="/images/variables-6.png" alt="Treble Conversation" /> 

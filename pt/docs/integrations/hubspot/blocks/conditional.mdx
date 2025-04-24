@@ -1,0 +1,52 @@
+---
+title: "Bloco Condicional"
+description: "Aprenda a usar o bloco condicional do Treble. Este bloco permite alterar o fluxo de uma conversa com base nas propriedades do contato no HubSpot."
+---
+
+# Bloco Condicional do HubSpot
+
+O bloco condicional permite controlar o fluxo da conversa com base nas propriedades de um contato no HubSpot. Dessa forma, você pode personalizar a conversa com base em dados que já possui sobre o contato.
+
+## Como é utilizado?
+
+1. Faça login no Treble.ai em: <a class="article-link" href="https://app.treble.ai"><p>app.treble.ai</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+2. Vá para **Criar Conversa**
+3. Clique no botão <Icon icon="square-plus" iconType="solid" /> para exibir o menu de blocos
+4. Role até encontrar o bloco **Condicional**
+5. Clique no bloco **Condicional** para adicioná-lo à sua conversa
+6. Mova o bloco **Condicional** para a posição desejada no seu fluxo
+7. Conecte o bloco **Condicional** ao bloco de **Pergunta**
+8. Depois de adicionar o bloco **Condicional**, clique duas vezes no bloco para exibir o menu de configuração
+
+<img src="/images/conditional-1.gif" alt="Conversa do Treble" />
+
+## Configurando o Bloco Condicional
+
+No painel de configuração, você deve selecionar qual propriedade do contato no HubSpot deseja avaliar. Você pode selecionar de uma lista de propriedades predefinidas.
+
+Depois de selecionar a propriedade, você precisa definir as condições que determinarão o caminho que o contato seguirá na conversa. Isso é feito especificando:
+
+1. **Um operador**: igual a, diferente de, contém, não contém, está definido, não está definido, maior que, menor que, etc.
+2. **Um valor**: o valor específico para comparar com a propriedade do contato
+
+Dependendo se a condição for atendida ou não, o contato seguirá o caminho "Verdadeiro" ou "Falso" no fluxo da conversa.
+
+## Exemplos de Casos de Uso
+
+- **Promoções Personalizadas**: Ofereça diferentes promoções com base no histórico de compras do contato
+- **Seleção de Idioma**: Direcione o caminho da conversa com base no idioma preferido do contato
+- **Qualificação de Leads**: Encaminhe leads de alta prioridade para um agente humano com base na pontuação do lead
+- **Status de Assinatura**: Mostre diferentes opções com base se o contato já é assinante ou não
+
+<Warning>
+  Para que o condicional funcione corretamente, certifique-se de que a propriedade que você está avaliando existe em sua conta do HubSpot e que os dados estão corretamente sincronizados entre o HubSpot e o Treble.
+</Warning>
+
+## Melhores Práticas
+
+- Mantenha as condições simples e claras
+- Teste seus fluxos condicionais completamente antes de implementá-los
+- Considere o que acontece se o valor da propriedade estiver ausente ou inesperado
+- Use rótulos descritivos para seus ramos condicionais para tornar o fluxo mais fácil de entender
+
+O bloco condicional é uma maneira poderosa de criar conversas dinâmicas e personalizadas que aproveitam os dados existentes do seu CRM. 

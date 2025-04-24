@@ -1,0 +1,43 @@
+---
+title: "Bloco de Ticket"
+description: "Aprenda a utilizar o bloco de ticket do Treble. Este bloco permite criar um ticket no HubSpot com base na resposta do cliente. Você pode configurar o ticket com múltiplas propriedades."
+---
+
+# Tickets do HubSpot pelo Treble
+
+Você pode gerenciar a criação de tickets no HubSpot automaticamente a partir do Treble. Para isso, você deve selecionar a opção "Criação de ticket" no seletor de blocos. Quando um usuário passa por esse bloco em uma conversa, um ticket será criado no HubSpot, que ficará associado à sessão atual do usuário. Se o usuário passar por um bloco de ticket do HubSpot quando já houver um ticket associado à sessão, em vez de criar um novo, o ticket existente será atualizado com os atributos especificados.
+
+## Como é utilizado?
+
+1. Faça login no Treble.ai em: <a class="article-link" href="https://app.treble.ai"><p>app.treble.ai</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+2. Vá para **Criar Conversa**
+3. Clique no botão <Icon icon="square-plus" iconType="solid" /> para exibir o menu de blocos
+4. Role até encontrar o bloco de **Criação de Ticket**
+5. Clique no bloco de **Criação de Ticket** para adicioná-lo à sua conversa
+6. Mova o bloco de **Criação de Ticket** para a posição desejada no seu fluxo
+7. Conecte o bloco de **Criação de Ticket** com o bloco de **Pergunta**
+8. Depois de adicionar o bloco de **Criação de Ticket**, clique duas vezes no bloco para exibir o menu de configuração
+
+<img src="/images/ticket-1.gif" alt="Conversa do Treble" />
+
+## Configuração de propriedades dos tickets
+
+Você pode definir os valores das propriedades associadas ao ticket clicando no bloco. Algumas propriedades não estão disponíveis para configuração, como os atributos do tipo data e as propriedades que vinculam a um usuário do HubSpot, como `Proprietário do ticket`. Esses valores serão definidos automaticamente quando o ticket for criado. O atributo `Criado em` será atribuído automaticamente assim que o ticket for gerado.
+
+Quando um ticket é atualizado e não foi definido um valor para um atributo no bloco do ticket, esse atributo não mudará nem será definido com um valor vazio.
+
+[Treble.ai](http://treble.ai/) adicionará automaticamente a opção `WhatsApp` ao atributo `Fonte` na plataforma do HubSpot. Esta opção estará pré-selecionada por padrão ao criar este tipo de blocos.
+
+Outra propriedade que o [Treble.ai](http://treble.ai/) cria automaticamente é `Treble Rating`, onde armazenará a resposta do usuário à pesquisa CSAT ao finalizar a conversa.
+
+Todas as propriedades do tipo texto terão a opção de personalizar o valor utilizando propriedades do contato. Para isso, basta clicar no ícone <Icon icon="plus" iconType="solid" /> no final do campo de entrada.
+
+## Fechamento de uma conversa
+
+Quando um usuário fecha uma conversa no aplicativo de helpdesk, a plataforma mostrará um modal que permitirá selecionar para onde mover o ticket do HubSpot (pipeline e etapa) uma vez fechada a conversa. [Treble.ai](http://treble.ai/) lembrará a última opção selecionada ao fechar uma conversa.
+
+Nos seguintes casos, quando o chat for fechado, [Treble.ai](http://treble.ai/) procurará em qual pipeline o ticket se encontra e o moverá automaticamente para uma etapa do tipo **fechado**. Se houver múltiplas etapas deste tipo no pipeline, selecionará a primeira.
+
+- No aplicativo de helpdesk, se a empresa tiver configurado a opção de fechar automaticamente uma conversa após um período de inatividade.
+- Se o usuário utilizar a opção "Fechar todos os chats".
+- Se a conversa nunca chegou a um sistema de helpdesk e o usuário chegou ao final da conversa, ou se a conversa foi fechada automaticamente por inatividade. 

@@ -276,7 +276,24 @@
                                                 "group": "HubSpot",
                                                 "pages": [
                                                     "en/docs/integrations/hubspot/welcome",
-                                                    "en/docs/integrations/hubspot/crm-action"
+                                                    "en/docs/integrations/hubspot/install",
+                                                    {
+                                                        "group": "Features",
+                                                        "pages": [
+                                                            "en/docs/integrations/hubspot/features/workflows",
+                                                            "en/docs/integrations/hubspot/features/variables",
+                                                            "en/docs/integrations/hubspot/features/deploy"
+                                                        ]
+                                                    },
+                                                    {
+                                                        "group": "Blocks",
+                                                        "pages": [
+                                                            "en/docs/integrations/hubspot/blocks/crm-action",
+                                                            "en/docs/integrations/hubspot/blocks/ticket",
+                                                            "en/docs/integrations/hubspot/blocks/conditional",
+                                                            "en/docs/integrations/hubspot/blocks/human-transfer"
+                                                        ]
+                                                    }
                                                 ]
                                             },
                                             {
@@ -407,7 +424,24 @@
                                                 "group": "HubSpot",
                                                 "pages": [
                                                     "pt/docs/integrations/hubspot/welcome",
-                                                    "pt/docs/integrations/hubspot/crm-action"
+                                                    "pt/docs/integrations/hubspot/install",
+                                                    {
+                                                        "group": "Funcionalidades",
+                                                        "pages": [
+                                                            "pt/docs/integrations/hubspot/features/workflows",
+                                                            "pt/docs/integrations/hubspot/features/variables",
+                                                            "pt/docs/integrations/hubspot/features/deploy"
+                                                        ]
+                                                    },
+                                                    {
+                                                        "group": "Blocos",
+                                                        "pages": [
+                                                            "pt/docs/integrations/hubspot/blocks/crm-action",
+                                                            "pt/docs/integrations/hubspot/blocks/ticket",
+                                                            "pt/docs/integrations/hubspot/blocks/conditional",
+                                                            "pt/docs/integrations/hubspot/blocks/human-transfer"
+                                                        ]
+                                                    }
                                                 ]
                                             },
                                             {

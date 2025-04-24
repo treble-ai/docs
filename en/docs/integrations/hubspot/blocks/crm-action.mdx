@@ -1,0 +1,65 @@
+---
+title: "CRM Action Block"
+description: "Learn to use Treble's CRM action block. This block allows you to execute actions in HubSpot based on the customer's response. You can use it to update or set contact properties according to the customer's response in Treble."
+---
+
+# CRM Action
+
+In Treble, the CRM functionality is versatile and offers comprehensive support for business operations. CRM Action means that when a client responds to a question in a flow, an action is executed "within HubSpot" that modifies a property.
+
+## How is it used?
+
+To use this block, you can follow these steps:
+
+1. Log in to Treble.ai at: <a class="article-link" href="https://app.treble.ai"><p>app.treble.ai</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+2. Go to **Create Conversation**
+3. Click on the <Icon icon="square-plus" iconType="solid" /> button to display the block menu
+4. Scroll until you find the **CRM Action** block
+5. Click on the **CRM Action** block to add it to your conversation
+6. Move the **CRM Action** block to the desired position in your flow
+7. Connect the **CRM Action** block with the **Question** block
+
+<img src="/images/crm-action-1.gif" alt="Treble Conversation" />
+
+8. Once you've added the **CRM Action** block, double-click on the block to display the configuration menu
+9. Select the contact property you want to update
+10. Select the value you want to assign to the contact property. In this example, we're assigning the `Lead Status` contact property to `Unqualified`
+11. Click on **Save Changes**
+
+<img src="/images/crm-action-2.gif" alt="Treble Conversation" />
+
+This is very useful as it allows us to: Pre-qualify customers based on the answers they selected. In this example, we want to disqualify the person looking for a Treble-Zendesk integration, as Treble does not offer these services.
+
+<img src="/images/crm-action-3.png" alt="Treble Conversation" />
+
+<Check>
+Done! Now when the customer answers the question, the CRM action will be executed and the contact property will be updated.
+</Check>
+
+<Tip>
+    You may want to update more than one contact property. To do this, you can add multiple **CRM Action** blocks and connect each one to another **CRM Action** block.
+</Tip>
+
+## Use cases
+
+### Profiling Users Based on Their Responses
+
+CRM allows for the creation of detailed user profiles based on their responses to surveys, forms, and other interactions. As customers interact with the company, the CRM collects and analyzes this information, enabling a deep understanding of each user's needs, interests, and behavior. This facilitates the personalization of offers and communication, increasing the relevance and effectiveness of marketing campaigns.
+
+### Implementing Lead Scoring Based on Conversation Progress
+
+Lead scoring is a crucial tool within the CRM that assigns scores to leads based on their behavior and stage in the sales funnel. As users advance in the conversation, the CRM adjusts their scores according to predefined parameters, such as opening emails, visiting specific pages on the website, or interacting with company content. This helps prioritize the most qualified leads, allowing sales teams to focus their efforts on those with the highest probability of conversion.
+
+### Tracking Campaign Responses Through Contact Properties
+
+The CRM in Treble allows tracking whether a contact has responded to a campaign by automatically updating their contact properties. This function is vital for evaluating the effectiveness of marketing campaigns, as it provides accurate information about customer participation. Knowing who responded to a campaign, and how they did so, allows for real-time strategy adjustments to improve results.
+
+### Automating Actions Within HubSpot Based on Contact Property Updates
+
+One of the most powerful advantages of CRM is the ability to automate actions in HubSpot based on contact property updates. This means that when certain conditions are met (such as a change in a contact's property), the system can automatically trigger a series of actions, such as sending a personalized email, assigning a contact to a sales representative, or updating the stage in the sales funnel. This automation not only saves time but also ensures that no important step is overlooked in lead management.
+
+### Storing Lead and Customer "Opt-Out" in HubSpot
+
+Proper handling of customer preferences is essential, especially in terms of compliance with privacy regulations. CRM allows storing and managing lead and customer "opt-out" requests, ensuring that those who have decided not to receive further communications are not contacted again. This aspect is not only critical for regulatory compliance but also helps maintain a positive relationship with customers, respecting their wishes and improving brand perception.
+
+These CRM functions in Treble not only improve operational efficiency but also ensure more precise and personalized management of customer relationships, which can translate into greater customer satisfaction and better business results. 

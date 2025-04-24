@@ -2,8 +2,13 @@
 
 import os
 import subprocess
+import hashlib
+import json
 from pathlib import Path
-from typing import Set, List, Tuple
+from typing import Set, List, Tuple, Dict
+
+# File to store MD5 hashes
+HASH_FILE = "es_file_hashes.json"
 
 def get_file_structure(base_path: str) -> Set[str]:
     """Get all .mdx files in the given directory recursively."""
@@ -21,7 +26,46 @@ def sort_files_by_folder(files: List[str]) -> List[str]:
     """Sort files so they are grouped by folder hierarchy."""
     return sorted(files, key=lambda x: tuple(Path(x).parts))
 
-def get_modified_es_files() -> List[str]:
+def calculate_md5(file_path: str) -> str:
+    """Calculate MD5 hash of a file."""
+    hash_md5 = hashlib.md5()
+    with open(file_path, "rb") as f:
+        for chunk in iter(lambda: f.read(4096), b""):
+            hash_md5.update(chunk)
+    return hash_md5.hexdigest()
+
+def get_file_hashes(base_path: str, files: Set[str]) -> Dict[str, str]:
+    """Calculate MD5 hashes for all files."""
+    hashes = {}
+    for file in files:
+        full_path = os.path.join(base_path, file)
+        hashes[file] = calculate_md5(full_path)
+    return hashes
+
+def load_stored_hashes() -> Dict[str, str]:
+    """Load stored MD5 hashes from JSON file."""
+    if os.path.exists(HASH_FILE):
+        with open(HASH_FILE, 'r') as f:
+            return json.load(f)
+    return {}
+
+def save_hashes(hashes: Dict[str, str]) -> None:
+    """Save MD5 hashes to JSON file."""
+    with open(HASH_FILE, 'w') as f:
+        json.dump(hashes, f, indent=2)
+
+def get_modified_es_files(current_hashes: Dict[str, str], stored_hashes: Dict[str, str]) -> List[str]:
+    """Get list of modified .mdx files in /es folder by comparing hashes."""
+    modified_files = []
+    
+    for file, hash_value in current_hashes.items():
+        # File is new or has changed
+        if file not in stored_hashes or stored_hashes[file] != hash_value:
+            modified_files.append(f"es/{file}")
+    
+    return modified_files
+
+def get_modified_es_files_from_git() -> List[str]:
     """Get list of modified .mdx files in /es folder using git status."""
     try:
         # Run git status command
@@ -100,6 +144,12 @@ def main():
     
     print("Analyzing documentation folders...")
     
+    # Calculate current hashes for ES files
+    current_hashes = get_file_hashes(es_path, es_files)
+    
+    # Load stored hashes
+    stored_hashes = load_stored_hashes()
+    
     # Get structural differences
     differences = []
     
@@ -125,8 +175,8 @@ def main():
         if file not in es_files:
             differences.append(f"- pt/{file} exists but not in /es")
 
-    # Get modified files
-    modified_files = get_modified_es_files()
+    # Get modified files using hash comparison
+    modified_files = get_modified_es_files(current_hashes, stored_hashes)
     
     # Sort files by folder hierarchy
     differences = sort_files_by_folder(differences)
@@ -142,6 +192,11 @@ def main():
     print("=" * 80)
     print(generate_updates_prompt(modified_files))
     print("=" * 80)
+    
+    # Save current hashes for future comparison
+    save_hashes(current_hashes)
+    
+    print(f"\nMD5 hashes for {len(current_hashes)} files in /es have been saved to {HASH_FILE}")
 
 if __name__ == "__main__":
     main() 

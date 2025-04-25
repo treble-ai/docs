@@ -1,0 +1,45 @@
+---
+title: "Agentes"
+description: "Na seção de agentes, você poderá ver os agentes da sua operação, suas métricas e suas conversas. Você poderá gerenciar seus agentes, atribuir-lhes funções, criar equipes e mais."
+---
+
+<img src="/images/agent-agents-1.png" alt="Agentes" />
+
+A partir da seção **Agentes**, você pode gerenciar todos os membros da sua equipe que atendem conversas no Treble. Aqui você poderá ver o status de conexão de cada agente, seu desempenho médio e outros indicadores chave para monitorar a operação em tempo real. Vamos explorar cada seção em detalhe.
+
+## Métodos de Atribuição
+
+Os métodos de atribuição de uma conversa são as formas pelas quais o Treble atribui as conversas aos agentes. Existem duas categorias principais de atribuição: quando você conta com uma integração ao CRM como HubSpot e quando você não conta com uma integração ao CRM.
+
+### Métodos de Atribuição sem CRM
+
+<img src="/images/agent-agents-2.png" alt="Atribuição ao CRM" width="300" />
+
+Quando você não tem uma integração ao CRM, o Treble permite atribuir as conversas de acordo com dois métodos:
+
+1. **Atribuição a um agente de maneira aleatória**: O Treble atribui as conversas aos agentes de forma aleatória, baseando-se no tempo de resposta e disponibilidade do agente.
+2. **Atribuição ao agente com menos chats**: O Treble atribui as conversas ao agente com menos chats em andamento pelo grupo de agentes ao qual pertence.
+
+### Métodos de Atribuição com CRM
+
+<img src="/images/agent-agents-3.png" alt="Atribuição ao CRM" width="300" />
+
+Quando você tem uma integração ao CRM, o Treble permite atribuir as conversas de acordo com três métodos:
+
+1. **Atribuir ao agente proprietário imediatamente**: O Treble atribui as conversas ao agente proprietário do contato. Ou seja, se sua equipe de agentes está organizada no HubSpot, o Treble atribuirá as conversas ao agente proprietário do contato no HubSpot.
+2. **Atribuir ao agente proprietário somente se estiver conectado**: O Treble atribui as conversas ao agente proprietário do contato, mas somente se ele estiver conectado.
+3. **Atribuir ou esperar e tentar novamente**: O Treble atribui as conversas ao agente com menos chats em andamento pelo grupo de agentes ao qual pertence. Se não houver agentes disponíveis, o Treble esperará e tentará a atribuição novamente até que haja um agente disponível.
+
+## Finalização de Conversas
+
+Você pode ativar a opção de finalizar conversas de forma automática. Esta configuração fecha de forma automática as conversas que estejam atribuídas ou pendentes por atribuição. O tempo é tomado desde a última resposta do cliente. Você pode especificar o tempo em minutos.
+
+# Próximos passos
+
+<Card 
+    title="Configurar equipes de agentes" 
+    icon="square-up-right"
+    href="/pt/docs/agent-platform/admin/tags-teams"
+>
+    Configure equipes de agentes no Treble.
+</Card> 

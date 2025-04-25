@@ -1,0 +1,45 @@
+---
+title: "Agents"
+description: "In the agents section, you can see the agents in your operation, their metrics, and their conversations. You can manage your agents, assign them roles, create teams, and more."
+---
+
+<img src="/images/agent-agents-1.png" alt="Agents" />
+
+From the **Agents** section, you can manage all members of your team who handle conversations in Treble. Here you can see the connection status of each agent, their average performance, and other key indicators to monitor the operation in real-time. Let's explore each section in detail.
+
+## Assignment Methods
+
+Assignment methods for a conversation are the ways in which Treble assigns conversations to agents. There are two main categories of assignment: when you have a CRM integration like HubSpot and when you don't have a CRM integration.
+
+### Assignment Methods without CRM
+
+<img src="/images/agent-agents-2.png" alt="CRM Assignment" width="300" />
+
+When you don't have a CRM integration, Treble allows you to assign conversations according to two methods:
+
+1. **Random agent assignment**: Treble assigns conversations to agents randomly, based on response time and agent availability.
+2. **Assignment to the agent with fewer chats**: Treble assigns conversations to the agent with fewer ongoing chats by the agent group they belong to.
+
+### Assignment Methods with CRM
+
+<img src="/images/agent-agents-3.png" alt="CRM Assignment" width="300" />
+
+When you have a CRM integration, Treble allows you to assign conversations according to three methods:
+
+1. **Assign to the owner agent immediately**: Treble assigns conversations to the contact owner agent. That is, if your agent team is organized in HubSpot, Treble will assign conversations to the contact owner agent in HubSpot.
+2. **Assign to the owner agent only if connected**: Treble assigns conversations to the contact owner agent, but only if they are connected.
+3. **Assign or wait and retry**: Treble assigns conversations to the agent with fewer ongoing chats by the agent group they belong to. If no agents are available, Treble will wait and retry the assignment until an agent is available.
+
+## Conversation Completion
+
+You can activate the option to end conversations automatically. This setting automatically closes conversations that are assigned or pending assignment. The time is taken from the customer's last response. You can specify the time in minutes.
+
+# Next steps
+
+<Card 
+    title="Configure agent teams" 
+    icon="square-up-right"
+    href="/en/docs/agent-platform/admin/tags-teams"
+>
+    Configure agent teams in Treble.
+</Card> 

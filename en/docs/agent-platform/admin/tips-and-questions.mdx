@@ -1,0 +1,59 @@
+---
+title: "Recommendations and FAQs"
+description: "In this section, you can find recommendations and frequently asked questions about the Treble agent platform."
+---
+
+# Important Recommendations
+
+<AccordionGroup>
+  <Accordion title="Make sure your agents set themselves as active when available and inactive when they're not.">
+    This is fundamental for two main reasons:
+    - It ensures that a new chat is assigned to an agent who is really available to handle it
+    - It allows metrics like "first response times" and others related to your agents' performance to be more accurate and reflect the operational reality
+  </Accordion>
+  
+  <Accordion title="Make sure chats are finalized">
+    It's important to finalize chats for the following reasons:
+    - If a user (customer) has an active session with an agent, they won't receive a new message as they'll be "stuck" in a previous chat
+    - Only finalized chats will allow you to access the complete conversation history, which is essential for later analysis and follow-up
+  </Accordion>
+</AccordionGroup>
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Can I enable and disable the satisfaction survey for agents?">
+    You can do this from [app.treble.ai](http://app.treble.ai/) by going to Settings > Conversations > Satisfaction survey. There you'll find the option "Don't send any message" or you can configure your preferred message.
+  </Accordion>
+  
+  <Accordion title="What's the difference between 'first response from creation' and 'first response from assignment'?">
+    **Example:** A user writes at midnight, at which time there are no active agents. The next day at 9am an agent connects and at that moment the chat is assigned.
+    
+    - The "first response from creation" time is 9:01 am (from when the user wrote until the agent responded).
+    - The "first response from assignment" time is 1 minute (from when the chat was assigned to the agent until they responded).
+  </Accordion>
+  
+  <Accordion title="Can I delete an agent?">
+    Yes, as long as they don't have open chats.
+  </Accordion>
+  
+  <Accordion title="What happens if one of my agents leaves the company and I want to give this same email to a new agent?">
+    When an agent leaves the company, you can reuse their email for a new agent. However, it's important to first make sure that the previous agent doesn't have open chats and has been properly deactivated from the system.
+  </Accordion>
+  
+  <Accordion title="Can a chat be 'taken away' from an active agent to pass it to another?">
+    Yes, only profiles with administrator permissions can do this.
+  </Accordion>
+  
+  <Accordion title="Can a chat be taken away from an inactive agent?">
+    No, you must request access through the service portal at: [https://support-treble.atlassian.net/servicedesk/customer/portal/1/group/1](https://support-treble.atlassian.net/servicedesk/customer/portal/1/group/1)
+  </Accordion>
+  
+  <Accordion title="What considerations should be taken when forcing a chat transfer?">
+    When forcing a chat transfer, you should consider:
+    - Make sure the recipient agent is active and available to receive the chat
+    - Communicate to the user that they will be assisted by another agent to avoid confusion
+    - Share relevant context with the new agent to ensure a smooth transition
+    - Consider the impact on the metrics of both agents
+  </Accordion>
+</AccordionGroup> 

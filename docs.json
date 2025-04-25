@@ -266,7 +266,19 @@
                                         "pages": [
                                             "en/docs/agent-platform/welcome",
                                             "en/docs/agent-platform/main-platform",
-                                            "en/docs/agent-platform/tags-teams",
+                                            {
+                                                "group": "Admin",
+                                                "pages": [
+                                                    "en/docs/agent-platform/admin/admin-section",
+                                                    "en/docs/agent-platform/admin/metrics",
+                                                    "en/docs/agent-platform/admin/agents",
+                                                    "en/docs/agent-platform/admin/tags-teams",
+                                                    "en/docs/agent-platform/admin/quick-responses",
+                                                    "en/docs/agent-platform/admin/treble-boost",
+                                                    "en/docs/agent-platform/admin/configuration",
+                                                    "en/docs/agent-platform/admin/tips-and-questions"
+                                                ]
+                                            },
                                             "en/docs/agent-platform/mobile-app"
                                         ]
                                     },
@@ -415,7 +427,19 @@
                                         "pages": [
                                             "pt/docs/agent-platform/welcome",
                                             "pt/docs/agent-platform/main-platform",
-                                            "pt/docs/agent-platform/tags-teams",
+                                            {
+                                                "group": "Admin",
+                                                "pages": [
+                                                    "pt/docs/agent-platform/admin/admin-section",
+                                                    "pt/docs/agent-platform/admin/metrics",
+                                                    "pt/docs/agent-platform/admin/agents",
+                                                    "pt/docs/agent-platform/admin/tags-teams",
+                                                    "pt/docs/agent-platform/admin/quick-responses",
+                                                    "pt/docs/agent-platform/admin/treble-boost",
+                                                    "pt/docs/agent-platform/admin/configuration",
+                                                    "pt/docs/agent-platform/admin/tips-and-questions"
+                                                ]
+                                            },
                                             "pt/docs/agent-platform/mobile-app"
                                         ]
                                     },

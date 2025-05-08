@@ -1,0 +1,935 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API de Treble Poll",
+    "description": "Documentación para el endpoint de despliegue de polls en Treble",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://main.treble.ai",
+      "description": "Servidor principal de Treble"
+    }
+  ],
+  "paths": {
+    "/deployment/api/poll/{poll_id}": {
+      "post": {
+        "summary": "Desplegar un poll a usuarios específicos",
+        "description": "Este endpoint permite desplegar un conversación a una lista de usuarios definidos por su número de teléfono y código de país. También permite programar despliegues para una fecha posterior.",
+        "parameters": [
+          {
+            "name": "poll_id",
+            "in": "path",
+            "required": true,
+            "description": "ID del poll que se desea desplegar",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "API Key de autorización. Se puede obtener en https://app.treble.ai/en/admin/settings",
+            "schema": {
+              "type": "string"
+            },
+            "example": "API_KEY"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["application/json"]
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Información de los usuarios a los que se desplegará el poll",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["users"],
+                "properties": {
+                  "users": {
+                    "type": "array",
+                    "description": "Lista de usuarios a los que se desplegará el poll",
+                    "items": {
+                      "type": "object",
+                      "required": ["cellphone", "country_code", "user_session_keys"],
+                      "properties": {
+                        "cellphone": {
+                          "type": "string",
+                          "description": "Número de teléfono del usuario sin el código de país (por ejemplo: '3051234567')"
+                        },
+                        "country_code": {
+                          "type": "string",
+                          "description": "Código de país con el símbolo + (por ejemplo: '+57')"
+                        },
+                        "user_session_keys": {
+                          "type": "array",
+                          "description": "Variables que pueden ser reemplazadas en los textos de las preguntas o entregadas cuando se llama a un webhook. Para empresas multicanal, puede incluir la clave 'deployment_squad' para seleccionar qué número de teléfono realizará el despliegue.",
+                          "items": {
+                            "type": "object",
+                            "required": ["key", "value"],
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "description": "Nombre de la variable. Valores especiales incluyen 'deployment_squad' para seleccionar qué número de teléfono realizará el despliegue."
+                              },
+                              "value": {
+                                "type": "string",
+                                "description": "Valor de la variable. Para 'deployment_squad', el valor debe ser 'DS_[CELLPHONE]'."
+                              }
+                            }
+                          }
+                        },
+                        "deployment_eta": {
+                          "type": "integer",
+                          "description": "Timestamp UNIX UTC para programar el despliegue para una fecha posterior (opcional). Ejemplo: 1615823201 (15 de marzo de 2021, 3:46:41 PM UTC)"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "examples": {
+                "Ejemplo básico": {
+                  "value": {
+                    "users": [
+                      {
+                        "cellphone": "3051234567",
+                        "country_code": "+57",
+                        "user_session_keys": [
+                          {
+                            "key": "name",
+                            "value": "Juan"
+                          },
+                          {
+                            "key": "TransID",
+                            "value": "12345"
+                          },
+                          {
+                            "key": "schoolname",
+                            "value": "Redschool"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "Ejemplo con deployment_eta": {
+                  "value": {
+                    "users": [
+                      {
+                        "cellphone": "3051234567",
+                        "country_code": "+57",
+                        "user_session_keys": [
+                          {
+                            "key": "name",
+                            "value": "Juan"
+                          }
+                        ],
+                        "deployment_eta": 1615823201
+                      }
+                    ]
+                  }
+                },
+                "Ejemplo con deployment_squad": {
+                  "value": {
+                    "users": [
+                      {
+                        "cellphone": "3051234567",
+                        "country_code": "+57",
+                        "user_session_keys": [
+                          {
+                            "key": "name",
+                            "value": "Juan"
+                          },
+                          {
+                            "key": "deployment_squad",
+                            "value": "DS_[CELLPHONE]"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "El poll fue desplegado correctamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Mensaje de confirmación"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "ID del despliegue"
+                    },
+                    "batch_id": {
+                      "type": "string",
+                      "description": "ID del lote de despliegue"
+                    },
+                    "new_last_scheduleded_deployment": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Fecha y hora del último despliegue programado"
+                    },
+                    "conversations_id": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Lista de IDs de las conversaciones creadas"
+                    }
+                  }
+                },
+                "example": {
+                  "message": "The poll was deployed",
+                  "id": "5f8d7e6a5f8d7e6a5f8d7e6a",
+                  "batch_id": "5f8d7e6a5f8d7e6a5f8d7e6b",
+                  "new_last_scheduleded_deployment": "2021-03-15T15:46:41Z",
+                  "conversations_id": ["5f8d7e6a5f8d7e6a5f8d7e6c"]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la solicitud",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Código de error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Descripción del error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No autorizado. API Key inválida o faltante.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Código de error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Descripción del error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Poll no encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Código de error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Descripción del error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/poll/api/all": {
+      "get": {
+        "summary": "Obtener todas las conversaciones (flujos) de tu empresa",
+        "description": "Este endpoint permite obtener todas las conversaciones (flujos) que pertenecen a tu empresa.",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "API Key de autorización. Se puede obtener en https://app.treble.ai/en/admin/settings",
+            "schema": {
+              "type": "string"
+            },
+            "example": "API_KEY"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de conversaciones obtenida correctamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Conversation"
+                  }
+                },
+                "example": [
+                  {
+                    "id": 1,
+                    "name": "Primera conversación"
+                  },
+                  {
+                    "id": 2,
+                    "name": "Integración CRM"
+                  }
+                ]
+              }
+            }
+          },
+          "401": {
+            "description": "No autorizado. API Key inválida o faltante.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Código de error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Descripción del error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Código de error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Descripción del error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/session/{session_external_id}/update": {
+      "post": {
+        "summary": "Actualizar sesión de usuario y continuar conversación",
+        "description": "Este endpoint permite actualizar las claves de sesión de un usuario específico y continuar la conversación iniciada previamente. El webhook desencadenado por la primera respuesta del usuario proporcionará el session_external_id necesario para esta solicitud.",
+        "parameters": [
+          {
+            "name": "session_external_id",
+            "in": "path",
+            "required": true,
+            "description": "ID externo de la sesión del usuario. Se obtiene del campo 'session_external_id' en la respuesta del webhook desencadenado por la primera interacción del usuario.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "f33b4734a2e5db671b59877ed3f662ec1f6332a0418c25de4868e35a"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["application/json"]
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Información de las claves de sesión que se actualizarán",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["user_session_keys"],
+                "properties": {
+                  "user_session_keys": {
+                    "type": "array",
+                    "description": "Lista de claves de sesión de usuario que se actualizarán",
+                    "items": {
+                      "$ref": "#/components/schemas/UserSessionKey"
+                    }
+                  }
+                }
+              },
+              "example": {
+                "user_session_keys": [
+                  {
+                    "key": "order",
+                    "value": "1 Hamburguesa con queso, 2 Vasos de gaseosa"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sesión actualizada correctamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Mensaje de confirmación"
+                    },
+                    "session_id": {
+                      "type": "string",
+                      "description": "ID de la sesión actualizada"
+                    }
+                  }
+                },
+                "example": {
+                  "message": "Sesión actualizada correctamente",
+                  "session_id": "f33b4734a2e5db671b59877ed3f662ec1f6332a0418c25de4868e35a"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la solicitud",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Código de error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Descripción del error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Sesión no encontrada",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Código de error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Descripción del error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webhooks/on-delivered": {
+      "post": {
+        "summary": "Webhook - Cuando un mensaje es entregado",
+        "description": "Este no es un endpoint real que puedes llamar. Representa el webhook que Treble invocará en tu servidor cuando un mensaje es entregado al usuario. La URL de este webhook debe ser configurada en tu sistema y proporcionada a Treble.",
+        "tags": ["Webhooks"],
+        "requestBody": {
+          "description": "Información del evento de entrega",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeliveredEvent"
+              },
+              "example": {
+                "country_code": "+57",
+                "cellphone": "3176477608",
+                "session_id": "d2fa98d29a2670dfa119335df1b0371720d674f1677302aba228876a",
+                "conversation_id": 34820,
+                "question": {
+                  "type": "open",
+                  "text": "Olá! Bom dia. Espero que esteja tudo bem. Gostaria de continuar nossa conversa para resolver todos os seus problemas e preocupações?"
+                },
+                "sent_at": "2021-06-22 15:19:06.473256",
+                "sent_text": "Olá! Bom dia. Espero que esteja tudo bem. Gostaria de continuar nossa conversa para resolver todos os seus problemas e preocupações?",
+                "user_session_keys": [],
+                "delivered_at": "2021-06-22 15:19:08"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Respuesta para actualizar o agregar información a la sesión",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Objeto JSON con la nueva información que será reemplazada o agregada a la sesión para uso futuro. El servicio debe responder en menos de 10 segundos."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webhooks/on-read": {
+      "post": {
+        "summary": "Webhook - Cuando un mensaje es leído",
+        "description": "Este no es un endpoint real que puedes llamar. Representa el webhook que Treble invocará en tu servidor cuando un mensaje es leído por el usuario. La URL de este webhook debe ser configurada en tu sistema y proporcionada a Treble.",
+        "tags": ["Webhooks"],
+        "requestBody": {
+          "description": "Información del evento de lectura",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReadEvent"
+              },
+              "example": {
+                "country_code": "+57",
+                "cellphone": "3176477608",
+                "session_id": "d2fa98d29a2670dfa119335df1b0371720d674f1677302aba228876a",
+                "conversation_id": 34820,
+                "question": {
+                  "type": "open",
+                  "text": "Olá! Bom dia. Espero que esteja tudo bem. Gostaria de continuar nossa conversa para resolver todos os seus problemas e preocupações?"
+                },
+                "sent_at": "2021-06-22 15:19:06.473256",
+                "sent_text": "Olá! Bom dia. Espero que esteja tudo bem. Gostaria de continuar nossa conversa para resolver todos os seus problemas e preocupações?",
+                "user_session_keys": [],
+                "read_at": "2021-06-22 15:19:08"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Respuesta para actualizar o agregar información a la sesión",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Objeto JSON con la nueva información que será reemplazada o agregada a la sesión para uso futuro. El servicio debe responder en menos de 10 segundos."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webhooks/on-response": {
+      "post": {
+        "summary": "Webhook - Cuando un usuario responde a una pregunta",
+        "description": "Este no es un endpoint real que puedes llamar. Representa el webhook que Treble invocará en tu servidor cuando un usuario responde a una pregunta en la conversación. La URL de este webhook debe ser configurada en tu sistema y proporcionada a Treble.",
+        "tags": ["Webhooks"],
+        "requestBody": {
+          "description": "Información del evento de respuesta",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResponseEvent"
+              },
+              "example": {
+                "country_code": "+57",
+                "cellphone": "3161234567",
+                "session_id": "1234",
+                "conversation_id": "5678",
+                "question": {
+                  "type": "closed",
+                  "text": "conversation-question-text",
+                  "answers": [{
+                    "text": "answer-text"
+                  }]
+                },
+                "sent_at": "2019-01-01 00:00:00",
+                "responded_at": "2019-01-01 00:00:00",
+                "sent_text": "text-sent-to-user",
+                "actual_response": "Si necesito",
+                "classified_answer": {
+                  "text": "answer-text"
+                },
+                "user_session_keys": [
+                  {
+                    "key": "name",
+                    "value": "Juan",
+                    "type": null
+                  },
+                  {
+                    "key": "user_id",
+                    "value": "12345",
+                    "type": null
+                  },
+                  {
+                    "key": "loc",
+                    "value": "{\"latitude\": 4.5935443, \"longitude\": -72.0345404, \"address\": \"Carrera 7 #100-06\"}",
+                    "type": "location"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Respuesta para actualizar o agregar información a la sesión",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Objeto JSON con la nueva información que será reemplazada o agregada a la sesión para uso futuro. El servicio debe responder en menos de 10 segundos."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "UserSessionKey": {
+        "type": "object",
+        "required": ["key", "value"],
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Nombre de la variable. Valores especiales incluyen 'deployment_squad' para seleccionar qué número de teléfono realizará el despliegue en empresas multicanal."
+          },
+          "value": {
+            "type": "string",
+            "description": "Valor de la variable. Para 'deployment_squad', el valor debe ser 'DS_[CELLPHONE]'."
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "required": ["cellphone", "country_code", "user_session_keys"],
+        "properties": {
+          "cellphone": {
+            "type": "string",
+            "description": "Número de teléfono del usuario sin el código de país (por ejemplo: '3051234567')"
+          },
+          "country_code": {
+            "type": "string",
+            "description": "Código de país con el símbolo + (por ejemplo: '+57')"
+          },
+          "user_session_keys": {
+            "type": "array",
+            "description": "Variables que pueden ser reemplazadas en los textos de las preguntas o entregadas cuando se llama a un webhook. Para empresas multicanal, puede incluir la clave 'deployment_squad' para seleccionar qué número de teléfono realizará el despliegue.",
+            "items": {
+              "$ref": "#/components/schemas/UserSessionKey"
+            }
+          },
+          "deployment_eta": {
+            "type": "integer",
+            "description": "Timestamp UNIX UTC para programar el despliegue para una fecha posterior (opcional). Ejemplo: 1615823201 (15 de marzo de 2021, 3:46:41 PM UTC)"
+          }
+        }
+      },
+      "DeploymentSquadKey": {
+        "type": "object",
+        "description": "Clave especial para empresas multicanal que permite seleccionar qué número de teléfono realizará el despliegue.",
+        "required": ["key", "value"],
+        "properties": {
+          "key": {
+            "type": "string",
+            "enum": ["deployment_squad"],
+            "description": "Clave para especificar un número de teléfono que realizará el despliegue."
+          },
+          "value": {
+            "type": "string",
+            "pattern": "^DS_\\[CELLPHONE\\]$",
+            "description": "Valor que debe seguir el formato 'DS_[CELLPHONE]'. Se pueden agregar varios deployment squads para que varios números puedan realizar el despliegue."
+          }
+        }
+      },
+      "Conversation": {
+        "type": "object",
+        "required": ["id", "name"],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "ID único de la conversación"
+          },
+          "name": {
+            "type": "string",
+            "description": "Nombre de la conversación"
+          }
+        }
+      },
+      "Question": {
+        "type": "object",
+        "required": ["type", "text"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Tipo de pregunta",
+            "example": "open"
+          },
+          "text": {
+            "type": "string",
+            "description": "Texto de la pregunta"
+          }
+        }
+      },
+      "ClosedQuestion": {
+        "type": "object",
+        "required": ["type", "text", "answers"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Tipo de pregunta",
+            "example": "closed"
+          },
+          "text": {
+            "type": "string",
+            "description": "Texto de la pregunta"
+          },
+          "answers": {
+            "type": "array",
+            "description": "Lista de respuestas posibles para la pregunta cerrada",
+            "items": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "description": "Texto de la respuesta"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Answer": {
+        "type": "object",
+        "required": ["text"],
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Texto de la respuesta"
+          }
+        }
+      },
+      "ExtendedUserSessionKey": {
+        "type": "object",
+        "required": ["key", "value"],
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Nombre de la variable"
+          },
+          "value": {
+            "type": "string",
+            "description": "Valor de la variable"
+          },
+          "type": {
+            "type": "string",
+            "nullable": true,
+            "description": "Tipo de la variable. Puede ser null o un tipo específico como 'location'."
+          }
+        }
+      },
+      "DeliveredEvent": {
+        "type": "object",
+        "required": ["country_code", "cellphone", "session_id", "conversation_id", "question", "sent_at", "sent_text", "delivered_at"],
+        "description": "Evento que se dispara cuando un mensaje es entregado al usuario",
+        "properties": {
+          "country_code": {
+            "type": "string",
+            "description": "Código de país del usuario"
+          },
+          "cellphone": {
+            "type": "string",
+            "description": "Número de teléfono del usuario sin el código de país"
+          },
+          "session_id": {
+            "type": "string",
+            "description": "ID de la sesión del usuario"
+          },
+          "conversation_id": {
+            "type": "integer",
+            "description": "ID de la conversación"
+          },
+          "question": {
+            "$ref": "#/components/schemas/Question"
+          },
+          "sent_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Fecha y hora en que se envió el mensaje"
+          },
+          "sent_text": {
+            "type": "string",
+            "description": "Texto del mensaje enviado"
+          },
+          "user_session_keys": {
+            "type": "array",
+            "description": "Claves de sesión del usuario recopiladas durante la conversación o proporcionadas durante el despliegue",
+            "items": {
+              "$ref": "#/components/schemas/UserSessionKey"
+            }
+          },
+          "delivered_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Fecha y hora en que se entregó el mensaje al usuario"
+          }
+        }
+      },
+      "ReadEvent": {
+        "type": "object",
+        "required": ["country_code", "cellphone", "session_id", "conversation_id", "question", "sent_at", "sent_text", "read_at"],
+        "description": "Evento que se dispara cuando un mensaje es leído por el usuario",
+        "properties": {
+          "country_code": {
+            "type": "string",
+            "description": "Código de país del usuario"
+          },
+          "cellphone": {
+            "type": "string",
+            "description": "Número de teléfono del usuario sin el código de país"
+          },
+          "session_id": {
+            "type": "string",
+            "description": "ID de la sesión del usuario"
+          },
+          "conversation_id": {
+            "type": "integer",
+            "description": "ID de la conversación"
+          },
+          "question": {
+            "$ref": "#/components/schemas/Question"
+          },
+          "sent_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Fecha y hora en que se envió el mensaje"
+          },
+          "sent_text": {
+            "type": "string",
+            "description": "Texto del mensaje enviado"
+          },
+          "user_session_keys": {
+            "type": "array",
+            "description": "Claves de sesión del usuario recopiladas durante la conversación o proporcionadas durante el despliegue",
+            "items": {
+              "$ref": "#/components/schemas/UserSessionKey"
+            }
+          },
+          "read_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Fecha y hora en que el mensaje fue leído por el usuario"
+          }
+        }
+      },
+      "ResponseEvent": {
+        "type": "object",
+        "required": ["country_code", "cellphone", "session_id", "conversation_id", "question", "sent_at", "responded_at", "sent_text", "actual_response", "classified_answer", "user_session_keys"],
+        "description": "Evento que se dispara cuando un usuario responde a una pregunta en la conversación",
+        "properties": {
+          "country_code": {
+            "type": "string",
+            "description": "Código de país del usuario"
+          },
+          "cellphone": {
+            "type": "string",
+            "description": "Número de teléfono del usuario sin el código de país"
+          },
+          "session_id": {
+            "type": "string",
+            "description": "ID de la sesión del usuario"
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "ID de la conversación"
+          },
+          "question": {
+            "$ref": "#/components/schemas/ClosedQuestion"
+          },
+          "sent_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Fecha y hora en que se envió la pregunta"
+          },
+          "responded_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Fecha y hora en que el usuario respondió a la pregunta"
+          },
+          "sent_text": {
+            "type": "string",
+            "description": "Texto enviado al usuario"
+          },
+          "actual_response": {
+            "type": "string",
+            "description": "Respuesta literal proporcionada por el usuario"
+          },
+          "classified_answer": {
+            "$ref": "#/components/schemas/Answer",
+            "description": "Respuesta clasificada basada en la respuesta del usuario"
+          },
+          "user_session_keys": {
+            "type": "array",
+            "description": "Claves de sesión del usuario recopiladas durante la conversación o proporcionadas durante el despliegue",
+            "items": {
+              "$ref": "#/components/schemas/ExtendedUserSessionKey"
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Webhooks",
+      "description": "Endpoints que Treble llamará en tu servidor. Estos no son endpoints reales que puedas llamar, sino una representación de los webhooks que Treble invocará en tu sistema."
+    }
+  ]
+} 

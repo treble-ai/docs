@@ -158,6 +158,37 @@
                                         ]
                                     }
                                 ]
+                            },
+                            {
+                                "tab": "Referencia de API",
+                                "groups": [
+                                    {
+                                        "group": "Introducción a la API",
+                                        "pages": [
+                                            "es/api-reference/intro/intro",
+                                            "es/api-reference/intro/api-key"
+                                        ]
+                                    },
+                                    {
+                                        "group": "API",
+                                        "pages": [
+                                            "es/api-reference/endpoints/deploy",
+                                            "es/api-reference/endpoints/get-convos",
+                                            "es/api-reference/endpoints/session-update"
+                                        ]
+                                    },
+                                    {
+                                        "group": "Webhooks",
+                                        "pages": [
+                                            "es/api-reference/webhooks/intro",
+                                            "es/api-reference/webhooks/delivered-read",
+                                            "es/api-reference/webhooks/delivered-api",
+                                            "es/api-reference/webhooks/read-api",
+                                            "es/api-reference/webhooks/message-response",
+                                            "es/api-reference/webhooks/message-response-api"
+                                        ]
+                                    }
+                                ]
                             }
                         ]
                     },

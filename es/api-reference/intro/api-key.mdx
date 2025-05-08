@@ -1,0 +1,57 @@
+---
+title: "Llave de API y encabezados webhook"
+description: "Para interactuar con la API de Treble, necesitarás una llave de API. Esta llave te permitirá autenticar tus solicitudes a la API y acceder a los endpoints disponibles. Aprende a obtener tu llave de API en este artículo."
+---
+
+## ¿Qué es una llave de API?
+
+Una llave de API es un identificador único que se utiliza para autenticar y autorizar las solicitudes a la API de Treble. Cada llave de API está asociada a una cuenta específica y tiene un conjunto de permisos asociados.
+
+La llave de API que obtendrás es una llave global para toda la cuenta de Treble.
+
+## ¿Cómo obtener una llave de API?
+
+Para obtener una llave de API, debes seguir estos pasos:
+
+1. Inicia sesión en tu cuenta de Treble <a class="article-link" href="https://app.treble.ai/login"><p>Iniciar sesión en Treble</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+2. En la barra de navegación, haz clic en **Configuración** <Icon icon="gear" iconType="solid" />.
+3. Luego haz clic en **Desarrolladores**
+4. Encontrarás un campo llamado **Llave de API**
+5. Copia la llave de API y guardala en un lugar seguro.
+
+<img src="/images/api-key-1.gif" alt="Llave de API" />
+
+Ejemplo:
+
+```
+ak_S5BCOgOxrfENbkn-wH2gpPK3AM8ihLNmQg
+```
+
+Con esta llave, podrás autenticar tus solicitudes a la API de Treble. Para usarla, debes agregarla en el encabezado de la solicitud como un token de autenticación.
+
+Ejemplo:
+
+```
+Authorization: ak_S5BCOgOxrfENbkn-wH2gpPK3AM8ihLNmQg
+```
+
+## Configuraciones Avanzadas
+
+### Encabezados de Autenticación para webhooks
+
+Si configuras algún webhook desde Treble hacia tu sistema de información, puedes agregar una lista de encabezados de autenticación para que la solicitud se pueda autenticar. Estos encabezados se agregarán a cada solicitud que se haga a tu webhook y se definen en formato JSON.
+
+Ejemplo:
+
+```json
+{
+  "Authorization": "Bearer 1234567890",
+  "X-API-Key": "1234567890"
+}
+```
+
+De ahora en adelante, cada vez que hagas una solicitud a tu webhook, Treble agregará estos encabezados a la solicitud.
+
+Para configurarlos, en la misma sección de **Desarrolladores**, haz scroll hasta el campo **Encabezados de Webhook** y agrega los encabezados que necesites. Añádelos y luego haz clic en **Guardar**.
+
+<img src="/images/api-key-2.png" alt="Encabezados de Autenticación" />

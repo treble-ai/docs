@@ -1,0 +1,73 @@
+---
+title: "Lectura y recepción de mensaje"
+description: "Los webhook de lectura y recepción de mensajes se activan cuando un usuario lee o recibe un mensaje. Aprende a configurarlos en este artículo."
+---
+
+## ¿Cómo funciona?
+
+Por medio de Treble, que utiliza WhatsApp Business API, cuando un usuario lee o recibe un mensaje, podemos configurar un webhook para que se active cuando esto ocurra.
+
+### Ejemplo caso de uso
+
+Supongamos que eres una compañía de ventas de ropa y quieres saber cuando un cliente ha leído o recibido tu primer menesaje de marketing que habla sobre una promoción para tu nueva colección de ropa. A los primeros 100 clientes que se suscriban a tu newsletter, les ofrecerás un 10% de descuento en su primera compra.
+
+Para esto, puedes configurar un webhook de lectura de mensaje en Treble. Cuando un cliente lea o reciba tu mensaje, el webhook se activará y enviará una solicitud HTTP a tu endpoint configurado en Treble.
+
+## ¿Cómo configurar un webhook de lectura o recepción de mensaje?
+
+<Steps>
+    <Step title="Ingresa a Treble.ai">
+        Ingresa a Treble.ai por medio de la siguiente URL: <a class="article-link" href="https://app.treble.ai"><p>https://app.treble.ai</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+    </Step>
+    <Step title="Creación de un flujo">
+        Ve a la sección de "Conversaciones" y haz click en el botón **"Crear Conversación".** También puedes configurar un webhook de lectura de mensaje en un flujo existente. Para esto, ve a la sección de "Flujos" y haz click en el botón **"Editar" <Icon icon="pencil" iconType="solid" />** de tu flujo.
+
+        <img src="/images/create-convo.gif" alt="Crear Conversación" />
+    </Step>
+    <Step title="Agregar bloques de mensajes">
+        Vamos a añadir el primer bloque de mensaje. Haz click en el botón **"Agregar bloque" <Icon icon="plus" iconType="solid" />**. En este caso, vamos a agregar una plantilla de mensaje (HSM) previamente creada y aprobada por Meta. Después vamos a conectar un bloque sencillo de mensaje con el bloque de HSM.
+
+        <img src="/images/webhook-rd-2.gif" alt="Agregar un bloque de mensaje" />
+    </Step>
+    <Step title="Activar webhook y agregar endpoint">
+        Ahora, vamos a hacer doble click en el bloque de mensaje, se desplegará un panel a la izquierda. En este panel, vamos a hacer click en el botón **"Webhook" <Icon icon="toggle-on" iconType="solid" />**. Se desplegarán dos campos:
+
+        - **"Read"**: Aquí puedes agregar el endpoint al que quieres que se envíe la solicitud HTTP cuando este mensaje sea leído.
+        - **"Delivered"**: Aquí puedes agregar el endpoint al que quieres que se envíe la solicitud HTTP cuando este mensaje sea recibido.
+
+        <img src="/images/webhook-rd-3.gif" alt="Agregar un bloque de mensaje" />
+    </Step>
+    <Step title="Guardar cambios">
+        Si estás en un flujo nuevo, haz click en el botón **"Publicar Conversación"** para guardar el flujo. Si estás en un flujo existente, haz click en el botón **"Guardar"** para guardar los cambios.
+
+        <Check>
+            ¡Listo! Ahora, cuando un cliente lea o reciba tu mensaje, el webhook se activará y enviará una solicitud HTTP a tu endpoint configurado en Treble.
+        </Check>
+    </Step>
+</Steps>
+
+## Siguiente paso
+
+Para conocer el cuerpo de la solicitud HTTP que se envía cuando un cliente lee o recibe un mensaje, puedes visitar la siguiente sección: 
+
+<CardGroup columns={2}>
+    <Card 
+        title="Cuerpo de la solicitud Webhook de entrega de mensaje" 
+        icon="code"
+        href="/es/api-reference/webhooks/delivered-api"
+    >
+        Cuerpo de la solicitud Webhook de entrega de mensaje
+    </Card>
+    <Card 
+        title="Cuerpo de la solicitud Webhook de lectura de mensaje" 
+        icon="code"
+        href="/es/api-reference/webhooks/read-api"
+    >
+        Cuerpo de la solicitud Webhook de lectura de mensaje
+    </Card>
+</CardGroup>
+
+## Tips 
+
+- Ten en cuenta que los webhooks de lectura y recepción de mensajes se activan cuando un cliente lee o recibe un mensaje y solo aplican para el mensaje que configuraste. Si quieres que se active en otros mensajes, debes configurar un webhook para cada mensaje.
+- El webhook de lectura de mensaje puede no activarse si el usuario de WhatsApp tiene configurado el modo de privacidad de lectura.

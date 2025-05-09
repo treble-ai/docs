@@ -1,0 +1,48 @@
+---
+title: "Webhook de cambio de estado de Plantilla HSM"
+description: "El webhook de cambio de estado de Plantilla HSM se activa cuando un usuario cambia el estado de una Plantilla HSM. Aprende a configurarlos en este artículo."
+---
+
+## Antes de empezar
+
+Antes de empezar, asegúrate de que tengas conocimiento de lo que es una Plantilla HSM. Si no lo tienes claro, puedes leer el artículo:
+
+<Card 
+    title="Plantilla HSM" 
+    icon="book"
+    href="/es/docs/meta/hsm-templates/intro"
+>
+    Aprende todo sobre las Plantillas HSM. Aprende a crear una Plantilla HSM y a utilizarla en un flujo.
+</Card>
+
+## Cambio de estado de Plantilla HSM
+
+Las plantillas HSM tienen estados diferentes. Conocemos que cuando creamos una plantilla, debemos enviarla a aprobar en Meta. En este caso la plantilla queda en estado de **En Revisión**. Cuando Meta aprueba la plantilla, esta queda en estado de **Activa**. Si Meta rechaza la plantilla, esta quedará en estado de **Rechazada**.
+
+Igualmente, la plantilla tiene una categoría. Esta categoría es la categoría con la cual por primera vez creamos la plantilla. Sin embargo, Meta puede cambiar la categoría de la plantilla si detecta que el mensaje no corresponde a la categoría.
+
+En ese sentido, tenemos dos elementos que pueden cambiar el estado de una Plantilla HSM:
+
+- El estado de la plantilla
+- La categoría de la plantilla
+
+¿Por qué pueden llegar a cambiar estos elementos de una Plantilla HSM?
+
+- Meta detecta que el mensaje original de la plantilla no corresponde a la categoría con la que fue creada.
+- Meta detecta que tus clientes están marcando tus conversaciones como spam, lo cual genera que Meta pueda pausar o desactivar tu plantilla.
+- Hiciste una edición en la plantilla y Meta la marca como **En Revisión**.
+- Meta te aprueba una plantilla previamente desabilitada o pausada para que pueda ser utilizada nuevamente.
+
+Hay muchos escenarios que pueden causar estos cambios. Por medio de la configuración del webhook, puedes estar al pendiente de estos cambios y tomar las acciones necesarias.
+
+## ¿Cómo configurar un webhook de cambio de estado de Plantilla HSM?
+
+Para configurar un webhook de cambio de estado de Plantilla HSM, debes seguir los siguientes pasos:
+
+1. Ingresa a Treble.ai por medio de la siguiente URL: <a class="article-link" href="https://app.treble.ai"><p>https://app.treble.ai</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+2. Ve a la sección de **Configuración** y selecciona **Webhooks**.
+3. Podrás ver un campo de **URL del webhook**. Este es el endpoint al que se enviará la solicitud HTTP cuando ocurra un cambio de estado de una Plantilla HSM.
+4. Ingresa la URL de tu webhook en el campo **URL del webhook**.
+5. Haz clic en **Guardar**.
+
+<img src="/images/change-state-1.gif" alt="Configurar un webhook de cambio de estado de Plantilla HSM" />

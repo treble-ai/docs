@@ -9,6 +9,10 @@
     {
       "url": "https://main.treble.ai",
       "description": "Servidor principal de Treble"
+    },
+    {
+      "url": "https://tudominio.com",
+      "description": "Servidor de ejemplo para implementar los webhooks. Esto representa TU servidor donde debes implementar los endpoints que Treble llamará."
     }
   ],
   "paths": {
@@ -478,8 +482,14 @@
     "/webhooks/on-delivered": {
       "post": {
         "summary": "Webhook - Cuando un mensaje es entregado",
-        "description": "Este no es un endpoint real que puedes llamar. Representa el webhook que Treble invocará en tu servidor cuando un mensaje es entregado al usuario. La URL de este webhook debe ser configurada en tu sistema y proporcionada a Treble.",
+        "description": "Este endpoint debe ser implementado en TU servidor (por ejemplo: https://tudominio.com/webhooks/on-delivered). Treble llamará a este webhook cuando un mensaje sea entregado al usuario. Debes configurar la URL de este webhook en el panel de administración de Treble.",
         "tags": ["Webhooks"],
+        "servers": [
+          {
+            "url": "https://tudominio.com",
+            "description": "Tu servidor donde debes implementar este webhook"
+          }
+        ],
         "requestBody": {
           "description": "Información del evento de entrega",
           "content": {
@@ -522,8 +532,14 @@
     "/webhooks/on-read": {
       "post": {
         "summary": "Webhook - Cuando un mensaje es leído",
-        "description": "Este no es un endpoint real que puedes llamar. Representa el webhook que Treble invocará en tu servidor cuando un mensaje es leído por el usuario. La URL de este webhook debe ser configurada en tu sistema y proporcionada a Treble.",
+        "description": "Este endpoint debe ser implementado en TU servidor (por ejemplo: https://tudominio.com/webhooks/on-read). Treble llamará a este webhook cuando un mensaje sea leído por el usuario. Debes configurar la URL de este webhook en el panel de administración de Treble.",
         "tags": ["Webhooks"],
+        "servers": [
+          {
+            "url": "https://tudominio.com",
+            "description": "Tu servidor donde debes implementar este webhook"
+          }
+        ],
         "requestBody": {
           "description": "Información del evento de lectura",
           "content": {
@@ -566,8 +582,14 @@
     "/webhooks/on-response": {
       "post": {
         "summary": "Webhook - Cuando un usuario responde a una pregunta",
-        "description": "Este no es un endpoint real que puedes llamar. Representa el webhook que Treble invocará en tu servidor cuando un usuario responde a una pregunta en la conversación. La URL de este webhook debe ser configurada en tu sistema y proporcionada a Treble.",
+        "description": "Este endpoint debe ser implementado en TU servidor (por ejemplo: https://tudominio.com/webhooks/on-response). Treble llamará a este webhook cuando un usuario responda a una pregunta en la conversación. Debes configurar la URL de este webhook en el panel de administración de Treble.",
         "tags": ["Webhooks"],
+        "servers": [
+          {
+            "url": "https://tudominio.com",
+            "description": "Tu servidor donde debes implementar este webhook"
+          }
+        ],
         "requestBody": {
           "description": "Información del evento de respuesta",
           "content": {
@@ -633,8 +655,14 @@
     "/webhooks/on-optout": {
       "post": {
         "summary": "Webhook - Cuando un usuario se da de baja (opt-out)",
-        "description": "Este no es un endpoint real que puedes llamar. Representa el webhook que Treble invocará en tu servidor cuando un usuario decide darse de baja o salir de la conversación. La URL de este webhook debe ser configurada en tu sistema y proporcionada a Treble.",
+        "description": "Este endpoint debe ser implementado en TU servidor (por ejemplo: https://tudominio.com/webhooks/on-optout). Treble llamará a este webhook cuando un usuario decida darse de baja o salir de la conversación. Debes configurar la URL de este webhook en el panel de administración de Treble.",
         "tags": ["Webhooks"],
+        "servers": [
+          {
+            "url": "https://tudominio.com",
+            "description": "Tu servidor donde debes implementar este webhook"
+          }
+        ],
         "requestBody": {
           "description": "Información del evento de opt-out",
           "content": {
@@ -685,8 +713,14 @@
     "/webhooks/on-condition": {
       "post": {
         "summary": "Webhook - Cuando se evalúa un nodo condicional",
-        "description": "Este no es un endpoint real que puedes llamar. Representa el webhook que Treble invocará en tu servidor cuando se evalúa un nodo condicional en la conversación. La URL de este webhook debe ser configurada en tu sistema y proporcionada a Treble.",
+        "description": "Este endpoint debe ser implementado en TU servidor (por ejemplo: https://tudominio.com/webhooks/on-condition). Treble llamará a este webhook cuando se evalúe un nodo condicional en la conversación. Debes configurar la URL de este webhook en el panel de administración de Treble.",
         "tags": ["Webhooks"],
+        "servers": [
+          {
+            "url": "https://tudominio.com",
+            "description": "Tu servidor donde debes implementar este webhook"
+          }
+        ],
         "requestBody": {
           "description": "Información del evento de evaluación de condición",
           "content": {
@@ -741,8 +775,14 @@
     "/webhooks/on-timeout": {
       "post": {
         "summary": "Webhook - Cuando ocurre un timeout en la conversación",
-        "description": "Este no es un endpoint real que puedes llamar. Representa el webhook que Treble invocará en tu servidor cuando ocurre un timeout en la conversación (el usuario no responde dentro del tiempo establecido). La URL de este webhook debe ser configurada en tu sistema y proporcionada a Treble.",
+        "description": "Este endpoint debe ser implementado en TU servidor (por ejemplo: https://tudominio.com/webhooks/on-timeout). Treble llamará a este webhook cuando ocurra un timeout en la conversación (el usuario no responde dentro del tiempo establecido). Debes configurar la URL de este webhook en el panel de administración de Treble.",
         "tags": ["Webhooks"],
+        "servers": [
+          {
+            "url": "https://tudominio.com",
+            "description": "Tu servidor donde debes implementar este webhook"
+          }
+        ],
         "requestBody": {
           "description": "Información del evento de timeout",
           "content": {
@@ -784,6 +824,575 @@
                 "schema": {
                   "type": "object",
                   "description": "Objeto JSON con la nueva información que será reemplazada o agregada a la sesión para uso futuro. El servicio debe responder en menos de 10 segundos."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webhooks/on-conversation-closed": {
+      "post": {
+        "summary": "Webhook - Cuando se cierra una conversación",
+        "description": "Este endpoint debe ser implementado en TU servidor (por ejemplo: https://tudominio.com/webhooks/on-conversation-closed). Treble llamará a este webhook cuando se cierre una conversación entre un usuario y la empresa. Debes configurar la URL de este webhook en el panel de administración de Treble.",
+        "tags": ["Webhooks"],
+        "servers": [
+          {
+            "url": "https://tudominio.com",
+            "description": "Tu servidor donde debes implementar este webhook"
+          }
+        ],
+        "requestBody": {
+          "description": "Información del evento de cierre de conversación",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConversationClosedEvent"
+              },
+              "example": {
+                "session": {
+                  "external_id": "d2fa98d29a2670dfa119335df1b0371720d674f1677302aba228876a",
+                  "closed_at": "2022-01-27 21:28:34"
+                },
+                "user": {
+                  "country_code": "+57",
+                  "cellphone": "1234567890"
+                },
+                "company": {
+                  "id": 1,
+                  "cellphone": "12056192992"
+                },
+                "messages": [
+                  {
+                    "sender": "user",
+                    "type": "text",
+                    "text": {
+                      "message": "Hola, necesito información sobre sus servicios"
+                    },
+                    "created_at": "2022-01-27 20:15:48",
+                    "delivered_at": "2022-01-27 20:15:49",
+                    "read_at": "2022-01-27 20:16:03"
+                  },
+                  {
+                    "sender": "company",
+                    "type": "image",
+                    "image": {
+                      "url": "https://example.com/image.jpg",
+                      "caption": "Nuestro catálogo de servicios"
+                    },
+                    "created_at": "2022-01-27 20:15:47",
+                    "delivered_at": null,
+                    "read_at": null
+                  }
+                ],
+                "user_session_keys": [
+                  {
+                    "key": "name",
+                    "value": "Juan Pérez",
+                    "type": null
+                  },
+                  {
+                    "key": "location",
+                    "value": "{\"latitude\": 4.5935443, \"longitude\": -72.0345404, \"address\": \"Carrera 7 #100-06\"}",
+                    "type": "location"
+                  }
+                ],
+                "hsm": {
+                  "name": "welcome_message",
+                  "text": "Hola {{1}}, bienvenido a nuestro servicio de atención al cliente.",
+                  "answers": [
+                    {
+                      "message": "Gracias por la bienvenida"
+                    }
+                  ],
+                  "header": {
+                    "type": "image",
+                    "url": "https://example.com/logo.jpg"
+                  },
+                  "footer": "Responde a este mensaje para continuar",
+                  "buttons": {
+                    "type": "quick_reply",
+                    "options": [
+                      {
+                        "message": "Necesito ayuda"
+                      },
+                      {
+                        "message": "Ver catálogo"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Respuesta exitosa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Objeto JSON con la confirmación de recepción. El servicio debe responder en menos de 10 segundos."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webhooks/on-conversation-closed-hubspot": {
+      "post": {
+        "summary": "Webhook - Cuando se cierra una conversación (versión HubSpot)",
+        "description": "Este endpoint debe ser implementado en TU servidor (por ejemplo: https://tudominio.com/webhooks/on-conversation-closed-hubspot). Treble llamará a este webhook cuando se cierre una conversación entre un usuario y la empresa que utiliza integración con HubSpot. Debes configurar la URL de este webhook en el panel de administración de Treble.",
+        "tags": ["Webhooks"],
+        "servers": [
+          {
+            "url": "https://tudominio.com",
+            "description": "Tu servidor donde debes implementar este webhook"
+          }
+        ],
+        "requestBody": {
+          "description": "Información del evento de cierre de conversación para empresas con integración HubSpot",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HubspotConversationClosedEvent"
+              },
+              "example": {
+                "external_id": "d2fa98d29a2670dfa119335df1b0371720d674f1677302aba228876a",
+                "closed_at": "2019-01-01 00:00:00",
+                "company_id": 252,
+                "hubspot_deal_id": 1234,
+                "hubspot_contact_id": 4567,
+                "messages": [
+                  {
+                    "sender": "Juan",
+                    "message": "Hola, ¿cómo están?",
+                    "created_at": "2019-01-01 00:00:00"
+                  },
+                  {
+                    "sender": "Treble - Acme",
+                    "message": "Bienvenido a nuestro servicio",
+                    "created_at": "2019-01-01 00:00:10",
+                    "file_type": "IMAGE",
+                    "extra": "https://example.com/welcome.jpg"
+                  }
+                ],
+                "hsm": {
+                  "text": "Bienvenido a nuestro servicio de atención al cliente",
+                  "name": "welcome_message"
+                },
+                "user_session_keys": [
+                  {
+                    "key": "name",
+                    "value": "Juan",
+                    "type": null
+                  },
+                  {
+                    "key": "user_id",
+                    "value": "12345",
+                    "type": null
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Respuesta exitosa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Objeto JSON con la confirmación de recepción. El servicio debe responder en menos de 10 segundos."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webhooks/on-hsm-status-update": {
+      "post": {
+        "summary": "Webhook - Cuando se actualiza el estado de un HSM",
+        "description": "Este endpoint debe ser implementado en TU servidor (por ejemplo: https://tudominio.com/webhooks/on-hsm-status-update). Treble llamará a este webhook cuando cambie el estado de un HSM (Highly Structured Message). Debes configurar la URL de este webhook en el panel de administración de Treble.",
+        "tags": ["Webhooks"],
+        "servers": [
+          {
+            "url": "https://tudominio.com",
+            "description": "Tu servidor donde debes implementar este webhook"
+          }
+        ],
+        "requestBody": {
+          "description": "Información de la actualización de estado del HSM",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HSMStatusUpdateEvent"
+              },
+              "example": {
+                "event_id": "5f8d7e6a5f8d7e6a5f8d7e6a",
+                "timestamp": "2024-09-10T12:34:56.789Z",
+                "event_type": "hsm.status",
+                "status": "APPROVED",
+                "name": "welcome_message",
+                "affected_conversation_ids": [12345, 67890, 54321]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Respuesta exitosa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Objeto JSON con la confirmación de recepción. El servicio debe responder en menos de 10 segundos."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/devapi/poll/{poll_id}/sessions": {
+      "get": {
+        "summary": "Obtener metadatos de sesiones de un poll",
+        "description": "Este endpoint, dado un ID de poll, devuelve los metadatos de todas las sesiones de manera paginada. Por defecto, trae los primeros 1000 registros del año actual. Se pueden usar parámetros opcionales para controlar el rango de fechas y la paginación.",
+        "parameters": [
+          {
+            "name": "poll_id",
+            "in": "path",
+            "required": true,
+            "description": "ID del poll del cual se quieren obtener las sesiones",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "API Key de autorización. Se puede obtener en https://app.treble.ai/en/admin/settings",
+            "schema": {
+              "type": "string"
+            },
+            "example": "API_KEY"
+          },
+          {
+            "name": "since",
+            "in": "query",
+            "required": false,
+            "description": "Timestamp UNIX UTC para la fecha de inicio del rango a consultar",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "until",
+            "in": "query",
+            "required": false,
+            "description": "Timestamp UNIX UTC para la fecha final del rango a consultar",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Número entero entre 1 y 10.000 que indica la cantidad de sesiones a recuperar",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10000
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "description": "Cursor de paginación devuelto en la propiedad 'next_id' de la respuesta anterior",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de metadatos de sesiones obtenida correctamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "ID único de la sesión"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Fecha y hora en que se creó la sesión"
+                          },
+                          "finished_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Fecha y hora en que finalizó la sesión"
+                          },
+                          "user": {
+                            "type": "object",
+                            "properties": {
+                              "country_code": {
+                                "type": "string",
+                                "description": "Código de país del usuario"
+                              },
+                              "cellphone": {
+                                "type": "string",
+                                "description": "Número de teléfono del usuario sin el código de país"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "description": "Lista de metadatos de sesiones"
+                    },
+                    "next_id": {
+                      "type": "string",
+                      "description": "Cursor para obtener la siguiente página de resultados"
+                    }
+                  }
+                },
+                "example": {
+                  "results": [
+                    {
+                      "id": "dabcf6c0-8150-4231-bafd-a3c331da385f4",
+                      "created_at": "2022-03-09 17:00:28.956422",
+                      "finished_at": "2022-03-09 19:08:38.808986",
+                      "user": {
+                        "country_code": "+57",
+                        "cellphone": "987654321"
+                      }
+                    },
+                    {
+                      "id": "dabcf6c0-8850-4231-bafd-a3c331da385f9",
+                      "created_at": "2022-03-09 17:11:46.754945",
+                      "finished_at": "2022-03-09 19:18:41.401605",
+                      "user": {
+                        "country_code": "+57",
+                        "cellphone": "123456789"
+                      }
+                    }
+                  ],
+                  "next_id": "da848b5f-27e2-49f9-8d31-313b791daf8d"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No autorizado. API Key inválida o faltante.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Código de error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Descripción del error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Poll no encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Código de error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Descripción del error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/devapi/session/{session_id}/history": {
+      "get": {
+        "summary": "Obtener historial de mensajes de una sesión",
+        "description": "Este endpoint, dado un ID de sesión, devuelve el historial completo de mensajes para esa sesión específica.",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "description": "ID de la sesión de la cual se quiere obtener el historial de mensajes",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "description": "API Key de autorización. Se puede obtener en https://app.treble.ai/en/admin/settings",
+            "schema": {
+              "type": "string"
+            },
+            "example": "API_KEY"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Historial de mensajes obtenido correctamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "description": "Tipo de entrada en el historial",
+                        "example": "MESSAGE"
+                      },
+                      "message": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "description": "Tipo de mensaje",
+                            "example": "TEXT"
+                          },
+                          "sender": {
+                            "type": "string",
+                            "description": "Remitente del mensaje",
+                            "example": "USER"
+                          },
+                          "text": {
+                            "type": "string",
+                            "description": "Contenido del mensaje"
+                          },
+                          "file_url": {
+                            "type": "string",
+                            "nullable": true,
+                            "description": "URL del archivo adjunto (si existe)"
+                          },
+                          "created_at": {
+                            "type": "integer",
+                            "description": "Timestamp UNIX UTC de creación del mensaje"
+                          },
+                          "delivered_at": {
+                            "type": "integer",
+                            "nullable": true,
+                            "description": "Timestamp UNIX UTC de entrega del mensaje"
+                          },
+                          "read_at": {
+                            "type": "integer",
+                            "nullable": true,
+                            "description": "Timestamp UNIX UTC de lectura del mensaje"
+                          },
+                          "extra": {
+                            "type": "object",
+                            "nullable": true,
+                            "description": "Información adicional del mensaje"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "type": "MESSAGE",
+                    "message": {
+                      "type": "TEXT",
+                      "sender": "USER",
+                      "text": "Hi",
+                      "file_url": null,
+                      "created_at": 1653341789,
+                      "delivered_at": null,
+                      "read_at": null,
+                      "extra": null
+                    }
+                  },
+                  {
+                    "type": "MESSAGE",
+                    "message": {
+                      "type": "TEXT",
+                      "sender": "AI",
+                      "text": "I need help",
+                      "file_url": null,
+                      "created_at": 1653341803,
+                      "delivered_at": 1653341804,
+                      "read_at": 1653342120,
+                      "extra": null
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "401": {
+            "description": "No autorizado. API Key inválida o faltante.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Código de error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Descripción del error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Sesión no encontrada",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Código de error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Descripción del error"
+                    }
+                  }
                 }
               }
             }
@@ -1238,6 +1847,462 @@
             "description": "Claves de sesión del usuario recopiladas durante la conversación o proporcionadas durante el despliegue",
             "items": {
               "$ref": "#/components/schemas/ExtendedUserSessionKey"
+            }
+          }
+        }
+      },
+      "Session": {
+        "type": "object",
+        "required": ["external_id", "closed_at"],
+        "properties": {
+          "external_id": {
+            "type": "string",
+            "description": "ID externo único de la sesión"
+          },
+          "closed_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Fecha y hora en que se cerró la conversación"
+          }
+        }
+      },
+      "UserInfo": {
+        "type": "object",
+        "required": ["country_code", "cellphone"],
+        "properties": {
+          "country_code": {
+            "type": "string",
+            "description": "Código de país del usuario"
+          },
+          "cellphone": {
+            "type": "string",
+            "description": "Número de teléfono del usuario sin el código de país"
+          }
+        }
+      },
+      "CompanyInfo": {
+        "type": "object",
+        "required": ["id", "cellphone"],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "ID de la empresa en Treble"
+          },
+          "cellphone": {
+            "type": "string",
+            "description": "Número de teléfono de la empresa"
+          }
+        }
+      },
+      "TextMessage": {
+        "type": "object",
+        "required": ["text", "message"],
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Contenido del mensaje de texto"
+          }
+        }
+      },
+      "HSMMessage": {
+        "type": "object",
+        "required": ["hsm", "message"],
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Contenido del mensaje HSM"
+          }
+        }
+      },
+      "MediaContent": {
+        "type": "object",
+        "required": ["url"],
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "URL del archivo multimedia"
+          },
+          "caption": {
+            "type": "string",
+            "description": "Pie de foto o descripción del contenido multimedia"
+          }
+        }
+      },
+      "LocationContent": {
+        "type": "object",
+        "required": ["latitude", "longitude"],
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "format": "float",
+            "description": "Latitud de la ubicación"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "float",
+            "description": "Longitud de la ubicación"
+          }
+        }
+      },
+      "Message": {
+        "type": "object",
+        "required": ["sender", "type", "created_at"],
+        "properties": {
+          "sender": {
+            "type": "string",
+            "description": "Quien envió el mensaje (usuario o empresa)",
+            "enum": ["user", "company"]
+          },
+          "type": {
+            "type": "string",
+            "description": "Tipo de mensaje",
+            "enum": ["text", "hsm", "image", "video", "audio", "document", "location"]
+          },
+          "text": {
+            "$ref": "#/components/schemas/TextMessage"
+          },
+          "hsm": {
+            "$ref": "#/components/schemas/HSMMessage"
+          },
+          "image": {
+            "$ref": "#/components/schemas/MediaContent"
+          },
+          "video": {
+            "$ref": "#/components/schemas/MediaContent"
+          },
+          "audio": {
+            "$ref": "#/components/schemas/MediaContent"
+          },
+          "document": {
+            "$ref": "#/components/schemas/MediaContent"
+          },
+          "location": {
+            "$ref": "#/components/schemas/LocationContent"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Fecha y hora en que se creó el mensaje"
+          },
+          "delivered_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "Fecha y hora en que se entregó el mensaje"
+          },
+          "read_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "Fecha y hora en que se leyó el mensaje"
+          }
+        }
+      },
+      "HSMHeaderText": {
+        "type": "object",
+        "required": ["type", "message"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["text"],
+            "description": "Tipo de encabezado"
+          },
+          "message": {
+            "type": "string",
+            "description": "Texto del encabezado"
+          }
+        }
+      },
+      "HSMHeaderMedia": {
+        "type": "object",
+        "required": ["type", "url"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["image", "video", "document"],
+            "description": "Tipo de medio del encabezado"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL del archivo multimedia del encabezado"
+          }
+        }
+      },
+      "HSMButtonQuickReply": {
+        "type": "object",
+        "required": ["type", "options"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["quick_reply"],
+            "description": "Tipo de botón de respuesta rápida"
+          },
+          "options": {
+            "type": "array",
+            "description": "Opciones de respuesta rápida",
+            "items": {
+              "type": "object",
+              "required": ["message"],
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "Texto del botón de respuesta rápida"
+                }
+              }
+            }
+          }
+        }
+      },
+      "HSMButtonCallToAction": {
+        "type": "object",
+        "required": ["type", "options"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["call_to_action"],
+            "description": "Tipo de botón de llamada a la acción"
+          },
+          "options": {
+            "type": "array",
+            "description": "Opciones de llamada a la acción",
+            "items": {
+              "type": "object",
+              "required": ["message"],
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "Texto del botón de llamada a la acción"
+                },
+                "url": {
+                  "type": "string",
+                  "description": "URL a la que redirige el botón (cuando aplica)"
+                },
+                "phone": {
+                  "type": "string",
+                  "description": "Número de teléfono al que llamar (cuando aplica)"
+                }
+              }
+            }
+          }
+        }
+      },
+      "HSMInfo": {
+        "type": "object",
+        "required": ["name", "text"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Nombre o identificador del HSM"
+          },
+          "text": {
+            "type": "string",
+            "description": "Texto principal del HSM"
+          },
+          "answers": {
+            "type": "array",
+            "description": "Respuestas posibles para el HSM",
+            "items": {
+              "type": "object",
+              "required": ["message"],
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "Texto de la respuesta"
+                }
+              }
+            }
+          },
+          "header": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/HSMHeaderText"
+              },
+              {
+                "$ref": "#/components/schemas/HSMHeaderMedia"
+              }
+            ],
+            "nullable": true,
+            "description": "Encabezado del HSM (puede ser texto o multimedia)"
+          },
+          "footer": {
+            "type": "string",
+            "nullable": true,
+            "description": "Pie de página del HSM"
+          },
+          "buttons": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/HSMButtonQuickReply"
+              },
+              {
+                "$ref": "#/components/schemas/HSMButtonCallToAction"
+              }
+            ],
+            "nullable": true,
+            "description": "Botones del HSM"
+          }
+        }
+      },
+      "ConversationClosedEvent": {
+        "type": "object",
+        "required": ["session", "user", "company", "messages", "user_session_keys"],
+        "description": "Evento que se dispara cuando se cierra una conversación entre un usuario y la empresa",
+        "properties": {
+          "session": {
+            "$ref": "#/components/schemas/Session",
+            "description": "Información de la sesión cerrada"
+          },
+          "user": {
+            "$ref": "#/components/schemas/UserInfo",
+            "description": "Información del usuario"
+          },
+          "company": {
+            "$ref": "#/components/schemas/CompanyInfo",
+            "description": "Información de la empresa"
+          },
+          "messages": {
+            "type": "array",
+            "description": "Mensajes intercambiados durante la conversación",
+            "items": {
+              "$ref": "#/components/schemas/Message"
+            }
+          },
+          "user_session_keys": {
+            "type": "array",
+            "description": "Claves de sesión del usuario recopiladas durante la conversación",
+            "items": {
+              "$ref": "#/components/schemas/ExtendedUserSessionKey"
+            }
+          },
+          "hsm": {
+            "$ref": "#/components/schemas/HSMInfo",
+            "nullable": true,
+            "description": "Información del HSM que inició la conversación (si aplica)"
+          }
+        }
+      },
+      "HubspotMessage": {
+        "type": "object",
+        "required": ["sender", "message", "created_at"],
+        "properties": {
+          "sender": {
+            "type": "string",
+            "description": "Quien envió el mensaje (nombre del usuario o nombre de la empresa)"
+          },
+          "message": {
+            "type": "string",
+            "description": "Contenido del mensaje"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Fecha y hora en que se creó el mensaje"
+          },
+          "file_type": {
+            "type": "string",
+            "enum": ["IMAGE", "AUDIO", "VIDEO", "DOCUMENT"],
+            "description": "Tipo de archivo adjunto (si existe)"
+          },
+          "extra": {
+            "type": "string",
+            "description": "URL del archivo adjunto (si existe)"
+          }
+        }
+      },
+      "HubspotHSMInfo": {
+        "type": "object",
+        "required": ["text", "name"],
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Texto del HSM"
+          },
+          "name": {
+            "type": "string",
+            "description": "Nombre o identificador del HSM"
+          }
+        }
+      },
+      "HubspotConversationClosedEvent": {
+        "type": "object",
+        "required": ["external_id", "closed_at", "company_id", "messages", "user_session_keys"],
+        "description": "Evento que se dispara cuando se cierra una conversación en una empresa con integración HubSpot",
+        "properties": {
+          "external_id": {
+            "type": "string",
+            "description": "ID externo único de la sesión"
+          },
+          "closed_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Fecha y hora en que se cerró la conversación"
+          },
+          "company_id": {
+            "type": "integer",
+            "description": "ID de la empresa en Treble"
+          },
+          "hubspot_deal_id": {
+            "type": "integer",
+            "description": "ID del deal en HubSpot"
+          },
+          "hubspot_contact_id": {
+            "type": "integer",
+            "description": "ID del contacto en HubSpot"
+          },
+          "messages": {
+            "type": "array",
+            "description": "Mensajes intercambiados durante la conversación",
+            "items": {
+              "$ref": "#/components/schemas/HubspotMessage"
+            }
+          },
+          "hsm": {
+            "$ref": "#/components/schemas/HubspotHSMInfo",
+            "description": "Información del HSM que inició la conversación (si aplica)"
+          },
+          "user_session_keys": {
+            "type": "array",
+            "description": "Claves de sesión del usuario recopiladas durante la conversación",
+            "items": {
+              "$ref": "#/components/schemas/ExtendedUserSessionKey"
+            }
+          }
+        }
+      },
+      "HSMStatusUpdateEvent": {
+        "type": "object",
+        "required": ["event_id", "timestamp", "event_type", "status", "name", "affected_conversation_ids"],
+        "description": "Evento que se dispara cuando cambia el estado de un HSM (Highly Structured Message)",
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "description": "Identificador único del evento"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Marca de tiempo del evento en formato ISO 8601"
+          },
+          "event_type": {
+            "type": "string",
+            "enum": ["hsm.status"],
+            "description": "Tipo de evento, siempre 'hsm.status' para actualizaciones de estado de HSM"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["APPROVED", "REJECTED", "PAUSED", "DISABLED", "PENDING_DELETION"],
+            "description": "Nuevo estado del HSM"
+          },
+          "name": {
+            "type": "string",
+            "description": "Nombre o identificador del HSM"
+          },
+          "affected_conversation_ids": {
+            "type": "array",
+            "description": "IDs de las conversaciones afectadas por el cambio de estado",
+            "items": {
+              "type": "integer",
+              "description": "ID de una conversación afectada"
             }
           }
         }

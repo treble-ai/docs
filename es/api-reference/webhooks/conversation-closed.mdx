@@ -1,0 +1,57 @@
+---
+title: "Webhook de cierre de conversación"
+description: "El webhook de cierre de conversación se activa cuando un cliente cierra una conversación. Aprende a configurarlos en este artículo."
+---
+
+## ¿Cuándo ocurre un cierre de conversación en Treble?
+
+En Treble los flujos de conversación (conversaciones) se "cierran" cuando ocurre alguna de las siguientes acciones:
+
+### El cliente responde a cualquier bloque de mensaje final.
+
+Imagina que las conversaciones en Treble son como un árbol con muchas ramas. Cada vez que un cliente toma una decisión, es como elegir una rama para seguir. Al final de cada rama, hay una hoja. Cuando el cliente llega a una hoja y responde al último mensaje, la conversación se cierra. Es como si el cliente hubiera llegado al final de su camino en el árbol, habiendo explorado todas las opciones disponibles en esa dirección.
+
+Por ejemplo, en la siguiente imagen, el cliente cierra la conversación al responder a cualquiera de los bloques de mensaje #1, #2, #4 o #5. Pero no al responder a los bloques de mensaje #3, porque este mensaje no es final.
+
+<img src="/images/webhook-closed-1.png" alt="Conversación cerrada" />
+
+**¿Es decir que para que se cierre una conversación, el cliente debe responder a un bloque de mensaje final, aun si ese último mensaje puede ser un mensaje de despedida o un mensaje de agradecimiento?**
+
+Sí, para que se cierre una conversación, el cliente debe responder a un bloque de mensaje final, Treble no puede inferir que el cliente quiere cerrar la conversación.
+
+### Tienes configurado el cierre automático de conversaciones después de X minutos de haber iniciado la conversación.
+
+En Treble existen dos conceptos similares pero distintos:
+
+- **Duración de la sesión de WhatsApp:** Es el tiempo que transcurre desde que el cliente inicia una conversación con tu línea de WhatsApp Business API y es una ventana de 24 horas que se vence cuando tu cliente deja de interactuar con tu línea.
+- **Sesión de Treble:** Es la forma en la cual Treble sabe qué conversación es la que está interactuando con el cliente. Por defecto, una sesión de Treble no expira, es decir, puede que tu cliente deje de interactuar con tu línea de WhatsApp Business API y eso haga que la sesión de WhatsApp expire, pero la sesión de Treble no. Esto le permite a tu cliente volver a interactuar con la misma conversación aun si vuelve a conectarte unos días después.
+
+Sin embargo, puede que quieras que una conversación se cierre automáticamente después de X minutos de haber iniciado la conversación. Para esto, puedes configurar el cierre automático de conversaciones en la sección de configuración de tu cuenta.
+
+#### Configurar el cierre automático de conversaciones
+
+Para configurar el cierre automático de conversaciones, debes seguir estos pasos:
+
+1. Ingresa a tu cuenta en Treble, por medio la dirección <a class="article-link" href="https://app.treble.ai/login" target="_blank"><p>https://app.treble.ai/login</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+2. Ve a la sección de **Configuración <Icon icon="gear" iconType="solid" />** en el menú de navegación.
+3. Luego, has click en **Conversaciones <Icon icon="message" iconType="solid" />** en el menú de navegación.
+4. Dirígete a la opción de **Desactivar despues de tiempo de inactividad** y configura el tiempo en minutos.
+5. ¡Listo! Ahora, cuando una conversación no tenga actividad por X minutos, se cerrará automáticamente.
+
+<img src="/images/webhook-closed-2.gif" alt="Configurar cierre automático de conversaciones" />
+
+## Webhook de cierre de conversación
+
+Ahora que ya sabes cuándo ocurre un cierre de conversación en Treble, te presentamos el webhook de cierre de conversación. El webhook se activará cuando ocurra un cierre de conversación en Treble.
+
+### ¿Cómo configurar el webhook de cierre de conversación?
+
+Para configurar el webhook de cierre de conversación, debes seguir estos pasos:
+
+1. Ingresa a tu cuenta en Treble, por medio la dirección <a class="article-link" href="https://app.treble.ai/login" target="_blank"><p>https://app.treble.ai/login</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+2. Ve a la sección de **Configuración <Icon icon="gear" iconType="solid" />** en el menú de navegación.
+3. Luego, has click en **Desarrolladores** en el menú de navegación.
+4. Dirígete a la opción de **Webhook Conversación Cerrada** y configura el webhook, agrega la URL de tu webhook y luego has click en **Guardar**.
+5. ¡Listo! Ahora, cuando ocurra un cierre de conversación en Treble, se activará el webhook.
+
+<img src="/images/webhook-closed-3.gif" alt="Configurar webhook de cierre de conversación" />

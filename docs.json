@@ -181,6 +181,8 @@
                                         "pages": [
                                             "es/api-reference/endpoints/deploy",
                                             "es/api-reference/endpoints/get-convos",
+                                            "es/api-reference/endpoints/get-sessions",
+                                            "es/api-reference/endpoints/get-session-history",
                                             "es/api-reference/endpoints/session-update"
                                         ]
                                     },
@@ -192,12 +194,24 @@
                                             "es/api-reference/webhooks/delivered-api",
                                             "es/api-reference/webhooks/read-api",
                                             "es/api-reference/webhooks/message-response",
+                                            "es/api-reference/webhooks/request-trigger",
                                             "es/api-reference/webhooks/message-response-api",
                                             "es/api-reference/webhooks/condition-node-api",
                                             "es/api-reference/webhooks/timeout-api",
                                             "es/api-reference/webhooks/opt-out",
                                             "es/api-reference/webhooks/opt-out-api",
-                                            "es/api-reference/webhooks/request-trigger"
+                                            "es/api-reference/webhooks/conversation-closed",
+                                            "es/api-reference/webhooks/conversation-closed-api",
+                                            "es/api-reference/webhooks/conversation-closed-api-hs",
+                                            "es/api-reference/webhooks/hsm-change-state",
+                                            "es/api-reference/webhooks/hsm-change-state-api"
+                                        ]
+                                    },
+                                    {
+                                        "group": "Editor",
+                                        "pages": [
+                                            "es/api-reference/editor/media",
+                                            "es/api-reference/editor/location"
                                         ]
                                     },
                                     {

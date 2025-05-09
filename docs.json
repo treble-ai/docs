@@ -63,9 +63,16 @@
                                                     "es/docs/meta/guide/whatsapp-number"
                                                 ]
                                             },
-                                            "es/docs/meta/hsm-templates",
+                                            {
+                                                "group": "Plantillas de mensajes (HSM)",
+                                                "pages": [
+                                                    "es/docs/meta/hsm-templates/intro",
+                                                    "es/docs/meta/hsm-templates/utility"
+                                                ]
+                                            },
                                             "es/docs/meta/green-check",
-                                            "es/docs/meta/whatsapp-line-health"
+                                            "es/docs/meta/whatsapp-line-health",
+                                            "es/docs/meta/waba-policies"
                                         ]
                                     },
                                     {
@@ -185,7 +192,18 @@
                                             "es/api-reference/webhooks/delivered-api",
                                             "es/api-reference/webhooks/read-api",
                                             "es/api-reference/webhooks/message-response",
-                                            "es/api-reference/webhooks/message-response-api"
+                                            "es/api-reference/webhooks/message-response-api",
+                                            "es/api-reference/webhooks/condition-node-api",
+                                            "es/api-reference/webhooks/timeout-api",
+                                            "es/api-reference/webhooks/opt-out",
+                                            "es/api-reference/webhooks/opt-out-api",
+                                            "es/api-reference/webhooks/request-trigger"
+                                        ]
+                                    },
+                                    {
+                                        "group": "Guías y Tutoriales",
+                                        "pages": [
+                                            "es/api-reference/guides/your-ai"
                                         ]
                                     }
                                 ]

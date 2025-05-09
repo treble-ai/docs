@@ -1,0 +1,18 @@
+---
+title: 'Cuerpo de la solicitud Webhook de timeout (flujo alterno)'
+openapi: '/open-api-files/treble-api-es.json POST /webhooks/on-timeout'
+---
+
+También puedes configurar el webhook de respuesta para el camino que salga de un nodo en el caso de timeout, tambien conocido como flujo alterno.
+
+<img src="/images/timeout-api-1.png" alt="Configurar webhook de nodo de timeout" />
+
+Si lo haces, el cuerpo de la solicitud HTTP que se envía al endpoint configurado en Treble agregará el siguiente campo en el cuerpo de la solicitud:
+
+```json
+{
+    "timeout_at": "2021-10-07 08:53:22.572123"
+}
+```
+
+La respuesta también puede tener nuevas variables para la sesión que se pueden actualizar o crear para su uso posterior en la sesión. Es decir puedes, añadirlas en la respuesta del webhook como parte de las `user_session_keys`.

@@ -190,3 +190,15 @@ app.listen(3000, () => {
 <Check>
     ¡Listo! Hemos configurado un webhook de respuesta de mensaje en Treble. Ahora, cuando un responda a tu mensaje, el webhook se activará y enviará una solicitud HTTP a tu endpoint configurado en Treble con la respuesta del cliente. Tu servidor la procesa y devuelve información a Treble para continuar la conversación.
 </Check>
+
+## Ten en cuenta
+
+- Debes configurar el webhook de respuesta para cada respuesta (flecha <Icon icon="arrow-right" iconType="solid" />) que sale de un bloque de mensaje. Si lo configuras en una única respuesta o la primera, únicamente se activará para la primera respuesta.
+
+En la siguiente imagen, se ve cómo debes configurar el webhook de respuesta para cada una de las 3 respuestas que salen de un bloque de mensaje.
+
+<img src="/images/message-response-4.png" alt="Configurar webhook de respuesta" />
+
+<Warning>
+    La respuesta de tu servidor al webhook no puede durar mas de 10 segundos. Si tu servidor tarda mas de 10 segundos en responder, el webhook se marcará como timeout y se continuará la conversación del flujo en Treble. Puedes extender el tiempo de respuesta con la opción de `[REQUEST_TRIGGER]`. Para más información, puedes leer el artículo: <a class="article-link" href="/es/api-reference/webhooks/request-trigger">Detener conversación de Treble y esperar respuesta de tu servidor</a>.
+</Warning>

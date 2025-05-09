@@ -629,6 +629,167 @@
           }
         }
       }
+    },
+    "/webhooks/on-optout": {
+      "post": {
+        "summary": "Webhook - Cuando un usuario se da de baja (opt-out)",
+        "description": "Este no es un endpoint real que puedes llamar. Representa el webhook que Treble invocará en tu servidor cuando un usuario decide darse de baja o salir de la conversación. La URL de este webhook debe ser configurada en tu sistema y proporcionada a Treble.",
+        "tags": ["Webhooks"],
+        "requestBody": {
+          "description": "Información del evento de opt-out",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OptOutEvent"
+              },
+              "example": {
+                "country_code": "+57", 
+                "cellphone": "3176477608", 
+                "session_id": "85b398ef5bcb20c355f3710c4509349784c907673c9118fb7a89c7a8", 
+                "conversation_id": 54263, 
+                "question": {
+                  "type": "closed", 
+                  "text": "Hi! Thanks for attending our webinar today. We would like to have a feedback about our session and we would be very grateful if you could help us with that. ", 
+                  "answers": [
+                    {"text": "Sure"}, 
+                    {"text": "No, thanks"}, 
+                    {"text": "DEFAULT"}
+                  ]
+                }, 
+                "sent_at": "2021-10-22 00:15:39.044704", 
+                "sent_text": "Hi! Thanks for attending our webinar today. We would like to have a feedback about our session and we would be very grateful if you could help us with that. \n1) Sure\n2) No, thanks\n3) DEFAULT", 
+                "user_session_keys": [], 
+                "classified_answer": {
+                  "text": "No, thanks"
+                }, 
+                "reason": "OPTOUT"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Respuesta para actualizar o agregar información a la sesión",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Objeto JSON con la nueva información que será reemplazada o agregada a la sesión para uso futuro. El servicio debe responder en menos de 10 segundos."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webhooks/on-condition": {
+      "post": {
+        "summary": "Webhook - Cuando se evalúa un nodo condicional",
+        "description": "Este no es un endpoint real que puedes llamar. Representa el webhook que Treble invocará en tu servidor cuando se evalúa un nodo condicional en la conversación. La URL de este webhook debe ser configurada en tu sistema y proporcionada a Treble.",
+        "tags": ["Webhooks"],
+        "requestBody": {
+          "description": "Información del evento de evaluación de condición",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConditionEvent"
+              },
+              "example": {
+                "country_code": "+57",
+                "cellphone": "3161234567",
+                "session_id": "abcsderfwer3252432423-1324325235",
+                "conversation_id": 1234,
+                "variable": {
+                  "name": "age",
+                  "value": "18"
+                },
+                "condition": {
+                  "operator": "EQ",
+                  "value": "18"
+                },
+                "user_session_keys": [
+                  {
+                    "key": "age",
+                    "value": "18",
+                    "type": null
+                  },
+                  {
+                    "key": "user_id",
+                    "value": "12345",
+                    "type": null
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Respuesta para actualizar o agregar información a la sesión",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Objeto JSON con la nueva información que será reemplazada o agregada a la sesión para uso futuro. El servicio debe responder en menos de 10 segundos."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webhooks/on-timeout": {
+      "post": {
+        "summary": "Webhook - Cuando ocurre un timeout en la conversación",
+        "description": "Este no es un endpoint real que puedes llamar. Representa el webhook que Treble invocará en tu servidor cuando ocurre un timeout en la conversación (el usuario no responde dentro del tiempo establecido). La URL de este webhook debe ser configurada en tu sistema y proporcionada a Treble.",
+        "tags": ["Webhooks"],
+        "requestBody": {
+          "description": "Información del evento de timeout",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TimeoutEvent"
+              },
+              "example": {
+                "country_code": "+57",
+                "cellphone": "3161234567",
+                "session_id": "abcsderfwer3252432423-1324325235",
+                "conversation_id": 1234,
+                "question": {
+                  "type": "open",
+                  "text": "Hello world"
+                },
+                "timeout_at": "2021-10-07 08:53:22.572123",
+                "user_session_keys": [
+                  {
+                    "key": "age",
+                    "value": "18",
+                    "type": null
+                  },
+                  {
+                    "key": "user_id",
+                    "value": "12345",
+                    "type": null
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Respuesta para actualizar o agregar información a la sesión",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Objeto JSON con la nueva información que será reemplazada o agregada a la sesión para uso futuro. El servicio debe responder en menos de 10 segundos."
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -914,6 +1075,163 @@
           "classified_answer": {
             "$ref": "#/components/schemas/Answer",
             "description": "Respuesta clasificada basada en la respuesta del usuario"
+          },
+          "user_session_keys": {
+            "type": "array",
+            "description": "Claves de sesión del usuario recopiladas durante la conversación o proporcionadas durante el despliegue",
+            "items": {
+              "$ref": "#/components/schemas/ExtendedUserSessionKey"
+            }
+          }
+        }
+      },
+      "OptOutEvent": {
+        "type": "object",
+        "required": ["country_code", "cellphone", "session_id", "conversation_id", "question", "sent_at", "sent_text", "classified_answer", "reason"],
+        "description": "Evento que se dispara cuando un usuario decide darse de baja o salir de la conversación",
+        "properties": {
+          "country_code": {
+            "type": "string",
+            "description": "Código de país del usuario"
+          },
+          "cellphone": {
+            "type": "string",
+            "description": "Número de teléfono del usuario sin el código de país"
+          },
+          "session_id": {
+            "type": "string",
+            "description": "ID de la sesión del usuario"
+          },
+          "conversation_id": {
+            "type": "integer",
+            "description": "ID de la conversación"
+          },
+          "question": {
+            "$ref": "#/components/schemas/ClosedQuestion"
+          },
+          "sent_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Fecha y hora en que se envió la pregunta"
+          },
+          "sent_text": {
+            "type": "string",
+            "description": "Texto enviado al usuario"
+          },
+          "user_session_keys": {
+            "type": "array",
+            "description": "Claves de sesión del usuario recopiladas durante la conversación o proporcionadas durante el despliegue",
+            "items": {
+              "$ref": "#/components/schemas/UserSessionKey"
+            }
+          },
+          "classified_answer": {
+            "$ref": "#/components/schemas/Answer",
+            "description": "Respuesta clasificada basada en la respuesta del usuario"
+          },
+          "reason": {
+            "type": "string",
+            "description": "Razón de la salida del usuario, en este caso 'OPTOUT' para indicar que el usuario decidió darse de baja",
+            "enum": ["OPTOUT"]
+          }
+        }
+      },
+      "Variable": {
+        "type": "object",
+        "required": ["name", "value"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Nombre de la variable que se evalúa en la condición"
+          },
+          "value": {
+            "type": "string",
+            "description": "Valor actual de la variable"
+          }
+        }
+      },
+      "Condition": {
+        "type": "object",
+        "required": ["operator", "value"],
+        "properties": {
+          "operator": {
+            "type": "string",
+            "description": "Operador utilizado para evaluar la condición (por ejemplo: 'EQ' para igual, 'GT' para mayor que, etc.)",
+            "enum": ["EQ", "GT", "LT", "GTE", "LTE", "NEQ"]
+          },
+          "value": {
+            "type": "string",
+            "description": "Valor contra el que se compara la variable"
+          }
+        }
+      },
+      "ConditionEvent": {
+        "type": "object",
+        "required": ["country_code", "cellphone", "session_id", "conversation_id", "variable", "condition", "user_session_keys"],
+        "description": "Evento que se dispara cuando se evalúa un nodo condicional en la conversación",
+        "properties": {
+          "country_code": {
+            "type": "string",
+            "description": "Código de país del usuario"
+          },
+          "cellphone": {
+            "type": "string",
+            "description": "Número de teléfono del usuario sin el código de país"
+          },
+          "session_id": {
+            "type": "string",
+            "description": "ID de la sesión del usuario"
+          },
+          "conversation_id": {
+            "type": "integer",
+            "description": "ID de la conversación"
+          },
+          "variable": {
+            "$ref": "#/components/schemas/Variable",
+            "description": "Variable que se evalúa en la condición"
+          },
+          "condition": {
+            "$ref": "#/components/schemas/Condition",
+            "description": "Condición que se evalúa"
+          },
+          "user_session_keys": {
+            "type": "array",
+            "description": "Claves de sesión del usuario recopiladas durante la conversación o proporcionadas durante el despliegue",
+            "items": {
+              "$ref": "#/components/schemas/ExtendedUserSessionKey"
+            }
+          }
+        }
+      },
+      "TimeoutEvent": {
+        "type": "object",
+        "required": ["country_code", "cellphone", "session_id", "conversation_id", "question", "timeout_at", "user_session_keys"],
+        "description": "Evento que se dispara cuando ocurre un timeout en la conversación (el usuario no responde dentro del tiempo establecido)",
+        "properties": {
+          "country_code": {
+            "type": "string",
+            "description": "Código de país del usuario"
+          },
+          "cellphone": {
+            "type": "string",
+            "description": "Número de teléfono del usuario sin el código de país"
+          },
+          "session_id": {
+            "type": "string",
+            "description": "ID de la sesión del usuario"
+          },
+          "conversation_id": {
+            "type": "integer",
+            "description": "ID de la conversación"
+          },
+          "question": {
+            "$ref": "#/components/schemas/Question",
+            "description": "Pregunta que no recibió respuesta a tiempo"
+          },
+          "timeout_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Fecha y hora en que ocurrió el timeout"
           },
           "user_session_keys": {
             "type": "array",

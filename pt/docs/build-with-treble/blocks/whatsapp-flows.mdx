@@ -1,0 +1,369 @@
+---
+title: "WhatsApp Flows"
+description: "Aprenda a criar fluxos de WhatsApp com Treble. Com este guia, você poderá automatizar suas conversas com clientes e melhorar a experiência do usuário."
+---
+
+<Note>
+Na treble.ai, buscamos que as empresas maximizem o uso do WhatsApp como canal chave para conectar com seus clientes de maneira efetiva e expandir seus negócios.
+</Note>
+
+Uma das dificuldades que identificamos em nossos clientes é a complexidade para coletar dados de maneira eficiente. Sem uma ferramenta adequada, as empresas dependem de interações com múltiplas mensagens que consomem tempo, resultam em altas taxas de abandono e dificultam a personalização em cada etapa do processo de vendas.
+
+**WhatsApp Flows** resolve este problema ao oferecer uma solução que permite automatizar fluxos de conversação, guiando os clientes através de interações enriquecidas (tipo formulário) dentro do WhatsApp, melhorando tanto a experiência do usuário quanto a conversão.
+
+Esta funcionalidade só está disponível para WhatsApp em dispositivos móveis e não no WhatsApp Web.
+
+### Esta funcionalidade é fundamental para:
+
+- **Reduzir as taxas de abandono** ao coletar dados em múltiplas etapas.
+- **Melhorar a qualidade e formato dos seus dados,** já que valida que as respostas correspondam com o tipo de dado solicitado
+- **Aumentar as taxas de conversão** em diversas etapas do funil.
+
+# Criar um WhatsApp Flow no WhatsApp Business Manager
+
+Os WhatsApp Flows são uma forma ideal de interagir com seu público e coletar informações sem sair do WhatsApp. Eles permitem automatizar interações e simplificar a coleta de dados, tudo a partir de uma única interface.
+
+Você pode criar seus Flows diretamente do **WhatsApp Business Manager**, onde a Meta oferece uma interface fácil de usar, permitindo que qualquer pessoa possa criar um Flow rapidamente, independentemente da sua experiência técnica.
+
+Seja para coletar opiniões, realizar pesquisas ou captar dados de potenciais clientes, WhatsApp Flows é uma ferramenta muito útil. A seguir, guiamos você passo a passo para criar um Flow usando a interface sem código do WhatsApp Business Manager.
+
+## Passos para criar um WhatsApp Flow
+
+<Steps>
+
+  <Step title="Acessar o WhatsApp Business Manager">
+    Entre na sua conta do WhatsApp Business Manager. Este é o lugar onde você pode gerenciar todos os aspectos do seu negócio no WhatsApp, incluindo a criação de Flows para automatizar a interação com seus clientes.
+  </Step>
+
+  <Step title="Ir para 'Account tools' e selecionar 'Flows'">
+    No painel principal, vá para a seção **Account tools** no menu lateral e selecione **Flows**. Aqui você poderá ver, editar e criar todos os Flows disponíveis para sua conta.
+
+    ![Selecionar Flows](/images/create-whatsapp-flow-2.png)
+  </Step>
+
+  <Step title="Criar um novo Flow">
+    Clique no botão **"Criar Flow"** para começar a construir um novo Flow que se adapte às necessidades do seu negócio.
+
+    ![Criar um novo flow](/images/create-whatsapp-flow-3.png)
+  </Step>
+  
+  <Step title="Nomear o Flow e selecionar uma categoria">
+    Dê um nome ao seu Flow para identificá-lo facilmente. Em seguida, selecione uma categoria de acordo com seu propósito, como **Registro**, **Atendimento ao cliente**, **Pesquisa**, entre outros. Isso ajudará a manter seus Flows organizados.
+  </Step>
+
+  <Step title="Deixar o método predefinido sem endpoint">
+    É importante deixar o método sem um endpoint, já que esta é a opção que o Treble suporta atualmente. Isso simplifica o uso do Flow.
+  </Step>
+
+  <Step title="Criar o Flow">
+    Clique em **"Criar"** para continuar. Isso abrirá a interface onde você poderá desenhar o conteúdo e as interações do seu Flow.
+    
+    ![Criar o Flow](/images/create-whatsapp-flow-6.png)
+  </Step>
+  
+ <Step title="Usar o Playground da Meta">
+    Na próxima tela, você deverá manipular um arquivo JSON para fazer alterações. Você pode seguir nosso guia: [Como usar o Playground da Meta para criar seus WhatsApp Flows?](https://www.notion.so/C-mo-usar-el-Playground-de-Meta-para-crear-tus-WhatsApp-Flows-127e42681154808ca333e6f75d29a0b8?pvs=21) para evitar complicações com o formato JSON.
+    <Accordion title="Como usar o Playground da Meta para criar seus WhatsApp Flows?">
+      <Steps>
+        <Step title="Adicione uma Nova Tela">
+          Clique em "+ Adicionar nova" para criar uma nova tela. Dê um título fácil de identificar, como "Qualificação de Lead 1 de 2".
+          ![Adicionar uma nova tela](/images/whatsapp-flows-playground-1.png)
+        </Step>
+        <Step title="Adicione Componentes à Sua Tela">
+          Nesta tela, você pode adicionar componentes para interagir com o usuário.
+          - **Título** ou **Subtítulo**: Fornece contexto ao usuário, como "Queremos saber mais sobre suas necessidades".
+          - **Resposta de Texto - Resposta Curta**: Captura dados como nome e e-mail.
+          - **Escolha Única**: Pergunta como "Sua empresa tem mais de 50 funcionários?" com opções "Sim" ou "Não".
+          - **Grupo de Caixas de Verificação**: Pergunta sobre interesses, como "Quais serviços te interessam?".
+          - **Botão**: Use um botão rotulado como "Continuar" para guiar os usuários para a próxima tela.
+        
+          ![Adicionar componentes](/images/whatsapp-flows-playground-2.png)
+        </Step>
+        <Step title="Pré-visualize e Personalize">
+        </Step>
+        <Step title="Exporte o Flow como JSON">
+          Clique em "Copiar JSON do Flow" para salvar a configuração. Em seguida, use este arquivo JSON no WhatsApp Business Manager para publicar seu Flow.
+
+
+    
+          ```json
+          {"version":"5.0","screens":[{"id":"screen_gkypco","title":"Bienvenido","data":{},"layout":{"type":"SingleColumnLayout","children":[{"type":"Form","name":"flow_path","children":[{"type":"TextHeading","text":"Bienvenido a treble.ai"},{"type":"TextBody","text":"Para brindarte el mejor servicio necesitamos que nos respondas lo siguiente:"},{"type":"TextInput","label":"Nombre","name":"TextInput_8f1836","required":true,"input-type":"text"},{"type":"TextInput","label":"Correo electronico","name":"TextInput_b8cfca","required":true,"input-type":"email","helper-text":""},{"type":"Footer","label":"Continuar","on-click-action":{"name":"navigate","next":{"type":"screen","name":"screen_xqdzlw"},"payload":{"screen_0_TextInput_0":"${form.TextInput_8f1836}","screen_0_TextInput_1":"${form.TextInput_b8cfca}"}}}]}]}},{"id":"screen_xqdzlw","title":"Productos","data":{"screen_0_TextInput_0":{"type":"string","__example__":"Example"},"screen_0_TextInput_1":{"type":"string","__example__":"Example"}},"terminal":true,"layout":{"type":"SingleColumnLayout","children":[{"type":"Form","name":"flow_path","children":[{"type":"TextHeading","text":"¿En qué productos estás interesado?"},{"type":"TextBody","text":"Cuéntanos que productos te interesan para que nuestros agentes te puedan dar información relevante cuánto antes."},{"type":"RadioButtonsGroup","label":"Productos","required":true,"name":"RadioButtonsGroup_f63f8c","data-source":[{"id":"0_Marketing","title":"Marketing"},{"id":"1_Ventas","title":"Ventas"},{"id":"2_Atención_al_cliente","title":"Atención al cliente"}]},{"type":"Footer","label":"Finalizar","on-click-action":{"name":"complete","payload":{"screen_1_RadioButtonsGroup_0":"${form.RadioButtonsGroup_f63f8c}","screen_0_TextInput_0":"${data.screen_0_TextInput_0}","screen_0_TextInput_1":"${data.screen_0_TextInput_1}"}}}]}]}}]}
+          ```
+          <Note>
+            Se aparecer um erro, verifique se o JSON tem o formato correto com este site: [https://jsonlint.com/](https://jsonlint.com/)
+          </Note>
+        </Step>
+      </Steps>
+    </Accordion>
+  </Step>
+  <Step title="Ajustar os valores das variáveis">
+    O Playground atribui valores genéricos que podem ser difíceis de identificar depois. Recomendamos substituir os valores seguindo nosso mini guia:
+    Quando você cria um flow no **Playground da Meta**, o sistema gera nomes automáticos para os campos (como **TextInput\_8f1836**), o que pode ser confuso. No entanto, **você só precisa mudar os nomes no payload**, e pode usar os mesmos nomes que tem nos **labels** dos campos, como "Nome" ou "E-mail", para tornar o processo mais fácil.
+
+<AccordionGroup>
+<Accordion title="O que é o payload?">
+O **payload** é onde são guardados os dados que os usuários inserem em uma tela para passá-los para a próxima. Por exemplo, quando um usuário escreve seu nome, esse valor é enviado através do payload para que você possa usá-lo em telas posteriores.
+</Accordion>
+<Accordion title="Por que é importante alterar o payload?">
+- **Clareza**: Usar nomes claros e descritivos permitirá que você entenda quais informações está capturando.
+- **Facilidade de uso**: Se os nomes são fáceis de ler, será mais fácil fazer mudanças ou ajustes no futuro.
+</Accordion>
+</AccordionGroup>
+
+Oferecemos duas opções: em uma você faz a alteração manual e na outra você só precisa copiar um prompt e seu JSON no ChatGPT e pronto.
+
+    <Accordion title="Passos para alterar os valores do payload usando os labels dos campos">
+    <Steps>
+      <Step title="Identifique o campo que está coletando informação">
+        Por exemplo, se você tem um campo onde se pede o **Nome**, deveria aparecer assim no JSON:
+            
+            ```json
+            {
+              "type": "TextInput",
+              "label": "Nome",
+              "name": "TextInput_8f1836",
+              "required": true
+            }
+            ```
+      </Step>
+      <Step title="Substitua o valor no payload pelo nome do label do campo">
+        Para evitar confusão, você pode usar o **label** ("Nome", neste caso) como o novo nome no **payload**. Desta forma, você não precisa mudar os nomes gerados automaticamente, apenas o payload.
+        Se o payload original se parece com isto, altere apenas o payload para refletir os **labels**:
+            
+            ```json
+            "payload": {
+              "screen_0_TextInput_0": "${form.TextInput_8f1836}",
+              "screen_0_TextInput_1": "${form.TextInput_b8cfca}"
+            }
+            ```
+            
+            ```json
+            "payload": {
+              "Nome": "${form.TextInput_8f1836}",
+              "E-mail": "${form.TextInput_b8cfca}"
+            }
+            ```
+      </Step>
+      <Step title="Repita o processo em cada tela onde esses valores sejam usados">
+        Se em uma tela posterior você precisa utilizar o **Nome** e **E-mail**, use os nomes dos labels no payload:
+          
+          ```json
+          "payload": {
+            "Nome": "${data.Nome}",
+            "E-mail": "${data.E-mail}",
+            "Produtos": "${form.RadioButtonsGroup_f63f8c}"
+          }
+          ```
+      </Step>
+    </Steps>
+    </Accordion>
+    Para o ChatGPT você só precisa copiar este prompt e adicionar seu JSON para que depois o ChatGPT faça os ajustes:
+    <Accordion title="Prompt para ChatGPT">
+    ```
+    Tenho um JSON de WhatsApp Flow e preciso otimizá-lo seguindo as melhores práticas. Por favor, realize as seguintes alterações:
+
+    Mude os nomes automáticos gerados (como TextInput_8f1836, RadioButtonsGroup_f63f8c) por nomes mais descritivos, baseados nos labels dos campos.
+    Atualize os payloads de cada tela para que também usem esses nomes descritivos.
+    Mude as chaves e variáveis no payload para que coincidam com os nomes dos labels.
+    Certifique-se de que as alterações sejam aplicadas em todos os tipos de componentes: TextInput, RadioButtonsGroup, Footer e qualquer outro componente presente.
+    Aqui está meu JSON:
+
+    (COLE AQUI SEU JSON)
+
+    Exemplos para as alterações:
+    TextInput: Se o label de um campo é "Nome", renomeie o campo de TextInput_8f1836 para nome e atualize o payload de ${form.TextInput_8f1836} para ${form.nome}.
+    RadioButtonsGroup: Se o label de um grupo de botões é "Produtos", renomeie o campo de RadioButtonsGroup_f63f8c para produtos_interessados e atualize o payload de ${form.RadioButtonsGroup_f63f8c} para ${form.produtos_interessados}.
+    Footer: Se você tem um botão de ação como "Continuar" ou "Finalizar", certifique-se de que os nomes no payload reflitam as alterações realizadas nos outros campos (por exemplo, Nome, E-mail, Produtos).
+    Alterações esperadas:
+    Nomes dos campos substituídos pelos valores dos labels.
+    Payloads atualizados para que usem os mesmos nomes descritivos.
+    Chaves e variáveis no payload alinhadas com os nomes dos labels para garantir coerência e facilidade de leitura."
+    Resultado esperado:
+    Com este prompt, o ChatGPT deve fazer as seguintes alterações:
+
+    TextInput:
+
+    O nome gerado automaticamente é substituído por algo descritivo (por exemplo, de TextInput_8f1836 para nome).
+    O payload é atualizado: ${form.TextInput_8f1836} se converte em ${form.nome}.
+    RadioButtonsGroup:
+
+    O nome gerado é alterado para algo claro e relacionado ao label (por exemplo, de RadioButtonsGroup_f63f8c para produtos_interessados).
+    O payload é ajustado: ${form.RadioButtonsGroup_f63f8c} se converte em ${form.produtos_interessados}.
+    Footer:
+
+    Garante que os payloads dos botões de ação utilizem as chaves corretas (por exemplo, usando ${data.Nome}, ${data.E-mail} e ${data.Produtos} se esses valores são coletados em telas anteriores).
+    ```
+    Uma vez que tenha o resultado, você já pode colá-lo no WhatsApp Business Manager.
+    </Accordion>
+  </Step>
+
+  <Step title="Executar o Flow">
+    Cole o JSON criado no editor e clique em **"RUN"** para verificar se o Flow funciona corretamente.
+
+    ![Executar o Flow](/images/create-whatsapp-flow-9.png)
+  </Step>
+  
+  <Step title="Testar o Flow">
+    Antes de finalizar, teste o Flow usando a visualização de **preview** para garantir que tudo funcione como espera.
+  </Step>
+
+  <Step title="Publicar o Flow">
+    Quando estiver satisfeito com o design e funcionamento do Flow, clique nos três pontos ao lado do botão de salvar e selecione **"Publicar"**. Tenha em mente que não poderá fazer alterações depois de publicar.
+
+    ![Publicar o Flow](/images/create-whatsapp-flow-11.png)
+  </Step>
+
+  <Step title="Configurar o Flow no Treble">
+  <Accordion title="Como integrar um WhatsApp Flow no Treble">
+  <Steps>
+  <Step title="Criar uma nova conversa no Treble">
+
+    O primeiro passo é criar uma nova conversa no Treble, onde você adicionará o Flow que criou previamente. Você também pode adicionar o Flow a uma conversa já existente ou até mesmo à conversa inbound que sua empresa tem configurada.
+
+    Para isso, entre no Treble, vá para a seção de "Conversas" e selecione "Criar uma nova conversa". Isso permitirá que você comece a personalizar o fluxo de mensagens de maneira específica para seus usuários.
+
+    ![Criar uma nova conversa](/images/implement-whatsapp-flows-1.png)
+  </Step>
+
+  <Step title="Utilizar o bloco especializado para WhatsApp Flows">
+
+    Uma vez que esteja no editor de drag and drop do Treble, você poderá usar o bloco especializado para WhatsApp Flows. Este bloco permitirá que você adicione seu Flow de maneira simples e garanta que esteja corretamente integrado no chatbot.
+
+    Arraste e solte o bloco de WhatsApp Flows no lugar correspondente dentro do fluxo da conversa para começar com a configuração.
+
+    ![Utilizar o bloco](/images/implement-whatsapp-flows-2.png)
+  </Step>
+
+  <Step title="Configurar o Flow em três etapas">
+
+    Uma vez que tenha adicionado o bloco de WhatsApp Flows, é hora de configurar o Flow em três etapas:
+    <Accordion title="As 3 etapas">
+    <Steps>
+      <Step title="Selecionar o fluxo">
+
+        Nesta primeira etapa, selecione o fluxo que deseja implementar. Neste passo só aparecerão os Flows que foram publicados no WhatsApp Business Manager. Você poderá ver um preview para garantir que selecionou o Flow correto.
+
+        ![Selecionar o fluxo](/images/implement-whatsapp-flows-3.png)
+      </Step>
+
+      <Step title="Configurar a mensagem inicial">
+        Esta etapa consiste em criar a mensagem que seus usuários verão antes de começar a interação com o Flow. Além disso, você deve definir o texto do botão no qual os usuários clicarão para iniciar o Flow. Você também pode escolher se quer adicionar um cabeçalho e um rodapé (footer) à mensagem.
+      </Step>
+
+      <Step title="Configurar as variáveis">
+        Finalmente, na última etapa de configuração, você deverá definir os nomes com os quais as variáveis serão salvas. Isso se decompõe nos seguintes passos:
+
+        1. **Pegar o valor do payload**: Identifique o valor da propriedade dentro do payload do Flow.
+        2. **Definir o nome e armazenamento das variáveis**: Atribua um nome que permita salvar este valor dentro do Treble ou no CRM que você tenha integrado. Se desejar armazenar as variáveis em integrações externas como HubSpot ou Google Sheets, use a seguinte nomenclatura:
+
+        - Para HubSpot: "hubspot_variablename". Por exemplo, se você tem uma variável chamada "name", poderia salvá-la como "hubspot_name".
+        - Para Google Sheets: "sheets_variablename". Por exemplo, se você tem uma variável chamada "email", poderia salvá-la como "sheets_email".
+
+        ![Configurar as variáveis](/images/implement-whatsapp-flows-4.png)
+      </Step>
+    </Steps>
+    </Accordion>
+  </Step>
+
+  <Step title="Conectar os nós no chatbot">
+
+    Uma vez criado o Flow, você deverá conectar os nós dentro do chatbot para definir as ações que serão tomadas de acordo com o estado do Flow.
+
+    - **Fluxo completo**: Você pode configurar uma ação para quando o Flow for concluído com sucesso, como enviar uma mensagem de agradecimento aos usuários.
+    - **Fluxo não completo**: Também pode definir o que acontece se o Flow não for concluído. Neste caso, você pode enviar uma mensagem de acompanhamento e convidar o usuário a tentar o Flow novamente ou fornecer outra opção.
+
+    ![Conectar os nós](/images/implement-whatsapp-flows-5.png)
+
+  </Step>
+
+  <Step title="Salvar e enviar a conversa">
+
+    Finalmente, uma vez que tenha terminado de conectar todos os nós e configurar o Flow, clique em "Criar" ou "Salvar conversa". Seu novo Flow estará pronto para ser utilizado quando for pertinente e proporcionar aos seus usuários uma experiência ágil e automatizada.
+
+    E é isso! Agora você tem seu WhatsApp Flow perfeitamente integrado em um chatbot do Treble, pronto para otimizar suas interações com os clientes e proporcionar-lhes uma experiência personalizada.
+  </Step>
+</Steps>
+  </Accordion>
+  </Step>
+ 
+
+</Steps>
+Com estes passos, você poderá criar um WhatsApp Flow efetivo para melhorar a comunicação com seus clientes.
+
+# 6 Melhores Práticas para WhatsApp Flows
+
+WhatsApp Flows é uma ferramenta poderosa que pode ajudar sua empresa a otimizar seu funil de conversão através do WhatsApp. Seguindo as melhores práticas, você pode melhorar a experiência do cliente, reduzir o abandono e aumentar a conversão. Este guia é baseado nas melhores práticas propostas pela Meta e em nossa experiência validando a ferramenta para otimizar as interações com seus clientes.
+
+<Steps>
+  <Step title="Mantenha os Flows Curtos e Focados">
+        Os clientes querem completar tarefas rapidamente. Ao desenhar um flow, faça com que não leve mais de cinco minutos para completá-lo. Se um flow se torna muito longo, pode gerar frustração e os clientes poderiam abandoná-lo.
+
+        ### Recomendações para Manter os Flows Concisos:
+
+        - **Limite as Tarefas por Tela**: Inclua apenas uma tarefa por tela para evitar sobrecarregar o cliente. Isso faz com que a experiência seja mais clara e fácil de seguir.
+        - **Minimize os Componentes**: Evite usar muitos componentes em uma única tela, já que pode saturar a interface e diminuir os tempos de carregamento. Se precisar de vários componentes, distribua-os em várias telas.
+            
+        ![Curto e focado](/images/whatsapp-flows-best-practices-1.png)
+  </Step>
+
+  <Step title="Considerações de Design e Conteúdo">
+    Os aspectos visuais e de texto do seu flow são cruciais para manter os clientes engajados e informados.
+
+    ### Melhores Práticas de Design e Conteúdo:
+
+    - **Chamadas para Ação (CTAs) Efetivas**: O CTA deve indicar claramente o que acontecerá a seguir. Por exemplo, use frases como "Confirmar reserva" para que o cliente saiba exatamente qual ação está realizando.
+            
+        ![Design e conteúdo](/images/whatsapp-flow-best-practices-2.png)
+
+    - **Capitalização e Gramática**: Utilize maiúsculas no início dos títulos e CTAs, mantenha uma capitalização coerente e sempre revise o conteúdo para corrigir erros gramaticais e de ortografia. Isso garante uma experiência profissional e coerente para o cliente.
+            
+        ![Design e conteúdo](/images/whatsapp-flow-best-practices-3t.png)
+            
+    - **Emojis**: Use emojis com moderação e considere o contexto. Certifique-se de que estejam alinhados com sua marca e que agreguem valor à mensagem em vez de distrair.
+    - **Texto de Ajuda**: O texto de ajuda deve proporcionar clareza aos clientes, por exemplo, o formato correto para um número de telefone, a entrada de uma data ou um endereço de e-mail.
+            
+        ![](/images/whatsapp-flows-best-practices-4.png)
+  </Step>
+
+  <Step title="3. Formulários e Qualidade de Dados de Entrada">
+
+    Para que os formulários sejam fáceis de usar e manter a qualidade dos dados de entrada:
+
+    ### Dicas para Formulários Efetivos:
+
+    - **Use os Componentes Corretos**: Utilizar os componentes corretos fará com que seus usuários tenham uma melhor experiência e o formato dos seus dados seja o melhor. Por exemplo, use um seletor de datas para datas de nascimento ou um text input - email para solicitar o e-mail dos seus clientes.
+      
+        ![Formulário](/images/whatsapp-flow-best-practices-5.png)
+    - **Proporcione Clareza**: As etiquetas e perguntas devem ser autoexplicativas, e os campos do formulário devem estar ordenados logicamente (por exemplo, nome antes do sobrenome).
+    - **Formulários Opcionais**: Se um formulário não é essencial para completar uma tarefa, torne-o opcional.
+
+  </Step>
+
+  <Step title="4. Navegação do Flow e Guia do Cliente">
+
+    Guiar eficazmente os clientes através do flow melhora as taxas de finalização.
+
+    ### Dicas para Navegação Clara e Guiada:
+
+    - **Os Clientes Querem Completar uma Tarefa**: O CTA deve estar em sintonia com o conteúdo da mensagem. Deve ser breve e conciso, indicando qual tarefa o cliente pode esperar completar ao abrir o flow.
+    - **Estabeleça Expectativas**: Informe aos clientes quanto tempo levará para completar uma tarefa, como "Só deve levar alguns minutos". Utilize títulos de tela concisos e orientados à ação (por exemplo, "Confirmar inscrição").
+    - **Clareza no Fluxo de Iniciação**: Os clientes decidem abrir um flow com base na clareza das mensagens de iniciação. A conversação deve se sentir fluida e proporcionar contexto e ações claras centradas na tarefa.
+    - **Sem Surpresas**: A primeira tela do flow deve refletir a ação do CTA. Qualquer desvio da tarefa resultará em uma má experiência para o cliente e poderia levá-lo a fechar o flow.
+
+  </Step>
+
+  <Step title="5. Opt-in e Consentimento">
+    Certifique-se de estar informando seus usuários sobre o uso que fará dos seus dados.
+
+    ### Considerações para Opt-in:
+
+    - **Clareza do Opt-in**: É fundamental que o cliente entenda claramente o que está consentindo ao interagir com um flow. Proporcione uma explicação simples e direta do propósito do flow e de qualquer informação que será coletada.
+    - **Incluir um 'Ler Mais'**: Inclua um botão de 'Ler Mais' que leve à informação relevante, como os Termos e Condições. Isso aumenta a transparência e ajuda a construir confiança com os clientes.
+    
+        ![Consentimento](/images/whatsapp-flows-best-practices-1.png)
+  </Step>
+
+  <Step title="6. Finalização do Flow">
+    Terminar um flow adequadamente é tão importante quanto começá-lo.
+  </Step>
+</Steps>

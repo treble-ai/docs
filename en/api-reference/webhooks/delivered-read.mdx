@@ -1,0 +1,73 @@
+---
+title: "Message Delivery and Read Webhooks"
+description: "Message delivery and read webhooks are triggered when a user receives or reads a message. Learn how to configure them in this article."
+---
+
+## How does it work?
+
+Through Treble, which uses WhatsApp Business API, when a user reads or receives a message, we can configure a webhook to be triggered when this happens.
+
+### Example use case
+
+Let's say you're a clothing sales company and you want to know when a customer has read or received your first marketing message about a promotion for your new clothing collection. You'll offer a 10% discount on their first purchase to the first 100 customers who subscribe to your newsletter.
+
+For this, you can configure a message read webhook in Treble. When a customer reads or receives your message, the webhook will be triggered and will send an HTTP request to your endpoint configured in Treble.
+
+## How to configure a message delivery or read webhook?
+
+<Steps>
+    <Step title="Log in to Treble.ai">
+        Log in to Treble.ai through the following URL: <a class="article-link" href="https://app.treble.ai"><p>https://app.treble.ai</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+    </Step>
+    <Step title="Create a flow">
+        Go to the "Conversations" section and click on the **"Create Conversation"** button. You can also configure a message read webhook in an existing flow. For this, go to the "Flows" section and click on the **"Edit" <Icon icon="pencil" iconType="solid" />** button of your flow.
+
+        <img src="/images/create-convo.gif" alt="Create Conversation" />
+    </Step>
+    <Step title="Add message blocks">
+        Let's add the first message block. Click on the **"Add block" <Icon icon="plus" iconType="solid" />** button. In this case, we will add a message template (HSM) previously created and approved by Meta. Then we will connect a simple message block with the HSM block.
+
+        <img src="/images/webhook-rd-2.gif" alt="Add a message block" />
+    </Step>
+    <Step title="Activate webhook and add endpoint">
+        Now, let's double-click on the message block, a panel will open on the left. In this panel, let's click on the **"Webhook" <Icon icon="toggle-on" iconType="solid" />** button. Two fields will appear:
+
+        - **"Read"**: Here you can add the endpoint to which you want the HTTP request to be sent when this message is read.
+        - **"Delivered"**: Here you can add the endpoint to which you want the HTTP request to be sent when this message is received.
+
+        <img src="/images/webhook-rd-3.gif" alt="Add a message block" />
+    </Step>
+    <Step title="Save changes">
+        If you are in a new flow, click on the **"Publish Conversation"** button to save the flow. If you are in an existing flow, click on the **"Save"** button to save the changes.
+
+        <Check>
+            Done! Now, when a customer reads or receives your message, the webhook will be triggered and will send an HTTP request to your endpoint configured in Treble.
+        </Check>
+    </Step>
+</Steps>
+
+## Next step
+
+To know the body of the HTTP request that is sent when a customer reads or receives a message, you can visit the following section:
+
+<CardGroup columns={2}>
+    <Card 
+        title="Message Delivery Webhook Request Body" 
+        icon="code"
+        href="/en/api-reference/webhooks/delivered-api"
+    >
+        Message Delivery Webhook Request Body
+    </Card>
+    <Card 
+        title="Message Read Webhook Request Body" 
+        icon="code"
+        href="/en/api-reference/webhooks/read-api"
+    >
+        Message Read Webhook Request Body
+    </Card>
+</CardGroup>
+
+## Tips 
+
+- Keep in mind that the message delivery and read webhooks are triggered when a customer reads or receives a message and only apply to the message you configured. If you want it to be triggered on other messages, you must configure a webhook for each message.
+- The message read webhook may not be triggered if the WhatsApp user has read privacy mode configured. 

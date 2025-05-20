@@ -1,0 +1,74 @@
+---
+title: "Opt-out Webhook"
+description: "Opt-out webhooks are triggered when a user opts not to receive more messages. Learn how to configure them in this article."
+---
+
+## How does it work?
+
+Opt-out webhooks are triggered when a user opts not to receive more messages. This can be configured for any message within any of your flows. However, we recommend that if you plan to configure the opt-out option, you generally do it in the first message of your flow. This is so that the user has the opt-out option before any other future message is sent to them and helps maintain the quality of your WhatsApp line.
+
+## What does opt-out mean?
+
+Opt-out is the process by which a user decides not to receive more messages from a specific source. In the context of webhooks, this implies that when a user chooses to opt out of receiving more messages, a webhook is triggered that notifies your system about this decision. This allows your application to properly manage the user's communication preferences, ensuring that unwanted messages are not sent to them in the future. Implementing an opt-out mechanism is crucial to respect users' privacy and preferences, and to comply with Meta's communication regulations.
+
+When you activate the opt-out option in a flow, and the user responds to a question by choosing the opt-out option, Treble will save the user's phone number in an internal list where all phone numbers that have opted not to receive more messages are stored.
+
+### Where can I find the list of phone numbers that have opted not to receive more messages?
+
+You can find the list of phone numbers that have opted not to receive more messages in the **"Blocked Users"** section within **"Settings"** in your Treble account.
+
+To do this, follow these steps:
+
+1. Log in to your Treble account by going to <a class="article-link" href="https://app.treble.ai/login"><p>https://app.treble.ai/login</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+2. Go to the **"Settings"** section in your Treble account.
+3. Go to the **"Blocked Users"** section.
+4. In the view, you will be able to choose between downloading the list of numbers that chose the opt-out option or viewing the list of numbers that you have decided to block.
+5. Click on the **"Download"** button to download the list of numbers that are blocked.
+6. Additionally, you can add individual numbers to the list of blocked users. To do this, enter the phone number in the text field: **Block Users** and click on the **"Block"** button.
+
+<img src="/images/opt-out-1.gif" alt="List of phone numbers that have opted not to receive more messages" />
+
+### How can I unblock a phone number?
+
+To unblock one or several phone numbers, you need to contact our support team.
+
+<Card 
+    title="Contact our support team" 
+    icon="headset"
+    href="https://support-treble.atlassian.net/servicedesk/customer/portals"
+>
+    Contact our support team.
+</Card>
+
+## Opt-out webhook configuration
+
+<Steps>
+    <Step title="Log in to Treble.ai">
+        Log in to Treble.ai through the following URL: <a class="article-link" href="https://app.treble.ai"><p>https://app.treble.ai</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+    </Step>
+    <Step title="Create a flow">
+        Go to the "Conversations" section and click on the **"Create Conversation"** button. You can also configure an opt-out webhook in an existing flow. For this, go to the "Flows" section and click on the **"Edit" <Icon icon="pencil" iconType="solid" />** button of your flow.
+
+        <img src="/images/create-convo.gif" alt="Create Conversation" />
+    </Step>
+    <Step title="Add message blocks">
+        Add message blocks to your flow or edit the existing flow. Click on the **"Add block" <Icon icon="plus" iconType="solid" />** button.
+
+        <img src="/images/webhook-rd-2.gif" alt="Add a message block" />
+    </Step>
+    <Step title="Activate webhook and add endpoint">
+        Now, double-click on the message block, a panel will appear on the left. In this panel, scroll down to the **"Responses as opt-out option"** section and click on the switch <Icon icon="toggle-on" iconType="solid" /> of the option you want to configure to exclude users who opt not to receive more messages.
+
+        Accept the terms and conditions of the modal that appears and then you can write the URL of your endpoint in the **"Webhook URL"** text field.
+
+        <img src="/images/opt-out-2.gif" alt="Activate webhook and add endpoint" />
+
+        <Check>
+            Done! Now, when a user opts not to receive more messages, the webhook will be triggered and will send an HTTP request to your endpoint configured in Treble.
+        </Check>
+    </Step>
+</Steps>
+
+## Keep in mind
+
+- If you configure an opt-out option in your flow and you are testing with your phone number, it is possible that your own phone number will be added to the list of blocked users. If this happens, you will not be able to send conversations to your phone number. To unblock your phone number, you can contact our support team. 

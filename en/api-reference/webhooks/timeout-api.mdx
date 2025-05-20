@@ -1,0 +1,18 @@
+---
+title: 'Timeout Webhook Request Body (alternate flow)'
+openapi: '/open-api-files/treble-api-en.json POST /webhooks/on-timeout'
+---
+
+You can also configure the response webhook for the path that exits a node in case of timeout, also known as alternate flow.
+
+<img src="/images/timeout-api-1.png" alt="Configure timeout node webhook" />
+
+If you do this, the HTTP request body sent to the endpoint configured in Treble will add the following field in the request body:
+
+```json
+{
+    "timeout_at": "2021-10-07 08:53:22.572123"
+}
+```
+
+The response can also have new variables for the session that can be updated or created for later use in the session. That is, you can add them in the webhook response as part of the `user_session_keys`. 

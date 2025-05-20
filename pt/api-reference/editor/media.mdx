@@ -1,0 +1,96 @@
+---
+title: "Variável Multimídia"
+description: "Aprenda a configurar variáveis multimídia em seus fluxos de conversação. Isso permitirá que você adicione imagens, vídeos, áudios e anexos e os envie dinamicamente em suas conversas."
+---
+
+## Anexar Multimídia - Variável Multimídia
+
+No editor da Treble, você pode anexar multimídia às suas mensagens. Isso permitirá que você adicione imagens, vídeos, áudios e anexos de arquivos e os envie dinamicamente em suas conversas.
+
+Normalmente, você faz isso da seguinte forma:
+
+1. Vá para o nó da conversa onde você deseja anexar o multimídia.
+2. Selecione o tipo de multimídia que deseja anexar.
+3. Selecione o arquivo que deseja anexar.
+4. Clique em **Anexar**.
+
+<img src="/images/media-3.gif" alt="Anexar multimídia no editor da Treble" />
+<img src="/images/media-2.png" alt="Anexar multimídia no editor da Treble" />
+
+Agora, vamos ver como você pode fazer com que o conteúdo multimídia não seja um conteúdo estático, mas dinâmico. Para isso, siga os seguintes passos:
+
+1. Vá para o nó da conversa onde você deseja anexar o multimídia.
+2. Clique no botão **Anexar <Icon icon="paperclip" iconType="solid" />**.
+3. Escolha a opção **Variável**.
+4. Isso abrirá um modal onde você pode definir o nome da variável. Em nosso exemplo, vamos chamá-la de `media_url`. Esta variável é uma `user_session_key`.
+
+<img src="/images/media-4.gif" alt="Anexar multimídia no editor da Treble" />
+
+5. Pronto! Agora, esta variável (no nosso caso `media_url`) esperará a URL da imagem, vídeo, áudio ou anexo de arquivo que você deseja anexar.
+
+<Note>
+    A URL da imagem, vídeo, áudio ou anexo de arquivo deve ser uma URL pública. Para verificar se é uma URL pública, você pode abri-la em seu navegador. Se você conseguir ver o conteúdo, então é uma URL pública.
+</Note>
+
+## Como esta variável é manipulada?
+
+Você tem as seguintes opções para manipular esta variável:
+
+<Steps>
+    <Step title="Opção 1: Implantação por CSV do seu fluxo de conversação">
+        Neste caso, quando você faz o upload de um arquivo CSV, o conteúdo da coluna `media_url` deve ser a URL da imagem, vídeo, áudio ou anexo de arquivo que você deseja anexar. Isso permitirá que você envie uma URL de arquivo personalizada para cada usuário.
+
+        Por exemplo:
+        | country\_code | cellphone  | name   | media\_url |
+        | ------------- | ---------- | ------ | ---------- |
+        | 57            | 3132392346 | Felipe | https://example.com/image.jpg |
+        | 34            | 622902416  | Camila | https://example.com/video.mp4 |
+
+        <Card 
+            title="Implantação de fluxo de conversação outbound" 
+            icon="paper-plane"
+            href="/pt/docs/main-platform/send-convo"
+        >
+            Aprenda como enviar uma conversação outbound.
+        </Card>
+    </Step>
+    <Step title="Opção 2: Implantação por API">
+        Neste caso, quando você faz uma chamada para a API da Treble, você deve enviar o conteúdo da variável `media_url` no corpo da chamada. Esta variável fará parte dos `user_session_keys` que são enviados na chamada.
+
+        Por exemplo:
+
+        ```json
+        {   
+            [...],
+            "user_session_keys": [
+                {
+                    "key": "media_url",
+                    "value": "https://example.com/image.jpg"
+                }
+            ]
+        }
+        ```
+        <Card 
+            title="Implantar fluxo de conversação por API" 
+            icon="code"
+            href="/pt/api-reference/endpoints/deploy"
+        >
+            Aprenda como implantar um fluxo de conversação por API.
+        </Card>
+    </Step>
+    <Step title="Opção 3: Em uma resposta de webhook">
+        Neste caso, quando você faz uma chamada a um webhook, e antes de chegar ao nó da conversação com o nó que tem a variável `media_url`, você pode chamar um webhook, e na resposta deste webhook, você pode enviar a URL da imagem, vídeo, áudio ou anexo de arquivo que você deseja anexar.
+
+        <Card 
+            title="Resposta de webhook" 
+            icon="code"
+            href="/pt/api-reference/webhooks/message-response"
+        >
+            Você pode adicionar a URL da imagem, vídeo, áudio ou anexo de arquivo em uma resposta de webhook através dos `user_session_keys`.
+        </Card>
+    </Step>
+</Steps>
+
+<Check>
+Pronto! Agora você pode anexar multimídia dinamicamente em suas conversas.
+</Check> 

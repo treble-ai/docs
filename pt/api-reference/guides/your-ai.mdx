@@ -1,0 +1,95 @@
+---
+title: "Integrar sua própria IA na Treble"
+description: "Aprenda a integrar sua própria IA na Treble para que ela possa responder às perguntas do seu usuário."
+---
+
+## Antes de começar
+
+Antes de começar com este guia, recomendamos que você leia vários artigos para entender conceitos como variáveis de sessão, webhooks e request trigger.
+
+<CardGroup cols={2}>
+    <Card 
+        title="Variáveis de Sessão" 
+        icon="tag"
+        href="/pt/docs/build-with-treble/features/variables"
+    >
+        Entenda como usar variáveis de sessão na Treble.
+    </Card>
+    <Card 
+        title="Webhooks" 
+        icon="code"
+        href="/pt/api-reference/webhooks/intro"
+    >
+        Entenda como usar webhooks na Treble.
+    </Card>
+    <Card 
+        title="Request Trigger" 
+        icon="code"
+        href="/pt/api-reference/webhooks/request-trigger"
+    >
+        Entenda como usar request trigger na Treble.
+    </Card>
+</CardGroup>
+
+Este artigo explica como conectar seu sistema de inteligência artificial (IA) com os fluxos conversacionais da Treble. Esta integração permite gerar respostas dinâmicas para seus usuários a partir dos dados processados em seu backend. A seguir, mostramos como estruturar seu fluxo corretamente:
+
+## Bloco Inicial
+
+O primeiro passo é criar um **bloco de início** que faça uma pergunta ao usuário, como por exemplo: "Você tem alguma dúvida?", "Como posso ajudá-lo hoje?".
+
+Na **linha de saída** deste bloco, clique para **adicionar a URL do webhook** que vai disparar a solicitação para o seu sistema.
+
+<Tip>
+    Salve a resposta do usuário neste bloco inicial para usá-la como uma variável no código. Para isso, ative a opção "salvar resposta" e atribua um nome à variável que será enviada no corpo do webhook.
+</Tip>
+
+<img src="/images/your-ai-1.png" alt="Configurar bloco inicial" />
+
+## Processamento e Resposta do Seu Sistema
+
+Uma vez que o usuário responde:
+
+1. Seu sistema receberá a informação.
+2. Processará essa informação utilizando a IA.
+3. Enviará uma *resposta* para a Treble com a **resposta gerada**.
+4. Esta resposta deve atualizar as variáveis da sessão, e será a que será mostrada ao usuário.
+
+<img src="/images/your-ai-2.png" alt="Configurar bloco inicial" />
+
+## Solicitações que Levam Mais de 10 Segundos: Uso de `[REQUEST_TRIGGER]`
+
+Quando o processamento da IA pode levar mais tempo, é necessário inserir um **bloco intermediário** antes de enviar a resposta:
+
+- Este bloco deve ter uma **opção etiquetada como `[REQUEST_TRIGGER]`**.
+- Esta etiqueta indica que, quando o usuário alcançar esse nó, o sistema deve fazer uma solicitação e continuar o fluxo por essa rota.
+
+Isso permite **esperar pela resposta da IA** sem que a conversa fique bloqueada.
+
+<img src="/images/your-ai-3.png" alt="Configurar bloco intermediário" />
+
+## Rotas Condicionais com Base no Output da IA
+
+Se sua IA retorna um valor específico (por exemplo, `"talkToAgent"` ou `"fileUrl"`), você pode **criar ramificações no fluxo** para oferecer respostas personalizadas. Para fazer isso:
+
+1. Envie esses valores como variáveis do seu sistema.
+2. Insira um **bloco condicional** entre o `[REQUEST_TRIGGER]` e a resposta.
+3. Defina as **diferentes rotas** que o usuário pode seguir de acordo com a variável recebida.
+
+<img src="/images/your-ai-4.png" alt="Configurar bloco condicional" />
+
+## Evite que os Usuários Fiquem Presos
+
+Para evitar que os usuários fiquem bloqueados dentro do fluxo:
+
+- Você pode configurar **fluxos alternativos** para fazer **acompanhamento automático (follow-up)**.
+- Isso pode servir para:
+    - Tentar novamente obter uma resposta da IA.
+    - Escalar a conversa para um humano após um certo tempo sem interação.
+
+<img src="/images/your-ai-5.png" alt="Configurar fluxo alternativo" />
+
+## Fluxo Contínuo com Múltiplas Interações
+
+Sempre que seu sistema precisa **consultar a IA novamente**, certifique-se de que a **linha de retorno** para o bloco que processa a resposta **também inclui o webhook**.
+
+<img src="/images/your-ai-6.png" alt="Configurar fluxo contínuo" /> 

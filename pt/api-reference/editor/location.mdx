@@ -1,0 +1,96 @@
+---
+title: "Variável de Localização"
+description: "Aprenda a configurar localização variável em seus fluxos de conversação. Isso permitirá que você adicione localização dinamicamente em suas conversas."
+---
+
+## Enviar Localização
+
+No editor da Treble, você pode enviar uma localização para um usuário. Isso permitirá que você adicione localização dinamicamente em suas conversas.
+
+Normalmente, você faz isso da seguinte forma:
+
+1. Vá para o nó da conversa onde você deseja enviar a localização.
+2. Clique no botão de anexar <Icon icon="paperclip" iconType="solid" />.
+3. Escolha a opção **Localização <Icon icon="location-dot" iconType="solid" />**.
+4. Um modal será exibido onde você pode escrever o endereço da localização que deseja enviar.
+
+<img src="/images/location-2.gif" alt="Enviar localização no editor da Treble" />
+
+5. Pronto! Agora, seus usuários receberão a localização que você enviou.
+
+Agora, vamos ver como você pode fazer com que a localização não seja um conteúdo estático, mas dinâmico. Para isso, siga os seguintes passos:
+
+1. Vá para o nó da conversa onde você deseja anexar o multimídia.
+2. Clique no botão **Anexar <Icon icon="paperclip" iconType="solid" />**.
+3. Escolha a opção **Localização <Icon icon="location-dot" iconType="solid" />**.
+4. Agora, em vez de escrever o endereço da localização, você escreverá o nome da variável. Em nosso exemplo, vamos chamá-la de `{{location}}`. Esta variável é uma `user_session_key`.
+
+<img src="/images/location-3.gif" alt="Enviar localização no editor da Treble" />
+
+5. Pronto! Agora, esta variável (no nosso caso `{{location}}`) esperará a latitude e longitude da localização que você deseja enviar. O formato da variável é o seguinte:
+
+```json
+{
+    "user_session_keys": [
+        {
+            "key": "location",
+            "value": '{"latitude": 47.123456, "longitude": -4.123456, "address": "[Address text]"}'
+        }
+    ]
+}
+```
+<Note>
+    Note que o valor da variável é um JSON, mas é enviado como uma string.
+</Note>
+
+<Check>
+Pronto! Agora você sabe como enviar uma localização dinamicamente em suas conversas.
+</Check>
+
+## Capturar a localização de um usuário para enviá-la a um webhook
+
+Da mesma forma, você pode capturar a localização de um usuário para enviá-la a um webhook. Para isso, siga os seguintes passos:
+
+<Steps>
+    <Step title="Faça login na Treble.ai">
+        Faça login na Treble.ai através da seguinte URL: <a class="article-link" href="https://app.treble.ai"><p>https://app.treble.ai</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+    </Step>
+    <Step title="Criação de um fluxo">
+        Vá para a seção "Conversas" e clique no botão **"Criar Conversa"**. Você também pode configurar um webhook de leitura de mensagem em um fluxo existente. Para isso, vá para a seção "Fluxos" e clique no botão **"Editar" <Icon icon="pencil" iconType="solid" />** do seu fluxo.
+
+        <img src="/images/create-convo.gif" alt="Criar Conversa" />
+    </Step>
+    <Step title="Encontre o nó de captura de localização">
+        No fluxo, encontre ou crie um nó de captura de localização. Este nó é um **Bloco de Mensagem Simples** que fará a pergunta ao usuário sobre sua localização.
+
+        <img src="/images/location-4.png" alt="Capturar a localização de um usuário para enviá-la a um webhook" />
+    </Step>
+    <Step title="Capture a variável de localização">
+        Agora, clique duas vezes no bloco de mensagem, um painel aparecerá à esquerda. Neste painel, role para baixo para encontrar a seção **Salvar Resposta**. Ative a chave <Icon icon="toggle-on" iconType="solid" /> e configure a variável da seguinte forma:
+
+        - **Tipo de resposta**: `Localização`
+        - **Nome da variável**: Pode ser qualquer nome, em nosso exemplo usaremos `localizacao_cliente`.
+
+        <img src="/images/location-5.gif" alt="Capturar a localização de um usuário para enviá-la a um webhook" />
+    </Step>
+    <Step title="Ativar webhook e adicionar endpoint">
+        Agora, clique duas vezes no caminho/seta <Icon icon="arrow-right" iconType="solid" /> que sai do bloco de mensagem e conecta com o próximo bloco. Um campo de texto aparecerá na parte superior. Neste campo, adicione o endpoint para o qual você deseja que a solicitação HTTP seja enviada quando esta mensagem receber a resposta do usuário.
+
+        <img src="/images/location-6.gif" alt="Capturar a localização de um usuário para enviá-la a um webhook" />
+    </Step>
+    <Step title="Salvar alterações">
+        Se você estiver em um novo fluxo, clique no botão **"Publicar Conversa"** para salvar o fluxo. Se você estiver em um fluxo existente, clique no botão **"Salvar"** para salvar as alterações.
+
+        <Check>
+            Pronto! Agora, quando um cliente enviar sua localização para o nó de captura de localização, o webhook será acionado e enviará uma solicitação HTTP para o seu endpoint configurado na Treble com a localização do cliente.
+        </Check>
+
+        Lembre-se de que o formato da variável de localização é o seguinte:
+
+        ```json
+        {
+            "user_session_keys": [{"key": "localizacao_cliente", "value": '{"latitude": 47.123456, "longitude": -4.123456, "address": "[Address text]"}'}]
+        }
+        ```
+    </Step>
+</Steps> 

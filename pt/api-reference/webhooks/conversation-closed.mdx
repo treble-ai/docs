@@ -1,0 +1,57 @@
+---
+title: "Webhook de fechamento de conversa"
+description: "O webhook de fechamento de conversa é ativado quando um cliente fecha uma conversa. Aprenda a configurá-los neste artigo."
+---
+
+## Quando ocorre um fechamento de conversa na Treble?
+
+Na Treble, os fluxos de conversa (conversas) são "fechados" quando ocorre alguma das seguintes ações:
+
+### O cliente responde a qualquer bloco de mensagem final.
+
+Imagine que as conversas na Treble são como uma árvore com muitos galhos. Cada vez que um cliente toma uma decisão, é como escolher um galho para seguir. No final de cada galho, há uma folha. Quando o cliente chega a uma folha e responde à última mensagem, a conversa se fecha. É como se o cliente tivesse chegado ao final do seu caminho na árvore, tendo explorado todas as opções disponíveis nessa direção.
+
+Por exemplo, na seguinte imagem, o cliente fecha a conversa ao responder a qualquer um dos blocos de mensagem #1, #2, #4 ou #5. Mas não ao responder aos blocos de mensagem #3, porque esta mensagem não é final.
+
+<img src="/images/webhook-closed-1.png" alt="Conversa fechada" />
+
+**Isto significa que para que uma conversa seja fechada, o cliente deve responder a um bloco de mensagem final, mesmo se essa última mensagem for uma mensagem de despedida ou uma mensagem de agradecimento?**
+
+Sim, para que uma conversa seja fechada, o cliente deve responder a um bloco de mensagem final. A Treble não pode inferir que o cliente quer fechar a conversa.
+
+### Você configurou o fechamento automático de conversas depois de X minutos de ter iniciado a conversa.
+
+Na Treble, existem dois conceitos semelhantes, mas distintos:
+
+- **Duração da sessão do WhatsApp:** É o tempo que passa desde que o cliente inicia uma conversa com a sua linha do WhatsApp Business API e é uma janela de 24 horas que expira quando o seu cliente deixa de interagir com a sua linha.
+- **Sessão da Treble:** É a forma como a Treble sabe qual conversa está interagindo com o cliente. Por padrão, uma sessão da Treble não expira, ou seja, pode ser que seu cliente deixe de interagir com sua linha do WhatsApp Business API e isso faça com que a sessão do WhatsApp expire, mas a sessão da Treble não. Isso permite que seu cliente volte a interagir com a mesma conversa mesmo se voltar a se conectar dias depois.
+
+No entanto, você pode querer que uma conversa se feche automaticamente depois de X minutos de ter iniciado a conversa. Para isso, você pode configurar o fechamento automático de conversas na seção de configuração da sua conta.
+
+#### Configurar o fechamento automático de conversas
+
+Para configurar o fechamento automático de conversas, você deve seguir estes passos:
+
+1. Entre na sua conta na Treble, através do endereço <a class="article-link" href="https://app.treble.ai/login" target="_blank"><p>https://app.treble.ai/login</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+2. Vá para a seção de **Configurações <Icon icon="gear" iconType="solid" />** no menu de navegação.
+3. Em seguida, clique em **Conversas <Icon icon="message" iconType="solid" />** no menu de navegação.
+4. Vá para a opção **Desativar após tempo de inatividade** e configure o tempo em minutos.
+5. Pronto! Agora, quando uma conversa não tiver atividade por X minutos, ela será fechada automaticamente.
+
+<img src="/images/webhook-closed-2.gif" alt="Configurar fechamento automático de conversas" />
+
+## Webhook de fechamento de conversa
+
+Agora que você já sabe quando ocorre um fechamento de conversa na Treble, apresentamos o webhook de fechamento de conversa. O webhook será ativado quando ocorrer um fechamento de conversa na Treble.
+
+### Como configurar o webhook de fechamento de conversa?
+
+Para configurar o webhook de fechamento de conversa, você deve seguir estes passos:
+
+1. Entre na sua conta na Treble, através do endereço <a class="article-link" href="https://app.treble.ai/login" target="_blank"><p>https://app.treble.ai/login</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+2. Vá para a seção de **Configurações <Icon icon="gear" iconType="solid" />** no menu de navegação.
+3. Em seguida, clique em **Desenvolvedores** no menu de navegação.
+4. Vá para a opção **Webhook Conversa Fechada** e configure o webhook, adicione a URL do seu webhook e depois clique em **Salvar**.
+5. Pronto! Agora, quando ocorrer um fechamento de conversa na Treble, o webhook será ativado.
+
+<img src="/images/webhook-closed-3.gif" alt="Configurar webhook de fechamento de conversa" /> 

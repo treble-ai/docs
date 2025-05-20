@@ -1,0 +1,73 @@
+---
+title: "Webhooks de Entrega e Leitura de Mensagem"
+description: "Os webhooks de entrega e leitura de mensagem são acionados quando um usuário recebe ou lê uma mensagem. Aprenda como configurá-los neste artigo."
+---
+
+## Como funciona?
+
+Por meio do Treble, que utiliza a API do WhatsApp Business, quando um usuário lê ou recebe uma mensagem, podemos configurar um webhook para ser acionado quando isso acontecer.
+
+### Exemplo de caso de uso
+
+Vamos supor que você é uma empresa de vendas de roupas e quer saber quando um cliente leu ou recebeu sua primeira mensagem de marketing sobre uma promoção para sua nova coleção de roupas. Você oferecerá um desconto de 10% na primeira compra para os primeiros 100 clientes que se inscreverem em sua newsletter.
+
+Para isso, você pode configurar um webhook de leitura de mensagem no Treble. Quando um cliente lê ou recebe sua mensagem, o webhook será acionado e enviará uma solicitação HTTP para o seu endpoint configurado no Treble.
+
+## Como configurar um webhook de entrega ou leitura de mensagem?
+
+<Steps>
+    <Step title="Acesse o Treble.ai">
+        Acesse o Treble.ai através da seguinte URL: <a class="article-link" href="https://app.treble.ai"><p>https://app.treble.ai</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+    </Step>
+    <Step title="Crie um fluxo">
+        Vá para a seção "Conversas" e clique no botão **"Criar Conversa"**. Você também pode configurar um webhook de leitura de mensagem em um fluxo existente. Para isso, vá para a seção "Fluxos" e clique no botão **"Editar" <Icon icon="pencil" iconType="solid" />** do seu fluxo.
+
+        <img src="/images/create-convo.gif" alt="Criar Conversa" />
+    </Step>
+    <Step title="Adicione blocos de mensagem">
+        Vamos adicionar o primeiro bloco de mensagem. Clique no botão **"Adicionar bloco" <Icon icon="plus" iconType="solid" />**. Neste caso, adicionaremos um modelo de mensagem (HSM) previamente criado e aprovado pela Meta. Em seguida, conectaremos um bloco de mensagem simples com o bloco HSM.
+
+        <img src="/images/webhook-rd-2.gif" alt="Adicionar um bloco de mensagem" />
+    </Step>
+    <Step title="Ative o webhook e adicione o endpoint">
+        Agora, vamos clicar duas vezes no bloco de mensagem, um painel será aberto à esquerda. Neste painel, vamos clicar no botão **"Webhook" <Icon icon="toggle-on" iconType="solid" />**. Dois campos aparecerão:
+
+        - **"Read"**: Aqui você pode adicionar o endpoint para o qual deseja que a solicitação HTTP seja enviada quando esta mensagem for lida.
+        - **"Delivered"**: Aqui você pode adicionar o endpoint para o qual deseja que a solicitação HTTP seja enviada quando esta mensagem for recebida.
+
+        <img src="/images/webhook-rd-3.gif" alt="Adicionar um bloco de mensagem" />
+    </Step>
+    <Step title="Salve as alterações">
+        Se você está em um novo fluxo, clique no botão **"Publicar Conversa"** para salvar o fluxo. Se você está em um fluxo existente, clique no botão **"Salvar"** para salvar as alterações.
+
+        <Check>
+            Pronto! Agora, quando um cliente ler ou receber sua mensagem, o webhook será acionado e enviará uma solicitação HTTP para o seu endpoint configurado no Treble.
+        </Check>
+    </Step>
+</Steps>
+
+## Próximo passo
+
+Para conhecer o corpo da solicitação HTTP que é enviada quando um cliente lê ou recebe uma mensagem, você pode visitar a seguinte seção:
+
+<CardGroup columns={2}>
+    <Card 
+        title="Corpo da Solicitação do Webhook de Entrega de Mensagem" 
+        icon="code"
+        href="/pt/api-reference/webhooks/delivered-api"
+    >
+        Corpo da Solicitação do Webhook de Entrega de Mensagem
+    </Card>
+    <Card 
+        title="Corpo da Solicitação do Webhook de Leitura de Mensagem" 
+        icon="code"
+        href="/pt/api-reference/webhooks/read-api"
+    >
+        Corpo da Solicitação do Webhook de Leitura de Mensagem
+    </Card>
+</CardGroup>
+
+## Dicas 
+
+- Tenha em mente que os webhooks de entrega e leitura de mensagem são acionados quando um cliente lê ou recebe uma mensagem e só se aplicam à mensagem que você configurou. Se quiser que seja acionado em outras mensagens, você deve configurar um webhook para cada mensagem.
+- O webhook de leitura de mensagem pode não ser acionado se o usuário do WhatsApp tiver configurado o modo de privacidade de leitura. 

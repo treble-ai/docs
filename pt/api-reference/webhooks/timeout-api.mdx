@@ -1,0 +1,18 @@
+---
+title: 'Corpo da solicitação do Webhook de timeout (fluxo alternativo)'
+openapi: '/open-api-files/treble-api-pt.json POST /webhooks/on-timeout'
+---
+
+Você também pode configurar o webhook de resposta para o caminho que sai de um nó em caso de timeout, também conhecido como fluxo alternativo.
+
+<img src="/images/timeout-api-1.png" alt="Configurar webhook de nó de timeout" />
+
+Se você fizer isso, o corpo da solicitação HTTP enviada ao endpoint configurado na Treble adicionará o seguinte campo no corpo da solicitação:
+
+```json
+{
+    "timeout_at": "2021-10-07 08:53:22.572123"
+}
+```
+
+A resposta também pode ter novas variáveis para a sessão que podem ser atualizadas ou criadas para uso posterior na sessão. Ou seja, você pode adicioná-las na resposta do webhook como parte das `user_session_keys`. 

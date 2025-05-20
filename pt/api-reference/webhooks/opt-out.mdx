@@ -1,0 +1,74 @@
+---
+title: "Webhook de opt-out"
+description: "Os webhooks de opt-out são ativados quando um usuário opta por não receber mais mensagens. Aprenda a configurá-los neste artigo."
+---
+
+## Como funciona?
+
+Os webhooks de opt-out são ativados quando um usuário opta por não receber mais mensagens. Isso pode ser configurado para qualquer mensagem dentro de qualquer um dos seus fluxos. No entanto, recomendamos que, se você planeja configurar a opção de opt-out, geralmente o faça na primeira mensagem do seu fluxo. Isso é para que o usuário tenha a opção de opt-out antes que qualquer outra mensagem futura seja enviada a ele e ajuda a manter a qualidade da sua linha do WhatsApp.
+
+## O que significa opt-out?
+
+Opt-out é o processo pelo qual um usuário decide não receber mais mensagens de uma fonte específica. No contexto dos webhooks, isso implica que quando um usuário escolhe optar por não receber mais mensagens, um webhook é ativado que notifica seu sistema sobre essa decisão. Isso permite que sua aplicação gerencie adequadamente as preferências de comunicação do usuário, garantindo que mensagens indesejadas não sejam enviadas a ele no futuro. Implementar um mecanismo de opt-out é crucial para respeitar a privacidade e as preferências dos usuários, e para cumprir com os regulamentos de comunicação da Meta.
+
+Quando você ativa a opção de opt-out em um fluxo, e o usuário responde a uma pergunta escolhendo a opção de opt-out, a Treble salvará o número de telefone do usuário em uma lista interna onde são armazenados todos os números de telefone que optaram por não receber mais mensagens.
+
+### Onde posso encontrar a lista de números de telefone que optaram por não receber mais mensagens?
+
+Você pode encontrar a lista de números de telefone que optaram por não receber mais mensagens na seção **"Usuários Bloqueados"** dentro de **"Configurações"** em sua conta na Treble.
+
+Para fazer isso, siga estes passos:
+
+1. Faça login na sua conta na Treble acessando <a class="article-link" href="https://app.treble.ai/login"><p>https://app.treble.ai/login</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+2. Vá para a seção **"Configurações"** em sua conta na Treble.
+3. Vá para a seção **"Usuários Bloqueados"**.
+4. Na visualização, você poderá escolher entre baixar a lista de números que escolheram a opção de opt-out ou ver a lista de números que você decidiu bloquear.
+5. Clique no botão **"Baixar"** para baixar a lista de números que estão bloqueados.
+6. Adicionalmente, você pode adicionar números individuais à lista de usuários bloqueados. Para fazer isso, insira o número de telefone no campo de texto: **Bloquear Usuários** e clique no botão **"Bloquear"**.
+
+<img src="/images/opt-out-1.gif" alt="Lista de números de telefone que optaram por não receber mais mensagens" />
+
+### Como posso desbloquear um número de telefone?
+
+Para desbloquear um ou vários números de telefone, você precisa entrar em contato com nossa equipe de suporte.
+
+<Card 
+    title="Entre em contato com nossa equipe de suporte" 
+    icon="headset"
+    href="https://support-treble.atlassian.net/servicedesk/customer/portals"
+>
+    Entre em contato com nossa equipe de suporte.
+</Card>
+
+## Configuração do webhook de opt-out
+
+<Steps>
+    <Step title="Faça login na Treble.ai">
+        Faça login na Treble.ai através da seguinte URL: <a class="article-link" href="https://app.treble.ai"><p>https://app.treble.ai</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+    </Step>
+    <Step title="Criação de um fluxo">
+        Vá para a seção "Conversas" e clique no botão **"Criar Conversa"**. Você também pode configurar um webhook de opt-out em um fluxo existente. Para isso, vá para a seção "Fluxos" e clique no botão **"Editar" <Icon icon="pencil" iconType="solid" />** do seu fluxo.
+
+        <img src="/images/create-convo.gif" alt="Criar Conversa" />
+    </Step>
+    <Step title="Adicionar blocos de mensagens">
+        Adicione blocos de mensagem ao seu fluxo ou edite o fluxo existente. Clique no botão **"Adicionar bloco" <Icon icon="plus" iconType="solid" />**.
+
+        <img src="/images/webhook-rd-2.gif" alt="Adicionar um bloco de mensagem" />
+    </Step>
+    <Step title="Ativar webhook e adicionar endpoint">
+        Agora, clique duas vezes no bloco de mensagem, um painel aparecerá à esquerda. Neste painel, role para baixo até a seção **"Respostas como opção de exclusão"** e clique no switch <Icon icon="toggle-on" iconType="solid" /> da opção que você deseja configurar para excluir usuários que optam por não receber mais mensagens.
+
+        Aceite os termos e condições do modal que aparece e, em seguida, você pode escrever a URL do seu endpoint no campo de texto **"URL do webhook"**.
+
+        <img src="/images/opt-out-2.gif" alt="Ativar webhook e adicionar endpoint" />
+
+        <Check>
+            Pronto! Agora, quando um usuário opta por não receber mais mensagens, o webhook será acionado e enviará uma solicitação HTTP para o seu endpoint configurado na Treble.
+        </Check>
+    </Step>
+</Steps>
+
+## Tenha em mente
+
+- Se você configurar uma opção de opt-out em seu fluxo e estiver testando com seu número de telefone, é possível que seu próprio número de telefone seja adicionado à lista de usuários bloqueados. Se isso acontecer, você não poderá enviar conversas para o seu número de telefone. Para desbloquear seu número de telefone, você pode entrar em contato com nossa equipe de suporte. 

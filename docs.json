@@ -288,9 +288,16 @@
                                                     "en/docs/meta/guide/whatsapp-number"
                                                 ]
                                             },
-                                            "en/docs/meta/hsm-templates",
+                                            {
+                                                "group": "Message Templates (HSM)",
+                                                "pages": [
+                                                    "en/docs/meta/hsm-templates/intro",
+                                                    "en/docs/meta/hsm-templates/utility"
+                                                ]
+                                            },
                                             "en/docs/meta/green-check",
-                                            "en/docs/meta/whatsapp-line-health"
+                                            "en/docs/meta/whatsapp-line-health",
+                                            "en/docs/meta/waba-policies"
                                         ]
                                     },
                                     {
@@ -310,7 +317,8 @@
                                                 "group": "Blocks",
                                                 "pages": [
                                                     "en/docs/build-with-treble/blocks/ab-test",
-                                                    "en/docs/build-with-treble/blocks/agent"
+                                                    "en/docs/build-with-treble/blocks/agent",
+                                                    "en/docs/build-with-treble/blocks/whatsapp-flows"
                                                 ]
                                             }
                                         ]
@@ -319,8 +327,8 @@
                                         "group": "Main Platform",
                                         "pages": [
                                             "en/docs/main-platform/welcome",
-                                            "en/docs/main-platform/conversation-metrics",
                                             "en/docs/main-platform/send-convo",
+                                            "en/docs/main-platform/conversation-metrics",
                                             "en/docs/main-platform/whatsapp-links"
                                         ]
                                     },
@@ -379,6 +387,62 @@
                                                     "en/docs/integrations/salesforce/welcome"
                                                 ]
                                             }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "tab": "API Reference",
+                                "groups": [
+                                    {
+                                        "group": "Introduction to API",
+                                        "pages": [
+                                            "en/api-reference/intro/intro",
+                                            "en/api-reference/intro/api-key"
+                                        ]
+                                    },
+                                    {
+                                        "group": "API",
+                                        "pages": [
+                                            "en/api-reference/endpoints/deploy",
+                                            "en/api-reference/endpoints/get-convos",
+                                            "en/api-reference/endpoints/get-sessions",
+                                            "en/api-reference/endpoints/get-session-history",
+                                            "en/api-reference/endpoints/session-update"
+                                        ]
+                                    },
+                                    {
+                                        "group": "Webhooks",
+                                        "pages": [
+                                            "en/api-reference/webhooks/intro",
+                                            "en/api-reference/webhooks/delivered-read",
+                                            "en/api-reference/webhooks/delivered-api",
+                                            "en/api-reference/webhooks/read-api",
+                                            "en/api-reference/webhooks/message-response",
+                                            "en/api-reference/webhooks/request-trigger",
+                                            "en/api-reference/webhooks/message-response-api",
+                                            "en/api-reference/webhooks/condition-node-api",
+                                            "en/api-reference/webhooks/timeout-api",
+                                            "en/api-reference/webhooks/opt-out",
+                                            "en/api-reference/webhooks/opt-out-api",
+                                            "en/api-reference/webhooks/conversation-closed",
+                                            "en/api-reference/webhooks/conversation-closed-api",
+                                            "en/api-reference/webhooks/conversation-closed-api-hs",
+                                            "en/api-reference/webhooks/hsm-change-state",
+                                            "en/api-reference/webhooks/hsm-change-state-api"
+                                        ]
+                                    },
+                                    {
+                                        "group": "Editor",
+                                        "pages": [
+                                            "en/api-reference/editor/media",
+                                            "en/api-reference/editor/location"
+                                        ]
+                                    },
+                                    {
+                                        "group": "Guides and Tutorials",
+                                        "pages": [
+                                            "en/api-reference/guides/your-ai"
                                         ]
                                     }
                                 ]
@@ -449,9 +513,16 @@
                                                     "pt/docs/meta/guide/whatsapp-number"
                                                 ]
                                             },
-                                            "pt/docs/meta/hsm-templates",
+                                            {
+                                                "group": "Modelos de Mensagens (HSM)",
+                                                "pages": [
+                                                    "pt/docs/meta/hsm-templates/intro",
+                                                    "pt/docs/meta/hsm-templates/utility"
+                                                ]
+                                            },
                                             "pt/docs/meta/green-check",
-                                            "pt/docs/meta/whatsapp-line-health"
+                                            "pt/docs/meta/whatsapp-line-health",
+                                            "pt/docs/meta/waba-policies"
                                         ]
                                     },
                                     {
@@ -471,7 +542,8 @@
                                                 "group": "Blocos",
                                                 "pages": [
                                                     "pt/docs/build-with-treble/blocks/ab-test",
-                                                    "pt/docs/build-with-treble/blocks/agent"
+                                                    "pt/docs/build-with-treble/blocks/agent",
+                                                    "pt/docs/build-with-treble/blocks/whatsapp-flows"
                                                 ]
                                             }
                                         ]
@@ -480,8 +552,8 @@
                                         "group": "Plataforma Principal",
                                         "pages": [
                                             "pt/docs/main-platform/welcome",
-                                            "pt/docs/main-platform/conversation-metrics",
                                             "pt/docs/main-platform/send-convo",
+                                            "pt/docs/main-platform/conversation-metrics",
                                             "pt/docs/main-platform/whatsapp-links"
                                         ]
                                     },
@@ -540,6 +612,62 @@
                                                     "pt/docs/integrations/salesforce/welcome"
                                                 ]
                                             }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "tab": "Referência da API",
+                                "groups": [
+                                    {
+                                        "group": "Introdução à API",
+                                        "pages": [
+                                            "pt/api-reference/intro/intro",
+                                            "pt/api-reference/intro/api-key"
+                                        ]
+                                    },
+                                    {
+                                        "group": "API",
+                                        "pages": [
+                                            "pt/api-reference/endpoints/deploy",
+                                            "pt/api-reference/endpoints/get-convos",
+                                            "pt/api-reference/endpoints/get-sessions",
+                                            "pt/api-reference/endpoints/get-session-history",
+                                            "pt/api-reference/endpoints/session-update"
+                                        ]
+                                    },
+                                    {
+                                        "group": "Webhooks",
+                                        "pages": [
+                                            "pt/api-reference/webhooks/intro",
+                                            "pt/api-reference/webhooks/delivered-read",
+                                            "pt/api-reference/webhooks/delivered-api",
+                                            "pt/api-reference/webhooks/read-api",
+                                            "pt/api-reference/webhooks/message-response",
+                                            "pt/api-reference/webhooks/request-trigger",
+                                            "pt/api-reference/webhooks/message-response-api",
+                                            "pt/api-reference/webhooks/condition-node-api",
+                                            "pt/api-reference/webhooks/timeout-api",
+                                            "pt/api-reference/webhooks/opt-out",
+                                            "pt/api-reference/webhooks/opt-out-api",
+                                            "pt/api-reference/webhooks/conversation-closed",
+                                            "pt/api-reference/webhooks/conversation-closed-api",
+                                            "pt/api-reference/webhooks/conversation-closed-api-hs",
+                                            "pt/api-reference/webhooks/hsm-change-state",
+                                            "pt/api-reference/webhooks/hsm-change-state-api"
+                                        ]
+                                    },
+                                    {
+                                        "group": "Editor",
+                                        "pages": [
+                                            "pt/api-reference/editor/media",
+                                            "pt/api-reference/editor/location"
+                                        ]
+                                    },
+                                    {
+                                        "group": "Guias e Tutoriais",
+                                        "pages": [
+                                            "pt/api-reference/guides/your-ai"
                                         ]
                                     }
                                 ]

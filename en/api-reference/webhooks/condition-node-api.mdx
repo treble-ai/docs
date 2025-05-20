@@ -1,0 +1,33 @@
+---
+title: 'Condition Node Webhook Request Body'
+openapi: '/open-api-files/treble-api-en.json POST /webhooks/on-condition'
+---
+
+You can also configure the response webhook for each path coming out of a condition node.
+
+<img src="/images/condition-api-1.png" alt="Configure condition node webhook" />
+
+If you do this, the HTTP request body sent to the endpoint configured in Treble will add the following field in the request body:
+
+```json
+{
+    "condition": {
+	    "operator": "EQ",
+        "value": "18"
+    }
+}
+```
+
+The condition is an object with an `operator` property to show which action was used in the condition and a `value` for the condition action to be evaluated:
+
+- Equal: EQ
+- Different: DIFF
+- Greater than: GT
+- Less than: LT
+- Greater than or equal to: GTEQ
+- Less than or equal to: LTEQ
+- Contains: CONT
+- Does not contain: NCONT
+- Default path: DEFAULT
+
+The response can also have new variables for the session that can be updated or created for later use in the session. That is, you can add them in the webhook response as part of the `user_session_keys`. 

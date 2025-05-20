@@ -1,0 +1,57 @@
+---
+title: "Chave de API e cabeçalhos webhook"
+description: "Para interagir com a API da Treble, você precisará de uma chave de API. Esta chave permitirá que você autentique suas solicitações à API e acesse os endpoints disponíveis. Aprenda a obter sua chave de API neste artigo."
+---
+
+## O que é uma chave de API?
+
+Uma chave de API é um identificador único que é utilizado para autenticar e autorizar as solicitações à API da Treble. Cada chave de API está associada a uma conta específica e tem um conjunto de permissões associadas.
+
+A chave de API que você obterá é uma chave global para toda a conta da Treble.
+
+## Como obter uma chave de API?
+
+Para obter uma chave de API, você deve seguir estes passos:
+
+1. Faça login na sua conta da Treble <a class="article-link" href="https://app.treble.ai/login"><p>Fazer login na Treble</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+2. Na barra de navegação, clique em **Configurações** <Icon icon="gear" iconType="solid" />.
+3. Em seguida, clique em **Desenvolvedores**
+4. Você encontrará um campo chamado **Chave de API**
+5. Copie a chave de API e guarde-a em um lugar seguro.
+
+<img src="/images/api-key-1.gif" alt="Chave de API" />
+
+Exemplo:
+
+```
+ak_S5BCOgOxrfENbkn-wH2gpPK3AM8ihLNmQg
+```
+
+Com esta chave, você poderá autenticar suas solicitações à API da Treble. Para usá-la, você deve adicioná-la no cabeçalho da solicitação como um token de autenticação.
+
+Exemplo:
+
+```
+Authorization: ak_S5BCOgOxrfENbkn-wH2gpPK3AM8ihLNmQg
+```
+
+## Configurações Avançadas
+
+### Cabeçalhos de Autenticação para webhooks
+
+Se você configurar algum webhook da Treble para o seu sistema de informação, você pode adicionar uma lista de cabeçalhos de autenticação para que a solicitação possa ser autenticada. Estes cabeçalhos serão adicionados a cada solicitação feita ao seu webhook e são definidos em formato JSON.
+
+Exemplo:
+
+```json
+{
+  "Authorization": "Bearer 1234567890",
+  "X-API-Key": "1234567890"
+}
+```
+
+A partir de agora, cada vez que você fizer uma solicitação ao seu webhook, a Treble adicionará estes cabeçalhos à solicitação.
+
+Para configurá-los, na mesma seção de **Desenvolvedores**, role até o campo **Cabeçalhos de Webhook** e adicione os cabeçalhos que você precisa. Adicione-os e depois clique em **Salvar**.
+
+<img src="/images/api-key-2.png" alt="Cabeçalhos de Autenticação" /> 

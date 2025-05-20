@@ -1,0 +1,48 @@
+---
+title: "HSM Template Status Change Webhook"
+description: "The HSM Template status change webhook is triggered when a user changes the status of an HSM Template. Learn how to configure them in this article."
+---
+
+## Before you start
+
+Before you start, make sure you understand what an HSM Template is. If you're not clear on this, you can read the article:
+
+<Card 
+    title="HSM Template" 
+    icon="book"
+    href="/en/docs/meta/hsm-templates/intro"
+>
+    Learn all about HSM Templates. Learn how to create an HSM Template and use it in a flow.
+</Card>
+
+## HSM Template Status Change
+
+HSM templates have different states. We know that when we create a template, we must send it to Meta for approval. In this case, the template is in a **Under Review** state. When Meta approves the template, it changes to an **Active** state. If Meta rejects the template, it will be in a **Rejected** state.
+
+Similarly, the template has a category. This category is the one with which we first created the template. However, Meta can change the template's category if it detects that the message does not correspond to the category.
+
+In this sense, there are two elements that can change the status of an HSM Template:
+
+- The template status
+- The template category
+
+Why might these elements of an HSM Template change?
+
+- Meta detects that the original message of the template does not correspond to the category it was created with.
+- Meta detects that your customers are marking your conversations as spam, which may cause Meta to pause or deactivate your template.
+- You made an edit to the template and Meta marks it as **Under Review**.
+- Meta approves a previously disabled or paused template so it can be used again.
+
+There are many scenarios that can cause these changes. By configuring the webhook, you can keep track of these changes and take necessary actions.
+
+## How to configure an HSM Template status change webhook?
+
+To configure an HSM Template status change webhook, follow these steps:
+
+1. Access Treble.ai via the following URL: <a class="article-link" href="https://app.treble.ai"><p>https://app.treble.ai</p><Icon icon="arrow-up-right-from-square" iconType="solid" /></a>
+2. Go to the **Settings** section and select **Webhooks**.
+3. You will see a **Webhook URL** field. This is the endpoint to which the HTTP request will be sent when an HSM Template status change occurs.
+4. Enter your webhook URL in the **Webhook URL** field.
+5. Click **Save**.
+
+<img src="/images/change-state-1.gif" alt="Configure an HSM Template status change webhook" /> 

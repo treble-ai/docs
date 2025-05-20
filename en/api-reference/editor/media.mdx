@@ -1,0 +1,96 @@
+---
+title: "Multimedia Variable"
+description: "Learn how to configure multimedia variables in your conversation flows. This will allow you to add images, videos, audio, and attachments and send them dynamically in your conversations."
+---
+
+## Attach Multimedia - Multimedia Variable
+
+In the Treble editor, you can attach multimedia to your messages. This will allow you to add images, videos, audio, and file attachments and send them dynamically in your conversations.
+
+Normally, you do it as follows:
+
+1. Go to the conversation node where you want to attach the multimedia.
+2. Select the type of multimedia you want to attach.
+3. Select the file you want to attach.
+4. Click on **Attach**.
+
+<img src="/images/media-3.gif" alt="Attach multimedia in the Treble editor" />
+<img src="/images/media-2.png" alt="Attach multimedia in the Treble editor" />
+
+Now, let's see how you can make the multimedia content not a static content, but a dynamic one. For this, follow these steps:
+
+1. Go to the conversation node where you want to attach the multimedia.
+2. Click on the **Attach <Icon icon="paperclip" iconType="solid" />** button.
+3. Choose the **Variable** option.
+4. This will open a modal where you can define the name of the variable. In our example, we will call it `media_url`. This variable is a `user_session_key`.
+
+<img src="/images/media-4.gif" alt="Attach multimedia in the Treble editor" />
+
+5. Done! Now, this variable (in our case `media_url`) will wait for the URL of the image, video, audio, or file attachment that you want to attach.
+
+<Note>
+    The URL of the image, video, audio, or file attachment must be a public URL. To check if it's a public URL, you can open it in your browser. If you can see the content, then it's a public URL.
+</Note>
+
+## How is this variable handled?
+
+You have the following options to handle this variable:
+
+<Steps>
+    <Step title="Option 1: CSV deployment of your conversation flow">
+        In this case, when you upload a CSV file, the content of the `media_url` column should be the URL of the image, video, audio, or file attachment that you want to attach. This will allow you to send a customized file URL for each user.
+
+        For example:
+        | country\_code | cellphone  | name   | media\_url |
+        | ------------- | ---------- | ------ | ---------- |
+        | 57            | 3132392346 | Felipe | https://example.com/image.jpg |
+        | 34            | 622902416  | Camila | https://example.com/video.mp4 |
+
+        <Card 
+            title="Outbound conversation flow deployment" 
+            icon="paper-plane"
+            href="/en/docs/main-platform/send-convo"
+        >
+            Learn how to send an outbound conversation.
+        </Card>
+    </Step>
+    <Step title="Option 2: API deployment">
+        In this case, when you make a call to the Treble API, you must send the content of the `media_url` variable in the call body. This variable will be part of the `user_session_keys` that are sent in the call.
+
+        For example:
+
+        ```json
+        {   
+            [...],
+            "user_session_keys": [
+                {
+                    "key": "media_url",
+                    "value": "https://example.com/image.jpg"
+                }
+            ]
+        }
+        ```
+        <Card 
+            title="Deploy conversation flow by API" 
+            icon="code"
+            href="/en/api-reference/endpoints/deploy"
+        >
+            Learn how to deploy a conversation flow by API.
+        </Card>
+    </Step>
+    <Step title="Option 3: In a webhook response">
+        In this case, when you make a call to a webhook, and before reaching the conversation node with the node that has the `media_url` variable, you can call a webhook, and in the response of this webhook, you can send the URL of the image, video, audio, or file attachment that you want to attach.
+
+        <Card 
+            title="Webhook response" 
+            icon="code"
+            href="/en/api-reference/webhooks/message-response"
+        >
+            You can add the URL of the image, video, audio, or file attachment in a webhook response through the `user_session_keys`.
+        </Card>
+    </Step>
+</Steps>
+
+<Check>
+Done! Now you can attach multimedia dynamically in your conversations.
+</Check> 

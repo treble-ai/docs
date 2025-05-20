@@ -1,0 +1,33 @@
+---
+title: 'Corpo da solicitação do Webhook de nó de condição'
+openapi: '/open-api-files/treble-api-pt.json POST /webhooks/on-condition'
+---
+
+Você também pode configurar o webhook de resposta para cada caminho que sai de um nó de condição.
+
+<img src="/images/condition-api-1.png" alt="Configurar webhook de nó de condição" />
+
+Se você fizer isso, o corpo da solicitação HTTP enviada ao endpoint configurado na Treble adicionará o seguinte campo no corpo da solicitação:
+
+```json
+{
+    "condition": {
+	    "operator": "EQ",
+        "value": "18"
+    }
+}
+```
+
+A condição é um objeto com uma propriedade `operator` para mostrar qual ação foi utilizada na condição e um `value` para que a ação da condição seja avaliada:
+
+- Igual: EQ
+- Diferente: DIFF
+- Maior que: GT
+- Menor que: LT
+- Maior ou igual a: GTEQ
+- Menor ou igual a: LTEQ
+- Contém: CONT
+- Não contém: NCONT
+- Caminho padrão: DEFAULT
+
+A resposta também pode ter novas variáveis para a sessão que podem ser atualizadas ou criadas para uso posterior na sessão. Ou seja, você pode adicioná-las na resposta do webhook como parte das `user_session_keys`. 

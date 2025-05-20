@@ -163,6 +163,17 @@
                                                 ]
                                             }
                                         ]
+                                    },
+                                    {
+                                        "group": "Trebot",
+                                        "pages": [
+                                            "es/docs/trebot/intro",
+                                            "es/docs/trebot/installing",
+                                            "es/docs/trebot/sincronizaciones",
+                                            "es/docs/trebot/invitaciones",
+                                            "es/docs/trebot/chrome-ext",
+                                            "es/docs/trebot/faq"
+                                        ]
                                     }
                                 ]
                             },
@@ -388,6 +399,17 @@
                                                 ]
                                             }
                                         ]
+                                    },
+                                    {
+                                        "group": "Trebot",
+                                        "pages": [
+                                            "en/docs/trebot/intro",
+                                            "en/docs/trebot/installing",
+                                            "en/docs/trebot/sincronizaciones",
+                                            "en/docs/trebot/invitaciones",
+                                            "en/docs/trebot/chrome-ext",
+                                            "en/docs/trebot/faq"
+                                        ]
                                     }
                                 ]
                             },
@@ -612,6 +634,17 @@
                                                     "pt/docs/integrations/salesforce/welcome"
                                                 ]
                                             }
+                                        ]
+                                    },
+                                    {
+                                        "group": "Trebot",
+                                        "pages": [
+                                            "pt/docs/trebot/intro",
+                                            "pt/docs/trebot/installing",
+                                            "pt/docs/trebot/sincronizaciones",
+                                            "pt/docs/trebot/invitaciones",
+                                            "pt/docs/trebot/chrome-ext",
+                                            "pt/docs/trebot/faq"
                                         ]
                                     }
                                 ]
